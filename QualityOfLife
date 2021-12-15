@@ -5334,7 +5334,7 @@ DT_AKR.MouseButton1Click:Connect(function()
 	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
 end)
 BRUH.MouseButton1Click:Connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/SussyDetector/QualityOfLife/main/MiniWrite"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/MiniOverwrite"))()
 end)
 --Weapons
 WEAPONS.StickB.MouseButton1Click:Connect(function()
