@@ -1,0 +1,296 @@
+local SmallOVERWRITE = Instance.new("ScreenGui")
+local WholeThingIdk = Instance.new("Frame")
+local MINIWRITE = Instance.new("Frame")
+local TEXTMENU = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local HEAL = Instance.new("TextButton")
+local DMGBUFF = Instance.new("TextButton")
+local DT = Instance.new("TextButton")
+local KR = Instance.new("TextButton")
+local ITEM = Instance.new("TextButton")
+local KRDT = Instance.new("TextButton")
+local BUFF10 = Instance.new("TextButton")
+local SOULPOWER = Instance.new("TextLabel")
+local CHECK = Instance.new("Frame")
+local CHECKER = Instance.new("TextLabel")
+local CLICKCHECK = Instance.new("TextButton")
+
+--Properties:
+
+SmallOVERWRITE.Name = "SmallOVERWRITE"
+SmallOVERWRITE.Parent = game.CoreGui
+SmallOVERWRITE.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+WholeThingIdk.Name = "WholeThingIdk"
+WholeThingIdk.Parent = SmallOVERWRITE
+WholeThingIdk.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+WholeThingIdk.BackgroundTransparency = 1.000
+WholeThingIdk.BorderColor3 = Color3.fromRGB(255, 255, 255)
+WholeThingIdk.Position = UDim2.new(0.684378028, 0, 0.680000007, 0)
+WholeThingIdk.Size = UDim2.new(0.315533489, 0, 0.294478536, 0)
+
+MINIWRITE.Name = "MINIWRITE"
+MINIWRITE.Parent = WholeThingIdk
+MINIWRITE.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MINIWRITE.BackgroundTransparency = 0.200
+MINIWRITE.BorderColor3 = Color3.fromRGB(255, 255, 255)
+MINIWRITE.Size = UDim2.new(1, 0, 1, 0)
+
+TEXTMENU.Name = "TEXTMENU"
+TEXTMENU.Parent = MINIWRITE
+TEXTMENU.BackgroundColor3 = Color3.fromRGB(93, 0, 255)
+TEXTMENU.BackgroundTransparency = 0.700
+TEXTMENU.BorderSizePixel = 0
+TEXTMENU.Size = UDim2.new(0.995951593, 0, 0.198448896, 0)
+
+TextLabel.Parent = TEXTMENU
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.200000003, 0, 0, 0)
+TextLabel.Size = UDim2.new(0.61220485, 0, 0.984653234, 0)
+TextLabel.Font = Enum.Font.Arcade
+TextLabel.Text = "Mini-Write Menu"
+TextLabel.TextColor3 = Color3.fromRGB(119, 0, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(202, 167, 255)
+TextLabel.TextStrokeTransparency = 0.000
+TextLabel.TextWrapped = true
+
+HEAL.Name = "HEAL"
+HEAL.Parent = MINIWRITE
+HEAL.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+HEAL.BorderColor3 = Color3.fromRGB(255, 255, 255)
+HEAL.BorderSizePixel = 3
+HEAL.Position = UDim2.new(0.270000011, 0, 0.223000005, 0)
+HEAL.Size = UDim2.new(0.222661257, 0, 0.193887889, 0)
+HEAL.Font = Enum.Font.SourceSans
+HEAL.Text = "Heal"
+HEAL.TextColor3 = Color3.fromRGB(119, 0, 255)
+HEAL.TextScaled = true
+HEAL.TextSize = 14.000
+HEAL.TextStrokeColor3 = Color3.fromRGB(247, 0, 255)
+HEAL.TextWrapped = true
+
+DMGBUFF.Name = "DMGBUFF"
+DMGBUFF.Parent = MINIWRITE
+DMGBUFF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+DMGBUFF.BorderColor3 = Color3.fromRGB(255, 255, 255)
+DMGBUFF.BorderSizePixel = 3
+DMGBUFF.Position = UDim2.new(0.270000011, 0, 0.476000011, 0)
+DMGBUFF.Size = UDim2.new(0.222661257, 0, 0.193887889, 0)
+DMGBUFF.Font = Enum.Font.SourceSans
+DMGBUFF.Text = "DMG Buff"
+DMGBUFF.TextColor3 = Color3.fromRGB(119, 0, 255)
+DMGBUFF.TextScaled = true
+DMGBUFF.TextSize = 14.000
+DMGBUFF.TextStrokeColor3 = Color3.fromRGB(247, 0, 255)
+DMGBUFF.TextWrapped = true
+
+DT.Name = "DT"
+DT.Parent = MINIWRITE
+DT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+DT.BorderColor3 = Color3.fromRGB(255, 255, 255)
+DT.BorderSizePixel = 3
+DT.Position = UDim2.new(0.50999999, 0, 0.223000005, 0)
+DT.Size = UDim2.new(0.222661257, 0, 0.193887889, 0)
+DT.Font = Enum.Font.SourceSans
+DT.Text = "Artificial DT"
+DT.TextColor3 = Color3.fromRGB(119, 0, 255)
+DT.TextScaled = true
+DT.TextSize = 14.000
+DT.TextStrokeColor3 = Color3.fromRGB(247, 0, 255)
+DT.TextWrapped = true
+
+KR.Name = "KR"
+KR.Parent = MINIWRITE
+KR.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+KR.BorderColor3 = Color3.fromRGB(255, 255, 255)
+KR.BorderSizePixel = 3
+KR.Position = UDim2.new(0.50999999, 0, 0.476000011, 0)
+KR.Size = UDim2.new(0.222661257, 0, 0.193887889, 0)
+KR.Font = Enum.Font.SourceSans
+KR.Text = "KR = Null"
+KR.TextColor3 = Color3.fromRGB(119, 0, 255)
+KR.TextScaled = true
+KR.TextSize = 14.000
+KR.TextStrokeColor3 = Color3.fromRGB(247, 0, 255)
+KR.TextWrapped = true
+
+ITEM.Name = "ITEM"
+ITEM.Parent = MINIWRITE
+ITEM.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ITEM.BorderColor3 = Color3.fromRGB(255, 255, 255)
+ITEM.BorderSizePixel = 3
+ITEM.Position = UDim2.new(0.389999986, 0, 0.75, 0)
+ITEM.Size = UDim2.new(0.222661257, 0, 0.193887889, 0)
+ITEM.Font = Enum.Font.SourceSans
+ITEM.Text = "Random Item"
+ITEM.TextColor3 = Color3.fromRGB(119, 0, 255)
+ITEM.TextScaled = true
+ITEM.TextSize = 14.000
+ITEM.TextStrokeColor3 = Color3.fromRGB(247, 0, 255)
+ITEM.TextWrapped = true
+
+KRDT.Name = "KRDT"
+KRDT.Parent = MINIWRITE
+KRDT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+KRDT.BorderColor3 = Color3.fromRGB(255, 255, 255)
+KRDT.BorderSizePixel = 3
+KRDT.Position = UDim2.new(0.75999999, 0, 0.365999997, 0)
+KRDT.Size = UDim2.new(0.170032233, 0, 0.147354797, 0)
+KRDT.Font = Enum.Font.SourceSans
+KRDT.Text = "KR + DT"
+KRDT.TextColor3 = Color3.fromRGB(255, 255, 0)
+KRDT.TextScaled = true
+KRDT.TextSize = 14.000
+KRDT.TextStrokeColor3 = Color3.fromRGB(247, 0, 255)
+KRDT.TextWrapped = true
+
+BUFF10.Name = "BUFF10"
+BUFF10.Parent = MINIWRITE
+BUFF10.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+BUFF10.BorderColor3 = Color3.fromRGB(255, 255, 255)
+BUFF10.BorderSizePixel = 3
+BUFF10.Position = UDim2.new(0.0799999982, 0, 0.365999997, 0)
+BUFF10.Size = UDim2.new(0.170032233, 0, 0.147354797, 0)
+BUFF10.Font = Enum.Font.SourceSans
+BUFF10.Text = "BUFFx10"
+BUFF10.TextColor3 = Color3.fromRGB(255, 0, 0)
+BUFF10.TextScaled = true
+BUFF10.TextSize = 14.000
+BUFF10.TextStrokeColor3 = Color3.fromRGB(247, 0, 255)
+BUFF10.TextWrapped = true
+
+SOULPOWER.Name = "SOULPOWER"
+SOULPOWER.Parent = MINIWRITE
+SOULPOWER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SOULPOWER.BackgroundTransparency = 1.000
+SOULPOWER.Position = UDim2.new(0, 0, 0.800000012, 0)
+SOULPOWER.Size = UDim2.new(0.388645083, 0, 0.193887889, 0)
+SOULPOWER.Font = Enum.Font.Cartoon
+SOULPOWER.Text = "Soul Power: NONE"
+SOULPOWER.TextColor3 = Color3.fromRGB(119, 0, 255)
+SOULPOWER.TextScaled = true
+SOULPOWER.TextSize = 14.000
+SOULPOWER.TextWrapped = true
+
+CHECK.Name = "CHECK"
+CHECK.Parent = WholeThingIdk
+CHECK.BackgroundColor3 = Color3.fromRGB(31, 0, 44)
+CHECK.BorderColor3 = Color3.fromRGB(255, 255, 255)
+CHECK.BorderSizePixel = 3
+CHECK.Size = UDim2.new(1, 0, 1, 0)
+
+CHECKER.Name = "CHECKER"
+CHECKER.Parent = CHECK
+CHECKER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CHECKER.BackgroundTransparency = 1.000
+CHECKER.Size = UDim2.new(1, 0, 0.584999979, 0)
+CHECKER.Font = Enum.Font.Nunito
+CHECKER.Text = "Checker if you have 4000 Wins."
+CHECKER.TextColor3 = Color3.fromRGB(140, 0, 255)
+CHECKER.TextScaled = true
+CHECKER.TextSize = 14.000
+CHECKER.TextWrapped = true
+
+CLICKCHECK.Name = "CLICKCHECK"
+CLICKCHECK.Parent = CHECK
+CLICKCHECK.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+CLICKCHECK.BorderColor3 = Color3.fromRGB(255, 255, 255)
+CLICKCHECK.BorderSizePixel = 3
+CLICKCHECK.Position = UDim2.new(0.439999998, 0, 0.660000026, 0)
+CLICKCHECK.Size = UDim2.new(0.119999997, 0, 0.252000004, 0)
+CLICKCHECK.Font = Enum.Font.Roboto
+CLICKCHECK.Text = "X"
+CLICKCHECK.TextColor3 = Color3.fromRGB(255, 255, 255)
+CLICKCHECK.TextScaled = true
+CLICKCHECK.TextSize = 14.000
+CLICKCHECK.TextWrapped = true
+
+local player = game.Players.LocalPlayer
+CLICKCHECK.MouseButton1Click:Connect(function()
+	if player.leaderstats.Wins.Value >= 4000 then
+		CHECK:Destroy()
+		MINIWRITE.Visible = true
+	end
+end)
+
+player:GetMouse().KeyDown:Connect(function(key)
+
+	if key == "e" and SmallOVERWRITE.Enabled == false then
+		SmallOVERWRITE.Enabled = true
+	else
+		if key == "e" and SmallOVERWRITE.Enabled == true then
+			SmallOVERWRITE.Enabled = false
+		end
+	end
+end)
+
+HEAL.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Heal"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+KR.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Null"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+DT.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "ArtificialDT"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+DMGBUFF.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Buff"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+ITEM.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "RandomItem"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+
+BUFF10.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Buff"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+KRDT.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Null"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	local args = {
+		[1] = "ArtificialDT"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+
+function UpdateWRITE()
+	local GUI = game.Players.LocalPlayer.PlayerGui:WaitForChild("OverwriteGUI")
+	SOULPOWER.Text = "Soul Power: "..GUI.Frame.Energy.Value
+end
+
+while true do
+	game.Players.LocalPlayer.PlayerGui:WaitForChild("OverwriteGUI")
+	UpdateWRITE()
+	wait(1)
+end
