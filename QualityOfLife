@@ -1244,6 +1244,8 @@ local CHARACTERS = {
 	HMInsanityB = Instance.new("TextButton"),
 	_532DEATH = Instance.new("ImageLabel"),
 	DEATHB = Instance.new("TextButton"),
+	_533KRAMPUS= Instance.new("ImageLabel"),
+	KRAMPUSB = Instance.new("TextButton"),
 	_48Gaster = Instance.new("ImageLabel"),
 	GasterB = Instance.new("TextButton"),
 	_47FatalError = Instance.new("ImageLabel"),
@@ -1787,7 +1789,28 @@ CHARACTERS.DEATHB.TextStrokeColor3 = Color3.fromRGB(0, 27, 149)
 CHARACTERS.DEATHB.TextStrokeTransparency = 0.000
 CHARACTERS.DEATHB.TextWrapped = true
 
+CHARACTERS._533KRAMPUS.Name = "53.3KRAMPUS"
+CHARACTERS._533KRAMPUS.Parent = Judgement2._5CharactersFrame
+CHARACTERS._533KRAMPUS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CHARACTERS._533KRAMPUS.BackgroundTransparency = 1.000
+CHARACTERS._533KRAMPUS.Position = UDim2.new(0.4, 0, 0.187, 0)
+CHARACTERS._533KRAMPUS.Size = UDim2.new(0.2, 0, 0.011, 0)
+CHARACTERS._533KRAMPUS.Image = "http://www.roblox.com/asset/?id=7932480079"
+CHARACTERS._533KRAMPUS.ScaleType = Enum.ScaleType.Fit
 
+CHARACTERS.KRAMPUSB.Name = "KRAMPUSB"
+CHARACTERS.KRAMPUSB.Parent = CHARACTERS._533KRAMPUS
+CHARACTERS.KRAMPUSB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+CHARACTERS.KRAMPUSB.BackgroundTransparency = 1.000
+CHARACTERS.KRAMPUSB.Size = UDim2.new(1, 0, 1, 0)
+CHARACTERS.KRAMPUSB.Font = Enum.Font.Arcade
+CHARACTERS.KRAMPUSB.Text = "KRAMPUS"
+CHARACTERS.KRAMPUSB.TextColor3 = Color3.fromRGB(0,0,0)
+CHARACTERS.KRAMPUSB.TextScaled = true
+CHARACTERS.KRAMPUSB.TextSize = 28.000
+CHARACTERS.KRAMPUSB.TextStrokeColor3 = Color3.fromRGB(100,0,0)
+CHARACTERS.KRAMPUSB.TextStrokeTransparency = 0.000
+CHARACTERS.KRAMPUSB.TextWrapped = true
 
 CHARACTERS._48Gaster.Name = "48Gaster"
 CHARACTERS._48Gaster.Parent = Judgement2._5CharactersFrame
@@ -1795,7 +1818,7 @@ CHARACTERS._48Gaster.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 CHARACTERS._48Gaster.BackgroundTransparency = 1.000
 CHARACTERS._48Gaster.Position = UDim2.new(0, 0, 0.176, 0) 
 CHARACTERS._48Gaster.Size = UDim2.new(0.2, 0, 0.011, 0)	
-CHARACTERS._48Gaster.Image = "http://www.roblox.com/asset/?id=7238560992"
+CHARACTERS._48Gaster.Image = "http://www.roblox.com/asset/?id=1489171774"
 CHARACTERS._48Gaster.ScaleType = Enum.ScaleType.Fit
 
 CHARACTERS.GasterB.Name = "GasterB"
@@ -3714,6 +3737,12 @@ for i, v in pairs(Judgement2._5CharactersFrame:GetChildren()) do
 			HALLOWEEN2021.Parent = v
 			HALLOWEEN2021.Name = "IsHALLOWEEN2021"
 			HALLOWEEN2021.Value = false
+		elseif v.Name == "53.3KRAMPUS" then
+			Req.Value = 2700
+			local CHRISTMAS2021 = Instance.new("BoolValue")
+			CHRISTMAS2021.Parent = v
+			CHRISTMAS2021.Name = "IsCHRISTMAS2021"
+			CHRISTMAS2021.Value = false
 		elseif v.Name == "54Seraphim" then
 			Req.Value = 0
 			local RESET = Instance.new("BoolValue")
@@ -3816,6 +3845,7 @@ local BADGES_GAMEPASSES = {
 	SPAREID = 2124711905,
 	NoMercyID = 2124711898,
 	Halloween2021ID = 2124855184,
+	Christmas2021ID = 2124887950,
 	--Gamepasses
 	EvolDustID = 12539326,
 	EvolGenoID = 13608794,
@@ -4439,8 +4469,8 @@ Judgement2.FirstRelease.BackgroundTransparency = 1.000
 Judgement2.FirstRelease.Position = UDim2.new(0, 0, 0.074, 0)
 Judgement2.FirstRelease.Size = UDim2.new(1, 0, 0.02, 0)
 Judgement2.FirstRelease.Font = Enum.Font.SourceSansLight
-Judgement2.FirstRelease.Text = "Updated GUI Link. 2.10V (You thought it's 3.0?)"  
-Judgement2.FirstRelease.TextColor3 = Color3.fromRGB(222, 0, 0)
+Judgement2.FirstRelease.Text = "Krampus Added! 2.11v"  
+Judgement2.FirstRelease.TextColor3 = Color3.fromRGB(0,80,255)
 Judgement2.FirstRelease.TextScaled = true
 Judgement2.FirstRelease.TextSize = 14.000
 Judgement2.FirstRelease.TextStrokeColor3 = Color3.fromRGB(106, 63, 63)
@@ -5319,9 +5349,6 @@ _10xBUFF.MouseButton1Click:Connect(function()
 	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
 	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
 	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
-	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
-	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
-	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
 end)
 DT_AKR.MouseButton1Click:Connect(function()
 	local args = {
@@ -5893,6 +5920,13 @@ end)
 CHARACTERS.DEATHB.MouseButton1Click:Connect(function()
 	local args = {
 		[1] = "Death"
+	}
+
+	game:GetService("ReplicatedStorage").Remotes.ChangePlayerSans:FireServer(unpack(args))
+end)
+CHARACTERS.KRAMPUSB.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Krampus"
 	}
 
 	game:GetService("ReplicatedStorage").Remotes.ChangePlayerSans:FireServer(unpack(args))
@@ -7013,20 +7047,20 @@ CHARACTERS._54Seraphim.IsRESET.Value = false
 CHARACTERS._55DustTrust.IsRESET.Value = false
 
 if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(player.UserId, BADGES_GAMEPASSES.EvolRedID) then
-	CHARACTERS.ERed .IsRED.Value = true
+	CHARACTERS.ERed.IsRED.Value = true
 else
-	CHARACTERS.ERed .IsRED.Value = false
+	CHARACTERS.ERed.IsRED.Value = false
 end
 if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(player.UserId, BADGES_GAMEPASSES.EvolGenoID) then
-	CHARACTERS.E1Geno .IsGENO.Value = true
-	CHARACTERS.E2Geno .IsGENO.Value = true
-	CHARACTERS.E3Geno .IsGENO.Value = true
-	CHARACTERS.E4Geno .IsGENO.Value = true
+	CHARACTERS.E1Geno.IsGENO.Value = true
+	CHARACTERS.E2Geno.IsGENO.Value = true
+	CHARACTERS.E3Geno.IsGENO.Value = true
+	CHARACTERS.E4Geno.IsGENO.Value = true
 else
-	CHARACTERS.E1Geno .IsGENO.Value = false
-	CHARACTERS.E2Geno .IsGENO.Value = false
-	CHARACTERS.E3Geno .IsGENO.Value = false
-	CHARACTERS.E4Geno .IsGENO.Value = false
+	CHARACTERS.E1Geno.IsGENO.Value = false
+	CHARACTERS.E2Geno.IsGENO.Value = false
+	CHARACTERS.E3Geno.IsGENO.Value = false
+	CHARACTERS.E4Geno.IsGENO.Value = false
 end
 if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(player.UserId, BADGES_GAMEPASSES.EvolDustID) then
 	CHARACTERS.E1Dust.IsDUST.Value = true
@@ -7079,6 +7113,11 @@ if BadgeService:UserHasBadgeAsync(player.UserId, BADGES_GAMEPASSES.GasterID) the
 	CHARACTERS._48Gaster.IsGaster.Value = true
 else
 	CHARACTERS._48Gaster.IsGaster.Value = false
+end
+if BadgeService:UserHasBadgeAsync(player.UserId, BADGES_GAMEPASSES.Christmas2021ID) then
+	CHARACTERS._533KRAMPUS.IsChristmas2021.Value = true
+else
+	CHARACTERS._533KRAMPUS.IsChristmas2021.Value = false
 end
 if BadgeService:UserHasBadgeAsync(player.UserId, BADGES_GAMEPASSES.ResetID) then
 	CHARACTERS._54Seraphim.IsRESET.Value = true
@@ -7142,6 +7181,12 @@ function updateWINS()
 						v.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 					end
 				end
+				if v:FindFirstChild("IsChristmas2021") then
+					if v.IsHALLOWEEN2021.Value == false then
+						v.BackgroundTransparency = 0.85
+						v.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+					end
+				end	
 			else
 				v.BackgroundTransparency = 0.85
 				v.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
