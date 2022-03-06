@@ -1492,7 +1492,7 @@ OtherVessels.OtherPlayerItems.Position = UDim2.new(0.5, 0, 0.557, 0)
 OtherVessels.OtherPlayerItems.Size = UDim2.new(0.45, 0, 0.614, 0)
 local Updater = Instance.new("BoolValue",OtherVessels.OtherPlayerItems)
 Updater.Value = false
-
+local Updater1 = false
 OtherVessels.PlayersFrame.Name = "PlayersFrame"
 OtherVessels.PlayersFrame.Parent = OtherVessels.OtherPlayerItems
 OtherVessels.PlayersFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1935,10 +1935,17 @@ function updatePlayers()
 	end
 end
 function WhileUpdateDo()
-	updatePlayers()
-	while Updater.Value == true do
-		wait(0.5)
+	if Updater1 == false then
+		Updater1 = true
+		print("function got turned on")
 		updatePlayers()
+		Updater.Value = true
+		repeat
+			wait(0.5)
+			updatePlayers()
+		until Updater.Value == false
+		Updater1 = false
+		print("")		
 	end
 end
 MainButtonList._1PEOPLE.MouseButton1Click:Connect(function()
@@ -1950,7 +1957,6 @@ MainButtonList._1PEOPLE.MouseButton1Click:Connect(function()
 		Information.Information.Visible = false
 		CharMenu.CharactersMenu.Visible = false
 		OtherVessels.OtherPlayerItems.Visible = true
-		Updater.Value = true
 		WhileUpdateDo()
 	end
 end)
