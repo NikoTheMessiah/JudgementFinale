@@ -2,7 +2,7 @@ local MS = game:GetService("MarketplaceService")
 local MainGui = Instance.new("ScreenGui")
 
 MainGui.Name = "MainGui"
-MainGui.Parent = game:GetService("CoreGui")
+MainGui.Parent = game.CoreGui
 MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 MainGui.DisplayOrder = 666
 MainGui.ResetOnSpawn = false
@@ -599,8 +599,8 @@ Information.GUILINE3.BackgroundTransparency = 1.000
 Information.GUILINE3.Position = UDim2.new(0, 0, 0.072, 0)
 Information.GUILINE3.Size = UDim2.new(0.98, 0, 0.043, 0)
 Information.GUILINE3.Font = Enum.Font.SourceSans
-Information.GUILINE3.Text = "Ver 3.0 - Overhaul + New Stuff."
-Information.GUILINE3.TextColor3 = Color3.fromRGB(255, 12, 0)
+Information.GUILINE3.Text = "Ver 3.0.2 - Player Item Viewer Works Perfectly Now. No More (Deals)Freezing."
+Information.GUILINE3.TextColor3 = Color3.fromRGB(0, 213, 255)
 Information.GUILINE3.TextScaled = true
 Information.GUILINE3.TextSize = 14.000
 Information.GUILINE3.TextStrokeTransparency = 0.000
@@ -627,7 +627,7 @@ Information.GUILINE4_2.BackgroundTransparency = 1.000
 Information.GUILINE4_2.Position = UDim2.new(0, 0, 0.956, 0)
 Information.GUILINE4_2.Size = UDim2.new(0.98, 0, 0.043, 0)
 Information.GUILINE4_2.Font = Enum.Font.SourceSans
-Information.GUILINE4_2.Text = "technoblad"
+Information.GUILINE4_2.Text = "t e c h n o b l a d"
 Information.GUILINE4_2.TextColor3 = Color3.fromRGB(226, 0, 255)
 Information.GUILINE4_2.TextScaled = true
 Information.GUILINE4_2.TextSize = 14.000
@@ -1856,98 +1856,8 @@ Extra.YourVessel.Text = "Vessel: "..PlrStats.CurrentMonster.Value
 Extra.YourPotion.Text = "Potion: "..PlrStats.CurrentPotion.Value
 Extra.YourPies.Text = "Food: "..PlrStats.Food.Value
 Extra.YourFUN.Text = "FUN Value: "..PlrStats.FUN.Value
-local template = OtherVessels.ExamplePlayer
-
-local scroller = OtherVessels.Scrolling
 
 
-
-function updatePlayers()
-	for i, child in pairs(scroller:GetChildren()) do
-		if child:IsA("Frame") then child:Destroy() end
-	end
-
-	for i, plr in pairs(game.Players:GetPlayers()) do
-		if plr.Name ~= User.Name then
-			local plrstat = plr.playerstats
-			local ldrstat = plr.leaderstats
-			local img = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-			local templateClone = template:Clone()
-			templateClone.Visible = true
-			templateClone.NAME.Text = plr.Name
-			templateClone.PlayerIcon.Image = img
-			templateClone.ARMOR.Text = "Armor: "..plrstat.CurrentArmor.Value
-			templateClone.WEAPON.Text = "Weapon: "..plrstat.CurrentWeapon.Value
-			templateClone.PIES.Text = "Pies: "..plrstat.Food.Value
-			templateClone.SOUL.Text = "Soul: "..plrstat.CurrentSoul.Value
-			templateClone.POTION.Text = "Potion: "..plrstat.CurrentPotion.Value
-			templateClone.CHARACTER.Text = "Vessel: "..plrstat.CurrentMonster.Value
-			if templateClone.CHARACTER.Text == "UnderverseNM" then
-				templateClone.CHARACTER.Text = "UV!Killer"
-			end
-			if templateClone.CHARACTER.Text == "EvoGenoBadTime" then
-				templateClone.CHARACTER.Text = "Vessel: EvoSans"
-			end 
-			if templateClone.CHARACTER.Text == "EvoGenoGeno" then
-				templateClone.CHARACTER.Text = "Vessel: EvoGeno"
-			end 
-			if templateClone.CHARACTER.Text == "EvoGenoError" then
-				templateClone.CHARACTER.Text = "Vessel: EvoError"
-			end 
-			if templateClone.CHARACTER.Text == "EvoGenoFatal" then
-				templateClone.CHARACTER.Text = "Vessel: EvoFatal"
-			end
-			if templateClone.CHARACTER.Text == "EvoDustRuins" then
-				templateClone.CHARACTER.Text = "Vessel: E.DustRuins"
-			end
-			if templateClone.CHARACTER.Text == "EvoDustSnowdin" then
-				templateClone.CHARACTER.Text = "Vessel: E.DustSnowdin"
-			end
-			if templateClone.CHARACTER.Text == "EvoDustWaterfall" then
-				templateClone.CHARACTER.Text = "Vessel: E.DustWaterfall"
-			end
-			if templateClone.CHARACTER.Text == "EvoDustHotlands" then
-				templateClone.CHARACTER.Text = "Vessel: E.DustHotlands"
-			end
-			if templateClone.CHARACTER.Text == "EvoDustJudgementHall" then
-				templateClone.CHARACTER.Text = "Vessel: E.DustJudgementHall"
-			end
-			if templateClone.CHARACTER.Text == "EvoMaxDust" then
-				templateClone.CHARACTER.Text = "Vessel: EvoLV20Dust"
-			end
-			if templateClone.CHARACTER.Text == "HyperDust" then
-				templateClone.CHARACTER.Text = "Vessel: EvoFDYDust"
-			end
-			if plrstat.RESET.Value == 1 then
-				templateClone.NAME.TextStrokeColor3 = Color3.fromRGB(255, 200, 0)
-				templateClone.NAME.TextStrokeTransparency = 0
-			end
-			if ldrstat.Wins.Value >= 10000 then
-				templateClone.NAME.TextColor3 = Color3.fromRGB(0, 0, 200)
-				if plrstat.RESET.Value == 1 then
-					templateClone.NAME.TextStrokeColor3 = Color3.fromRGB(0, 0, 255)
-					templateClone.NAME.TextColor3 = Color3.fromRGB(255, 255, 0)
-				end
-			end
-			templateClone.Parent = scroller
-			scroller.CanvasSize = UDim2.new(0,0,0,0)
-		end
-	end
-end
-function WhileUpdateDo()
-	if Updater1 == false then
-		Updater1 = true
-		print("function got turned on")
-		updatePlayers()
-		Updater.Value = true
-		repeat
-			wait(0.5)
-			updatePlayers()
-		until Updater.Value == false
-		Updater1 = false
-		print("")		
-	end
-end
 MainButtonList._1PEOPLE.MouseButton1Click:Connect(function()
 	if OtherVessels.OtherPlayerItems.Visible == true then
 		OtherVessels.OtherPlayerItems.Visible = false
@@ -1957,7 +1867,6 @@ MainButtonList._1PEOPLE.MouseButton1Click:Connect(function()
 		Information.Information.Visible = false
 		CharMenu.CharactersMenu.Visible = false
 		OtherVessels.OtherPlayerItems.Visible = true
-		WhileUpdateDo()
 	end
 end)
 MainButtonList._2ITEMS.MouseButton1Click:Connect(function()
@@ -2632,10 +2541,95 @@ for i,v in pairs(EventCharacters) do
 		end
 	end)
 end
+local template = OtherVessels.ExamplePlayer
 
+local scroller = OtherVessels.Scrolling
+
+
+
+function updatePlayers()
+	for i, child in pairs(scroller:GetChildren()) do
+		if child:IsA("Frame") then child:Destroy() end
+	end
+
+	for i, plr in pairs(game.Players:GetPlayers()) do
+		if plr.Name == User.Name then
+			local plrstat = plr.playerstats
+			local ldrstat = plr.leaderstats
+			local img = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+			local templateClone = template:Clone()
+			templateClone.Visible = true
+			templateClone.NAME.Text = plr.Name.." (@"..plr.DisplayName..")"
+			templateClone.PlayerIcon.Image = img
+			templateClone.ARMOR.Text = "Armor: "..plrstat.CurrentArmor.Value
+			templateClone.WEAPON.Text = "Weapon: "..plrstat.CurrentWeapon.Value
+			templateClone.PIES.Text = "Pies: "..plrstat.Food.Value
+			templateClone.SOUL.Text = "Soul: "..plrstat.CurrentSoul.Value
+			templateClone.POTION.Text = "Potion: "..plrstat.CurrentPotion.Value
+			templateClone.CHARACTER.Text = "Vessel: "..plrstat.CurrentMonster.Value
+			if plrstat.CurrentMonster.Value == "UnderverseNM" then
+				templateClone.CHARACTER.Text = "UV!Killer"
+			elseif plrstat.CurrentMonster.Value == "EvoGenoBadTime" then
+					templateClone.CHARACTER.Text = "Vessel: EvoSans"
+			elseif plrstat.CurrentMonster.Value == "EvoGenoGeno" then
+					templateClone.CHARACTER.Text = "Vessel: EvoGeno"
+			elseif plrstat.CurrentMonster.Value == "EvoGenoError" then
+				templateClone.CHARACTER.Text = "Vessel: EvoError"
+			elseif plrstat.CurrentMonster.Value == "EvoGenoFatal" then
+				templateClone.CHARACTER.Text = "Vessel: EvoFatal"
+			elseif plrstat.CurrentMonster.Value == "EvoDustRuins" then
+				templateClone.CHARACTER.Text = "Vessel: E.DustRuins"
+			elseif plrstat.CurrentMonster.Value == "EvoDustSnowdin" then
+				templateClone.CHARACTER.Text = "Vessel: E.DustSnowdin"
+			elseif plrstat.CurrentMonster.Value == "EvoDustWaterfall" then
+				templateClone.CHARACTER.Text = "Vessel: E.DustWaterfall"
+			elseif plrstat.CurrentMonster.Value == "EvoDustHotlands" then
+				templateClone.CHARACTER.Text = "Vessel: E.DustHotlands"
+			elseif plrstat.CurrentMonster.Value == "EvoDustJudgementHall" then
+				templateClone.CHARACTER.Text = "Vessel: E.DustJudgementHall"
+			elseif plrstat.CurrentMonster.Value == "EvoMaxDust" then
+				templateClone.CHARACTER.Text = "Vessel: EvoLV20Dust"
+			elseif plrstat.CurrentMonster.Value == "HyperDust" then
+				templateClone.CHARACTER.Text = "Vessel: EvoFDYDust"
+			end
+			if plrstat.RESET.Value == 1 then
+				templateClone.NAME.TextStrokeColor3 = Color3.fromRGB(255, 200, 0)
+				templateClone.NAME.TextStrokeTransparency = 0
+			end
+			if ldrstat.Wins.Value >= 10000 then
+				templateClone.NAME.TextColor3 = Color3.fromRGB(0, 0, 200)
+				if plrstat.RESET.Value == 1 then
+					templateClone.NAME.TextStrokeColor3 = Color3.fromRGB(0, 0, 255)
+					templateClone.NAME.TextColor3 = Color3.fromRGB(255, 255, 0)
+				end
+			end
+			templateClone.Parent = scroller
+			scroller.CanvasSize = UDim2.new(0,0,0,0)
+			plrstat.CurrentArmor.Changed:Connect(function()
+				templateClone.ARMOR.Text = "Armor: "..plrstat.CurrentArmor.Value
+			end)
+			plrstat.CurrentWeapon.Changed:Connect(function()
+				templateClone.WEAPON.Text = "Weapon: "..plrstat.CurrentWeapon.Value
+			end)
+			plrstat.CurrentSoul.Changed:Connect(function()
+				templateClone.SOUL.Text = "Soul: "..plrstat.CurrentSoul.Value
+			end)
+			plrstat.CurrentPotion.Changed:Connect(function()
+				templateClone.POTION.Text = "Potion: "..plrstat.CurrentPotion.Value
+			end)
+			plrstat.CurrentMonster.Changed:Connect(function()
+				templateClone.CHARACTER.Text = "Vessel: "..plrstat.CurrentMonster.Value
+			end)
+			plrstat.Food.Changed:Connect(function()
+				templateClone.PIES.Text = "Pies: "..plrstat.Food.Value
+			end)
+		end
+	end
+end
 
 updatePlayers()
 game.Players.PlayerAdded:Connect(updatePlayers)
+game.Players.PlayerRemoving:Connect(updatePlayers)
 User.PlayerGui.Countdown.Frame.Visible = false
 game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.Size = UDim2.new(0.1,0,0.05,0)
 game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.Counter.Position = UDim2.new(0.5,0,-0.2,0)
