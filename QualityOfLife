@@ -1,8 +1,10 @@
 local MS = game:GetService("MarketplaceService")
 local MainGui = Instance.new("ScreenGui")
+local User = game:GetService("Players").LocalPlayer
+
 
 MainGui.Name = "MainGui"
-MainGui.Parent = game.CoreGui
+MainGui.Parent = User.PlayerGui
 MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 MainGui.DisplayOrder = 666
 MainGui.ResetOnSpawn = false
@@ -10,12 +12,12 @@ MainGui.ResetOnSpawn = false
 local BadgeService = game:GetService("BadgeService")
 local SoundService = game:GetService("SoundService")
 local Remotes = game:GetService("ReplicatedStorage").Remotes
-local User = game:GetService("Players").LocalPlayer
 local PlrStats = User:WaitForChild("playerstats")
 local Sounds = {
 	ClickDeny = Instance.new("Sound"),
 	ClickAccept = Instance.new("Sound"),
 	Title = Instance.new("Sound"),
+	OverwriteDeny = Instance.new("Sound"),
 }
 
 local Information = {
@@ -38,6 +40,10 @@ Sounds.ClickDeny.SoundId = "rbxassetid://1471213022"
 Sounds.ClickDeny.Parent = MainGui
 Sounds.Title.SoundId = "rbxassetid://1650073108"
 Sounds.Title.Parent = MainGui
+Sounds.OverwriteDeny.Parent = MainGui
+Sounds.OverwriteDeny.SoundId = "rbxassetid://8163255316"
+
+
 local CharaTeamEquipement = {
 	BAG = Instance.new("Frame"),
 	BagFrame = Instance.new("ImageLabel"),
@@ -76,6 +82,8 @@ local MainButtonList = {
 	_3INFO = Instance.new("ImageButton"),
 	_4CHARACTER = Instance.new("ImageButton"),
 	_5COG = Instance.new("ImageButton"),
+	_6OVERWRITE = Instance.new("ImageButton")
+
 }
 
 local CharMenu = {
@@ -471,7 +479,7 @@ MainButtonList._1PEOPLE.Parent = MainButtonList.MainButtons
 MainButtonList._1PEOPLE.AnchorPoint = Vector2.new(0.5, 0)
 MainButtonList._1PEOPLE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainButtonList._1PEOPLE.BackgroundTransparency = 1.000
-MainButtonList._1PEOPLE.Position = UDim2.new(0.1, 0, 0, 0)
+MainButtonList._1PEOPLE.Position = UDim2.new(0.1875, 0, 0, 0)
 MainButtonList._1PEOPLE.Size = UDim2.new(0.1, 0, 1, 0)
 MainButtonList._1PEOPLE.Image = "http://www.roblox.com/asset/?id=8272945029"
 MainButtonList._1PEOPLE.ScaleType = Enum.ScaleType.Fit
@@ -481,7 +489,7 @@ MainButtonList._2ITEMS.Parent = MainButtonList.MainButtons
 MainButtonList._2ITEMS.AnchorPoint = Vector2.new(0.5, 0)
 MainButtonList._2ITEMS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainButtonList._2ITEMS.BackgroundTransparency = 1.000
-MainButtonList._2ITEMS.Position = UDim2.new(0.3, 0, 0, 0)
+MainButtonList._2ITEMS.Position = UDim2.new(0.3125, 0, 0, 0)
 MainButtonList._2ITEMS.Size = UDim2.new(0.1, 0, 1, 0)
 MainButtonList._2ITEMS.Image = "http://www.roblox.com/asset/?id=8272939662"
 MainButtonList._2ITEMS.ScaleType = Enum.ScaleType.Fit
@@ -491,7 +499,7 @@ MainButtonList._3INFO.Parent = MainButtonList.MainButtons
 MainButtonList._3INFO.AnchorPoint = Vector2.new(0.5, 0)
 MainButtonList._3INFO.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainButtonList._3INFO.BackgroundTransparency = 1.000
-MainButtonList._3INFO.Position = UDim2.new(0.5, 0, 0, 0)
+MainButtonList._3INFO.Position = UDim2.new(0.4375, 0, 0, 0)
 MainButtonList._3INFO.Size = UDim2.new(0.1, 0, 1, 0)
 MainButtonList._3INFO.Image = "http://www.roblox.com/asset/?id=8272938420"
 MainButtonList._3INFO.ScaleType = Enum.ScaleType.Fit
@@ -501,7 +509,7 @@ MainButtonList._4CHARACTER.Parent = MainButtonList.MainButtons
 MainButtonList._4CHARACTER.AnchorPoint = Vector2.new(0.5, 0)
 MainButtonList._4CHARACTER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainButtonList._4CHARACTER.BackgroundTransparency = 1.000
-MainButtonList._4CHARACTER.Position = UDim2.new(0.7, 0, 0, 0)
+MainButtonList._4CHARACTER.Position = UDim2.new(0.5625, 0, 0, 0)
 MainButtonList._4CHARACTER.Size = UDim2.new(0.1, 0, 1, 0)
 MainButtonList._4CHARACTER.Image = "http://www.roblox.com/asset/?id=8272936496"
 MainButtonList._4CHARACTER.ScaleType = Enum.ScaleType.Fit
@@ -511,11 +519,22 @@ MainButtonList._5COG.Parent = MainButtonList.MainButtons
 MainButtonList._5COG.AnchorPoint = Vector2.new(0.5, 0)
 MainButtonList._5COG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainButtonList._5COG.BackgroundTransparency = 1.000
-MainButtonList._5COG.Position = UDim2.new(0.9, 0, 0, 0)
+MainButtonList._5COG.Position = UDim2.new(0.6875, 0, 0, 0)
 MainButtonList._5COG.Size = UDim2.new(0.1, 0, 1, 0)
 MainButtonList._5COG.Image = "http://www.roblox.com/asset/?id=8272943460"
 MainButtonList._5COG.ScaleType = Enum.ScaleType.Fit
 
+MainButtonList._6OVERWRITE.Name = "6OVERWRITE"
+MainButtonList._6OVERWRITE.Parent = MainButtonList.MainButtons
+MainButtonList._6OVERWRITE.AnchorPoint = Vector2.new(0.5, 0)
+MainButtonList._6OVERWRITE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainButtonList._6OVERWRITE.BackgroundTransparency = 1.000
+MainButtonList._6OVERWRITE.Position = UDim2.new(0.8125, 0, 0, 0)
+MainButtonList._6OVERWRITE.Size = UDim2.new(0.1, 0, 1, 0)
+MainButtonList._6OVERWRITE.Image = "http://www.roblox.com/asset/?id=9054374539"
+MainButtonList._6OVERWRITE.ScaleType = Enum.ScaleType.Fit
+
+local OWValue = false
 --╔══╦═╗ ╔╦═══╦═══╦═══╦═╗╔═╦═══╦════╦══╦═══╦═╗ ╔╗--
 --╚╣╠╣ ╚╗║║╔══╣╔═╗║╔═╗║ ╚╝ ║╔═╗║╔╗╔╗╠╣╠╣╔═╗║ ╚╗║║--
 ---║║║╔╗╚╝║╚══╣║ ║║╚═╝║╔╗╔╗║║ ║╠╝║║╚╝║║║║ ║║╔╗╚╝║--
@@ -921,12 +940,211 @@ CharaTeamEquipement.Row1ECombos.BackgroundTransparency = 1.000
 CharaTeamEquipement.Row1ECombos.Position = UDim2.new(0, 0, 0.21, 0)
 CharaTeamEquipement.Row1ECombos.Size = UDim2.new(0.975, 0, 0.07, 0)
 
+--╔═══╦╗  ╔╦═══╦═══╦╗╔╗╔╦═══╦══╦════╦═══╗--
+--║╔═╗║╚╗╔╝║╔══╣╔═╗║║║║║║╔═╗╠╣╠╣╔╗╔╗║╔══╝--
+--║║─║╠╗║║╔╣╚══╣╚═╝║║║║║║╚═╝║║║╚╝║║╚╣╚══╗--
+--║║─║║║╚╝║║╔══╣╔╗╔╣╚╝╚╝║╔╗╔╝║║  ║║ ║╔══╝--
+--║╚═╝║╚╗╔╝║╚══╣║║╚╬╗╔╗╔╣║║╚╦╣╠╗ ║║ ║╚══╗--
+--╚═══╝ ╚╝ ╚═══╩╝╚═╝╚╝╚╝╚╝╚═╩══╝ ╚╝ ╚═══╝--
+
+local OWMenu = {
+	OVERWRITE = Instance.new("ImageLabel"),
+	Cog = Instance.new("ImageLabel"),
+	DT = Instance.new("TextButton"),
+	AntiKR = Instance.new("TextButton"),
+	DMGBUFF = Instance.new("TextButton"),
+	RandomItems = Instance.new("TextButton"),
+	HEAL = Instance.new("TextButton"),
+	AntiDT = Instance.new("TextButton"),
+	SOULPOWER = Instance.new("TextLabel")	
+}
+
+OWMenu.OVERWRITE.Name = "OVERWRITE"
+OWMenu.OVERWRITE.Parent = MainGui
+OWMenu.OVERWRITE.AnchorPoint = Vector2.new(0.5, 0.5)
+OWMenu.OVERWRITE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OWMenu.OVERWRITE.BackgroundTransparency = 1.000
+OWMenu.OVERWRITE.BorderSizePixel = 3
+OWMenu.OVERWRITE.Position = UDim2.new(0.91, 0, 0.498, 0)
+OWMenu.OVERWRITE.Size = UDim2.new(0.178, 0, 0.438, 0)
+OWMenu.OVERWRITE.Image = "rbxassetid://8913810606"
+OWMenu.OVERWRITE.ImageColor3 = Color3.fromRGB(143, 0, 200)
+OWMenu.OVERWRITE.ScaleType = Enum.ScaleType.Stretch
+OWMenu.OVERWRITE.Visible = false
+
+OWMenu.Cog.Name = "OVERWRITEICON"
+OWMenu.Cog.Parent = OWMenu.OVERWRITE
+OWMenu.Cog.AnchorPoint = Vector2.new(0.5, 0.5)
+OWMenu.Cog.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OWMenu.Cog.BackgroundTransparency = 1.000
+OWMenu.Cog.BorderSizePixel = 0
+OWMenu.Cog.Position = UDim2.new(0.5, 0, 0.065, 0)
+OWMenu.Cog.Size = UDim2.new(0.175, 0, 0.115, 0)
+OWMenu.Cog.Image = "rbxassetid://9054400705"
+
+OWMenu.DT.Name = "DT"
+OWMenu.DT.Parent = OWMenu.OVERWRITE
+OWMenu.DT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OWMenu.DT.BorderColor3 = Color3.fromRGB(255, 255, 255)
+OWMenu.DT.BorderSizePixel = 3
+OWMenu.DT.AnchorPoint = Vector2.new(0.5,0.5)
+OWMenu.DT.Position = UDim2.new(0.5, 0, 0.21, 0)
+OWMenu.DT.Size = UDim2.new(0.95, 0, 0.133, 0)
+OWMenu.DT.Font = Enum.Font.Arcade
+OWMenu.DT.Text = "Artificial DT"
+OWMenu.DT.TextColor3 = Color3.fromRGB(255, 0, 4)
+OWMenu.DT.TextScaled = true
+OWMenu.DT.TextSize = 14.000
+OWMenu.DT.TextStrokeColor3 = Color3.fromRGB(134, 0, 0)
+OWMenu.DT.TextStrokeTransparency = 0.000
+OWMenu.DT.TextWrapped = true
+
+OWMenu.AntiKR.Name = "AntiKR"
+OWMenu.AntiKR.Parent = OWMenu.OVERWRITE
+OWMenu.AntiKR.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OWMenu.AntiKR.AnchorPoint = Vector2.new(0.5,0.5)
+OWMenu.AntiKR.BorderColor3 = Color3.fromRGB(255, 255, 255)
+OWMenu.AntiKR.BorderSizePixel = 3
+OWMenu.AntiKR.Position = UDim2.new(0.5, 0, 0.35, 0)
+OWMenu.AntiKR.Size = UDim2.new(0.95, 0, 0.133, 0)
+OWMenu.AntiKR.Font = Enum.Font.Arcade
+OWMenu.AntiKR.Text = "Anti KR"
+OWMenu.AntiKR.TextColor3 = Color3.fromRGB(255, 0, 251)
+OWMenu.AntiKR.TextScaled = true
+OWMenu.AntiKR.TextSize = 14.000
+OWMenu.AntiKR.TextWrapped = true
+
+OWMenu.DMGBUFF.Name = "DMGBUFF"
+OWMenu.DMGBUFF.Parent = OWMenu.OVERWRITE
+OWMenu.DMGBUFF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OWMenu.DMGBUFF.BorderColor3 = Color3.fromRGB(255, 255, 255)
+OWMenu.DMGBUFF.AnchorPoint = Vector2.new(0.5,0.5)
+OWMenu.DMGBUFF.BorderSizePixel = 3
+OWMenu.DMGBUFF.Position = UDim2.new(0.5, 0, 0.49, 0)
+OWMenu.DMGBUFF.Size = UDim2.new(0.95, 0, 0.133, 0)
+OWMenu.DMGBUFF.Font = Enum.Font.Arcade
+OWMenu.DMGBUFF.Text = "DMG Buff"
+OWMenu.DMGBUFF.TextColor3 = Color3.fromRGB(156, 0, 2)
+OWMenu.DMGBUFF.TextScaled = true
+OWMenu.DMGBUFF.TextSize = 14.000
+OWMenu.DMGBUFF.TextWrapped = true
+
+OWMenu.RandomItems.Name = "RandomItems"
+OWMenu.RandomItems.Parent = OWMenu.OVERWRITE
+OWMenu.RandomItems.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OWMenu.RandomItems.BorderColor3 = Color3.fromRGB(255, 255, 255)
+OWMenu.RandomItems.BorderSizePixel = 3
+OWMenu.RandomItems.AnchorPoint = Vector2.new(0.5,0.5)
+OWMenu.RandomItems.Position = UDim2.new(0.5, 0, 0.63, 0)
+OWMenu.RandomItems.Size = UDim2.new(0.95, 0, 0.133, 0)
+OWMenu.RandomItems.Font = Enum.Font.Arcade
+OWMenu.RandomItems.Text = "Random Items"
+OWMenu.RandomItems.TextColor3 = Color3.fromRGB(255, 255, 0)
+OWMenu.RandomItems.TextScaled = true
+OWMenu.RandomItems.TextSize = 14.000
+OWMenu.RandomItems.TextWrapped = true
+
+OWMenu.HEAL.Name = "HEAL"
+OWMenu.HEAL.Parent = OWMenu.OVERWRITE
+OWMenu.HEAL.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OWMenu.HEAL.BorderColor3 = Color3.fromRGB(255, 255, 255)
+OWMenu.HEAL.BorderSizePixel = 3
+OWMenu.HEAL.AnchorPoint = Vector2.new(0.5,0.5)
+OWMenu.HEAL.Position = UDim2.new(0.5, 0, 0.77, 0)
+OWMenu.HEAL.Size = UDim2.new(0.95, 0, 0.133, 0)
+OWMenu.HEAL.Font = Enum.Font.Arcade
+OWMenu.HEAL.Text = "Heal"
+OWMenu.HEAL.TextColor3 = Color3.fromRGB(0, 255, 0)
+OWMenu.HEAL.TextScaled = true
+OWMenu.HEAL.TextSize = 14.000
+OWMenu.HEAL.TextWrapped = true
+
+OWMenu.AntiDT.Name = "Anti+DT"
+OWMenu.AntiDT.Parent = OWMenu.OVERWRITE
+OWMenu.AntiDT.AnchorPoint = Vector2.new(0.5,0.5)
+OWMenu.AntiDT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OWMenu.AntiDT.BorderColor3 = Color3.fromRGB(255, 255, 255)
+OWMenu.AntiDT.BorderSizePixel = 3
+OWMenu.AntiDT.Position = UDim2.new(0.5, 0, 0.91, 0)
+OWMenu.AntiDT.Size = UDim2.new(0.95, 0, 0.113, 0)
+OWMenu.AntiDT.Font = Enum.Font.Arcade
+OWMenu.AntiDT.Text = "AntiKR+DT"
+OWMenu.AntiDT.TextColor3 = Color3.fromRGB(196, 0, 214)
+OWMenu.AntiDT.TextScaled = true
+OWMenu.AntiDT.TextSize = 14.000
+OWMenu.AntiDT.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+OWMenu.AntiDT.TextStrokeTransparency = 0.000
+OWMenu.AntiDT.TextWrapped = true
+
+OWMenu.SOULPOWER.Name = "SOULPOWER"
+OWMenu.SOULPOWER.Parent = OWMenu.OVERWRITE
+OWMenu.SOULPOWER.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OWMenu.SOULPOWER.BorderColor3 = Color3.fromRGB(106, 0, 255)
+OWMenu.SOULPOWER.BorderSizePixel = 3
+OWMenu.SOULPOWER.AnchorPoint = Vector2.new(0.5,0.5)
+OWMenu.SOULPOWER.Position = UDim2.new(0.5, 0, 1.075, 0)
+OWMenu.SOULPOWER.Size = UDim2.new(0.95, 0, 0.133, 0)
+OWMenu.SOULPOWER.Font = Enum.Font.Arcade
+OWMenu.SOULPOWER.Text = "Soulpower: NIL"
+OWMenu.SOULPOWER.TextColor3 = Color3.fromRGB(170, 0, 255)
+OWMenu.SOULPOWER.TextScaled = true
+OWMenu.SOULPOWER.TextSize = 14.000
+OWMenu.SOULPOWER.TextStrokeColor3 = Color3.fromRGB(110, 0, 130)
+OWMenu.SOULPOWER.TextStrokeTransparency = 0.000
+OWMenu.SOULPOWER.TextWrapped = true
+function UpdateWRITE()
+	local GUI = game.Players.LocalPlayer.PlayerGui:WaitForChild("OverwriteGUI")
+	OWMenu.SOULPOWER.Text = "SOULPOWER: "..GUI.Frame.Energy.Value
+end
+
+OWMenu.DMGBUFF.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Buff"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+OWMenu.HEAL.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Heal"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+OWMenu.AntiDT.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Null"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+	local args = {
+		[1] = "ArtificialDT"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+OWMenu.AntiKR.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "Null"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+OWMenu.RandomItems.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "RandomItem"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
+OWMenu.DT.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = "ArtificialDT"
+	}
+	game:GetService("Players").LocalPlayer.PlayerGui.OverwriteGUI.Frame.OVERWRITE:FireServer(unpack(args))
+end)
 --╔═══╦╗ ╔╦═══╦═══╦═══╦═══╦════╦═══╦═══╗    ╔═══╦════╦╗ ╔╦═══╦═══╗--
 --║╔═╗║║ ║║╔═╗║╔═╗║╔═╗║╔═╗║╔╗╔╗║╔══╣╔═╗║    ║╔═╗║╔╗╔╗║║ ║║╔══╣╔══╝--
 --║║ ╚╣╚═╝║║ ║║╚═╝║║ ║║║ ╚╩╝║║╚╣╚══╣╚═╝║    ║╚══╬╝║║╚╣║ ║║╚══╣╚══╗--
 --║║ ╔╣╔═╗║╚═╝║╔╗╔╣╚═╝║║ ╔╗ ║║ ║╔══╣╔╗╔╝    ╚══╗║ ║║ ║║ ║║╔══╣╔══╝--
 --║╚═╝║║ ║║╔═╗║║║╚╣╔═╗║╚═╝║ ║║ ║╚══╣║║╚╗    ║╚═╝║ ║║ ║╚═╝║║  ║║-----
 --╚═══╩╝ ╚╩╝ ╚╩╝╚═╩╝ ╚╩═══╝ ╚╝ ╚═══╩╝╚═╝    ╚═══╝ ╚╝ ╚═══╩╝  ╚╝-----
+
+
 CharMenu.CharactersMenu.Name = "CharactersMenu"
 CharMenu.CharactersMenu.Parent = MainGui
 CharMenu.CharactersMenu.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1862,7 +2080,9 @@ MainButtonList._1PEOPLE.MouseButton1Click:Connect(function()
 	if OtherVessels.OtherPlayerItems.Visible == true then
 		OtherVessels.OtherPlayerItems.Visible = false
 		Updater.Value = false
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
 	else
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
 		CharaTeamEquipement.BAG.Visible = false
 		Information.Information.Visible = false
 		CharMenu.CharactersMenu.Visible = false
@@ -1872,7 +2092,9 @@ end)
 MainButtonList._2ITEMS.MouseButton1Click:Connect(function()
 	if CharaTeamEquipement.BAG.Visible == true then
 		CharaTeamEquipement.BAG.Visible = false
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
 	else
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
 		CharaTeamEquipement.BAG.Visible = true
 		Information.Information.Visible = false
 		CharMenu.CharactersMenu.Visible = false
@@ -1883,7 +2105,9 @@ end)
 MainButtonList._3INFO.MouseButton1Click:Connect(function()
 	if 	Information.Information.Visible == true then
 		Information.Information.Visible = false
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
 	else
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
 		CharaTeamEquipement.BAG.Visible = false
 		Information.Information.Visible = true
 		CharMenu.CharactersMenu.Visible = false
@@ -1894,7 +2118,9 @@ end)
 MainButtonList._4CHARACTER.MouseButton1Click:Connect(function()
 	if CharMenu.CharactersMenu.Visible == true then
 		CharMenu.CharactersMenu.Visible = false
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
 	else
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
 		CharaTeamEquipement.BAG.Visible = false
 		Information.Information.Visible = false
 		CharMenu.CharactersMenu.Visible = true
@@ -1903,7 +2129,31 @@ MainButtonList._4CHARACTER.MouseButton1Click:Connect(function()
 	end
 end)
 MainButtonList._5COG.MouseButton1Click:Connect(function()
-	SettingScreen.SETTINGS.Visible = not SettingScreen.SETTINGS.Visible
+	if SettingScreen.SETTINGS.Visible then
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
+		SettingScreen.SETTINGS.Visible = false
+		OWMenu.OVERWRITE.Visible = false
+	else
+		SoundService:PlayLocalSound(Sounds.ClickAccept)
+		SettingScreen.SETTINGS.Visible = true
+		OWMenu.OVERWRITE.Visible = false
+	end
+end)
+
+MainButtonList._6OVERWRITE.MouseButton1Click:Connect(function()
+	if OWValue then
+		if OWMenu.OVERWRITE.Visible then
+			SoundService:PlayLocalSound(Sounds.ClickAccept)
+			OWMenu.OVERWRITE.Visible = false
+			SettingScreen.SETTINGS.Visible = false
+		else
+			SoundService:PlayLocalSound(Sounds.ClickAccept)
+			OWMenu.OVERWRITE.Visible = true
+			SettingScreen.SETTINGS.Visible = false
+		end
+	else
+		SoundService:PlayLocalSound(Sounds.OverwriteDeny)
+	end	
 end)
 CharMenu.DustMenu.MouseButton1Click:Connect(function()
 	if DustLocked == false then
@@ -2626,20 +2876,29 @@ function updatePlayers()
 		end
 	end
 end
-
 updatePlayers()
 game.Players.PlayerAdded:Connect(updatePlayers)
 game.Players.PlayerRemoving:Connect(updatePlayers)
-User.PlayerGui.Countdown.Frame.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.Size = UDim2.new(0.1,0,0.05,0)
-game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.Counter.Position = UDim2.new(0.5,0,-0.2,0)
-game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.NEP.AnchorPoint = Vector2.new(0.5,0.05)
-game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.NEP.Position = UDim2.new(0.5,0,-0.2,0)
-game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.NEP.AnchorPoint = Vector2.new(0.5,0.05)
-game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.Counter.AnchorPoint = Vector2.new(0.5,0.5)
-game:GetService("Players").LocalPlayer.PlayerGui.Countdown.Frame.Position = UDim2.new(0.45,0,0.85,0)
-User.PlayerGui.Countdown.Frame.Visible = true
+
 print("Loaded.")
 
 MainButtonList.MainButtons:TweenPosition(UDim2.new(0.5,0,0.056,0),Enum.EasingDirection.Out,Enum.EasingStyle.Back,1)
 SoundService:PlayLocalSound(Sounds.Title)
+if User.leaderstats.Wins.Value >= 4000 then
+	OWValue = true
+	MainButtonList._6OVERWRITE.Image = "http://www.roblox.com/asset/?id=9054400705"
+end
+User.leaderstats.Wins.Changed:Connect(function()
+	if User.leaderstats.Wins.Value >= 4000 then
+		OWValue = true
+		MainButtonList._6OVERWRITE.Image = "http://www.roblox.com/asset/?id=9054400705"
+	else
+		OWValue = false	
+	end
+	
+end)
+while true do
+	game.Players.LocalPlayer.PlayerGui:WaitForChild("OverwriteGUI")
+	UpdateWRITE()
+	wait(1)
+end
