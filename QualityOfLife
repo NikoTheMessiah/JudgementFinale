@@ -2803,7 +2803,7 @@ function updatePlayers()
 	end
 
 	for i, plr in pairs(game.Players:GetPlayers()) do
-		if plr.Name == User.Name then
+		if plr.Name ~= User.Name then
 			local plrstat = plr.playerstats
 			local ldrstat = plr.leaderstats
 			local img = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
