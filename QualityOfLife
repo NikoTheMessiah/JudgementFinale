@@ -2901,6 +2901,7 @@ end)
 spawn(function()
 	while true do
 	updatePlayers()
+	wait(60)
 	end 
 end)
 while true do
