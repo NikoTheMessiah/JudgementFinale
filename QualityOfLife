@@ -2818,7 +2818,7 @@ function updatePlayers()
 			templateClone.POTION.Text = "Potion: "..plrstat.CurrentPotion.Value
 			templateClone.CHARACTER.Text = "Vessel: "..plrstat.CurrentMonster.Value
 			if plrstat.CurrentMonster.Value == "UnderverseNM" then
-				templateClone.CHARACTER.Text = "UV!Killer"
+				templateClone.CHARACTER.Text = "Vessel: UV!Killer"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoBadTime" then
 					templateClone.CHARACTER.Text = "Vessel: EvoSans"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoGeno" then
