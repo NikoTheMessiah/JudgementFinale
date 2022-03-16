@@ -2877,7 +2877,7 @@ function updatePlayers()
 	end
 end
 updatePlayers()
-Players.PlayerAdded:Connect(function()
+game.Players.PlayerAdded:Connect(function()
 	updatePlayers()
 end)
 game.Players.PlayerRemoving:Connect(function()
