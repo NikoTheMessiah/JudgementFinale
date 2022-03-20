@@ -6,7 +6,7 @@ local User = game:GetService("Players").LocalPlayer
 MainGui.Name = "MainGui"
 MainGui.Parent = game.CoreGui
 MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-MainGui.DisplayOrder = 666
+MainGui.DisplayOrder = -1
 MainGui.ResetOnSpawn = false
 
 local BadgeService = game:GetService("BadgeService")
