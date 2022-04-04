@@ -6,7 +6,7 @@ local User = game:GetService("Players").LocalPlayer
 MainGui.Name = "MainGui"
 MainGui.Parent = game.CoreGui
 MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-MainGui.DisplayOrder = -1
+MainGui.DisplayOrder = 666
 MainGui.ResetOnSpawn = false
 
 local BadgeService = game:GetService("BadgeService")
@@ -221,7 +221,7 @@ local Armour = {
 	KillerSoul = {"KillerSoul",75,1545319239,2,0.328,0},
 	TemmieArmor = {"TemmieArmor",100,316417385,2,0.492,0},
 	AsrielsRobe = {"AsrielsRobe",125,567354532,2,0.656,0},
-	Akumu = {"Kuma",150,4688060876,2,0.82,0},
+	Akumu = {"Kumu",150,4688060876,2,0.82,0},
 	SSCharaCoat = {"SSCharaHood",200,2359252102,3,0,0},
 	UndyneArmor = {"UndyneArmor",250,338769606,3,0.162,0},
 	CharaLocket = {"CharaLocket",300,2619147114,3,0.328,0},
@@ -256,7 +256,7 @@ local Combos = {
 	Justice = {"Justice",125,8949845574,Color3.fromRGB(255, 255, 0),1,0.162,0,0,"EmptyGun","CowboyHat","Justice"},
 	Integrity = {"Integrity",200,8949845574,Color3.fromRGB(0, 17, 255),1,0.328,0,0,"BalletShoes","Tutu","Integrity"},
 	Bravery = {"Bravery",250,8949845574,Color3.fromRGB(255, 170, 0),1,0.492,0,0,"ToughGlove","Bandana","Bravery"},
-	FEAR = {"Fear",400,8949845574,Color3.fromRGB(255, 85, 255),1,0.656,0,0,"BettyScythe","Kuma","FEAR"},
+	FEAR = {"Fear",400,8949845574,Color3.fromRGB(255, 85, 255),1,0.656,0,0,"BettyScythe","Kumu","FEAR"},
 	HATE = {"Hate",450,5219464666,Color3.fromRGB(255,255,255),1,0.82,0,0,"KillerKnife","KillerSoul","HATE"},
 	Kindness = {"Kindness",600,8949845574,Color3.fromRGB(0,255,0),2,0,0,0,"BurntPan","Apron","Kindness"},
 	Undyne = {"Undyne",600,6439391991,Color3.fromRGB(0,255,0),2,0.162,0,0,"Spear","UndyneArmor","Kindness"},
@@ -341,8 +341,9 @@ local EventCharacters = {
 	SuddenChanges = {"SuddenChanges",666,7238583454,1,0.492,2124616202},
 	NMDChara = {"NMDChara",999,7238596098,1,0.656,2124698863},
 	HardmodeInsanity = {"HardmodeInsanity",2111,7238660397,1,0.82,21246252372},
-	Krampus = {"Krampus",2700,1489171774,2,0,2124887950},
-	Death = {"Death",3333,7932480079,2,0.162,2124855184}
+	SuperScienceSans = {"SSS",2542,9269379681,2,0,2125769639},
+	Krampus = {"Krampus",2700,1489171774,2,0.162,2124887950},
+	Death = {"Death",3333,7932480079,2,0.328,2124855184},
 }
 --	ORDER = {"1Name","2Wins","3ImageId","4Row","5Pos"},
 
@@ -384,6 +385,7 @@ local BADGECHARACTERS = {
 	NoMercyID = {"NoMercy",2124711898},
 	Halloween2021ID = {"Halloween2021",2124855184},
 	Christmas2021ID = {"Christmas2021",2124887950},
+	AprilFools2020ID = {"AprilFools2022",2125769639}
 }
 local UnUsedBADGES = {
 	ERROR404ID = {"Error404",2124599251},
@@ -399,7 +401,7 @@ local SpareLocked = true
 local NoMercyLocked = true
 local Halloween2021Locked = true
 local Christmas2021Locked = true
-
+local AprilFools2022 = true
 local DustLocked = true
 local GenoLocked = true
 local RedLocked = true
@@ -432,7 +434,10 @@ function IDAccepted(AName)
 	if AName == "Christmas2021" then
 		Christmas2021Locked = false
 	end
-	
+	if AName == "AprilFools2022" then
+		AprilFools2022 = false
+	end
+
 	if AName == "Dust" then
 		DustLocked = false
 	elseif AName == "Geno" then
@@ -2753,43 +2758,90 @@ for i,v in pairs(EventCharacters) do
 	Frame.TemplateButton.TemplateName.Text = v[1]
 	Frame.TemplateButton.TemplateWins.Text = "Wins: "..v[2]
 	Frame.Visible = true
+	local Played = false
+
 	Frame.TemplateButton.MouseButton1Click:Connect(function()
-		local Played = false
 		if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
-			if v[1] == "Gaster" and GasterLocked == false then
-				SoundService:PlayLocalSound(Sounds.ClickAccept)
-				Remotes.ChangePlayerSans:FireServer(v[1])
-			elseif v[1] == "FontSans" and SpareLocked == false then
-				SoundService:PlayLocalSound(Sounds.ClickAccept)
-				Remotes.ChangePlayerSans:FireServer(v[1])
-			elseif v[1] == "Sansta" and Christmas2020Locked == false then
-				SoundService:PlayLocalSound(Sounds.ClickAccept)
-				Remotes.ChangePlayerSans:FireServer(v[1])
-			elseif v[1] == "SuddenChanges" and SuddenLocked == false then
-				SoundService:PlayLocalSound(Sounds.ClickAccept)
-				Remotes.ChangePlayerSans:FireServer(v[1])
-			elseif v[1] == "NMDChara" and NMDLocked == false then
-				SoundService:PlayLocalSound(Sounds.ClickAccept)
-				Remotes.ChangePlayerSans:FireServer(v[1])
-			elseif v[1] == "HardmodeInsanity" and InsanityLocked == false then
-				SoundService:PlayLocalSound(Sounds.ClickAccept)
-				Remotes.ChangePlayerSans:FireServer(v[1])
-			elseif v[1] == "Krampus" and Christmas2021Locked == false then
-				SoundService:PlayLocalSound(Sounds.ClickAccept)
-				Remotes.ChangePlayerSans:FireServer(v[1])
-			elseif v[1] == "Death" and Halloween2021Locked == false then
-				SoundService:PlayLocalSound(Sounds.ClickAccept)
-				Remotes.ChangePlayerSans:FireServer(v[1])
-			else
-				SoundService:PlayLocalSound(Sounds.ClickDeny)
-				Played = true
+			if v[1] == "Gaster" then
+				if GasterLocked == false then 
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])		
+				else
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end			
+			elseif v[1] == "FontSans" then
+				if SpareLocked == false then
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])		
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
+			elseif v[1] == "Sansta" then
+				if Christmas2020Locked == false then
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])		
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
+			elseif v[1] == "SuddenChanges" then
+				if SuddenLocked == false then
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])		
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
+			elseif v[1] == "NMDChara" then
+				if NMDLocked == false then 
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])		
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
+			elseif v[1] == "HardmodeInsanity" then
+				if InsanityLocked == false then
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
+			elseif v[1] == "Krampus" then
+				if Christmas2021Locked == false then
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
+			elseif v[1] == "Death" then
+				if Halloween2021Locked == false then
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])			
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
+			elseif v[1] == "SSS" then
+				if AprilFools2022 == false then
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
 			end
 		else
-			if Played then
+			if Played == false then
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
 			end
 		end
+		Played = false
 	end)
+
 end
 local template = OtherVessels.ExamplePlayer
 
@@ -2803,9 +2855,9 @@ function updatePlayers()
 	end
 
 	for i, plr in pairs(game.Players:GetPlayers()) do
-		if plr.Name ~= User.Name then
-			local plrstat = plr:WaitForChild("playerstats")
-			local ldrstat = plr:WaitForChild("leaderstats")
+		if plr.Name == User.Name then
+			local plrstat = plr.playerstats
+			local ldrstat = plr.leaderstats
 			local img = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 			local templateClone = template:Clone()
 			templateClone.Visible = true
@@ -2818,7 +2870,7 @@ function updatePlayers()
 			templateClone.POTION.Text = "Potion: "..plrstat.CurrentPotion.Value
 			templateClone.CHARACTER.Text = "Vessel: "..plrstat.CurrentMonster.Value
 			if plrstat.CurrentMonster.Value == "UnderverseNM" then
-				templateClone.CHARACTER.Text = "Vessel: UV!Killer"
+				templateClone.CHARACTER.Text = "UV!Killer"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoBadTime" then
 					templateClone.CHARACTER.Text = "Vessel: EvoSans"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoGeno" then
@@ -2877,12 +2929,8 @@ function updatePlayers()
 	end
 end
 updatePlayers()
-game.Players.PlayerAdded:Connect(function()
-	updatePlayers()
-end)
-game.Players.PlayerRemoving:Connect(function()
-	updatePlayers()
-end)
+game.Players.PlayerAdded:Connect(updatePlayers)
+game.Players.PlayerRemoving:Connect(updatePlayers)
 
 print("Loaded.")
 
@@ -2901,16 +2949,8 @@ User.leaderstats.Wins.Changed:Connect(function()
 	end
 	
 end)
-
-spawn(function()
-	while true do
-	updatePlayers()
-	wait(60)
-	end 
-end)
 while true do
 	game.Players.LocalPlayer.PlayerGui:WaitForChild("OverwriteGUI")
 	UpdateWRITE()
 	wait(1)
 end
-
