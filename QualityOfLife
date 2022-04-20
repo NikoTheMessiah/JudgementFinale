@@ -2866,13 +2866,14 @@ function updatePlayers()
 	end
 
 	for i, plr in pairs(game.Players:GetPlayers()) do
+	wait()
 		if plr.Name ~= User.Name then
 			local plrstat = plr.playerstats
 			local ldrstat = plr.leaderstats
 			local img = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 			local templateClone = template:Clone()
 			templateClone.Visible = true
-			templateClone.NAME.Text = plr.Name.." (@"..plr.DisplayName..")"
+			templateClone.NAME.Text = plr.DisplayName.." (@"..plr.Name..")"
 			templateClone.PlayerIcon.Image = img
 			templateClone.ARMOR.Text = "Armor: "..plrstat.CurrentArmor.Value
 			templateClone.WEAPON.Text = "Weapon: "..plrstat.CurrentWeapon.Value
@@ -2881,7 +2882,7 @@ function updatePlayers()
 			templateClone.POTION.Text = "Potion: "..plrstat.CurrentPotion.Value
 			templateClone.CHARACTER.Text = "Vessel: "..plrstat.CurrentMonster.Value
 			if plrstat.CurrentMonster.Value == "UnderverseNM" then
-				templateClone.CHARACTER.Text = "UV!Killer"
+				templateClone.CHARACTER.Text = "Vessel: UV!Killer"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoBadTime" then
 					templateClone.CHARACTER.Text = "Vessel: EvoSans"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoGeno" then
@@ -2939,9 +2940,7 @@ function updatePlayers()
 		end
 	end
 end
-updatePlayers()
-game.Players.PlayerAdded:Connect(updatePlayers)
-game.Players.PlayerRemoving:Connect(updatePlayers)
+
 
 print("Loaded.")
 
@@ -2960,8 +2959,13 @@ User.leaderstats.Wins.Changed:Connect(function()
 	end
 	
 end)
+
+updatePlayers()
+game.Players.PlayerAdded:Connect(updatePlayers)
+game.Players.PlayerRemoving:Connect(updatePlayers)
+
 spawn(function()
-while wait(5) do
+while wait(10) do
   updatePlayers()
 end
 end)
