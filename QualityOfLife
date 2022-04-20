@@ -2960,6 +2960,11 @@ User.leaderstats.Wins.Changed:Connect(function()
 	end
 	
 end)
+spawn(function()
+while wait(5) do
+  updatePlayers()
+end
+end)
 while true do
 	game.Players.LocalPlayer.PlayerGui:WaitForChild("OverwriteGUI")
 	UpdateWRITE()
