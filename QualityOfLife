@@ -71,6 +71,7 @@ local CharaTeamEquipement = {
 	Combos = Instance.new("ScrollingFrame"),
 	Row1Combos = Instance.new("Frame"),
 	Row2Combos = Instance.new("Frame"),
+	Row3Combos = Instance.new("Frame"),
 	EventCombos = Instance.new("TextLabel"),
 	Row1ECombos = Instance.new("Frame")
 }
@@ -263,8 +264,9 @@ local Combos = {
 	Undyne = {"Undyne",600,6439391991,Color3.fromRGB(0,255,0),2,0.162,0,0,"Spear","UndyneArmor","Kindness"},
 	DTStick = {"DTStick",1000,7242904504,Color3.fromRGB(255,0,0),2,0.328,0,0,"Stick","Bandage","Determination"},
 	XCross = {"XCross",1000,7242921777,Color3.fromRGB(255,0,0),2,0.492,0,0,"CrossCharaKnife","CharaLocket","Determination"},
-	XChara = {"XChara",4000,7242915695,Color3.fromRGB(255,255,255),2,0.656,0,0,"CrossCharaKnife","CharaLocket","OVERWRITE"},
-	ASGORE = {"6SoulAsgore",4000,6424309172,Color3.fromRGB(255,255,255),2,0.82,0,1,"Trident","AsgoreArmor","Rainbow"},
+	SwapKnife = {"SwapCombo",2500,4811127868,Color3.fromRGB(255,255,255),2,0.656,0,0,"SwapKnife","Locket","Determination"},
+	XChara = {"XChara",4000,7242915695,Color3.fromRGB(255,255,255),2,0.82,0,0,"CrossCharaKnife","CharaLocket","OVERWRITE"},
+	ASGORE = {"6SoulAsgore",4000,6424309172,Color3.fromRGB(255,255,255),3,0,0,1,"Trident","AsgoreArmor","Rainbow"},
 	-----EVENT-----
 	Christmas = {"Christmas",500,2452492483,Color3.fromRGB(255,255,255),1,0,1,0,"CandyCaneSword",0,"Perseverance"},
 	Insanity = {"Insanity",1000,7234826938,Color3.fromRGB(255,255,255),1,0.162,1,0,"PapyrusHead",0,"Determination"}
@@ -924,10 +926,18 @@ CharaTeamEquipement.Row2Combos.BackgroundTransparency = 1.000
 CharaTeamEquipement.Row2Combos.Position = UDim2.new(0, 0, 0.07, 0)
 CharaTeamEquipement.Row2Combos.Size = UDim2.new(0.975, 0, 0.07, 0)
 
+CharaTeamEquipement.Row3Combos.Name = "Row3Combos"
+CharaTeamEquipement.Row3Combos.Parent = CharaTeamEquipement.Combos
+CharaTeamEquipement.Row3Combos.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CharaTeamEquipement.Row3Combos.BackgroundTransparency = 1.000
+CharaTeamEquipement.Row3Combos.Position = UDim2.new(0, 0, 0.14, 0)
+CharaTeamEquipement.Row3Combos.Size = UDim2.new(0.975, 0, 0.07, 0)
+
+
 CharaTeamEquipement.EventCombos.Name = "EventCombos"
 CharaTeamEquipement.EventCombos.Parent = CharaTeamEquipement.Combos
 CharaTeamEquipement.EventCombos.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-CharaTeamEquipement.EventCombos.Position = UDim2.new(0, 0, 0.14, 0)
+CharaTeamEquipement.EventCombos.Position = UDim2.new(0, 0, 0.21, 0)
 CharaTeamEquipement.EventCombos.Size = UDim2.new(0.975, 0, 0.07, 0)
 CharaTeamEquipement.EventCombos.Font = Enum.Font.SourceSans
 CharaTeamEquipement.EventCombos.Text = "Event Combos"
@@ -944,7 +954,7 @@ CharaTeamEquipement.Row1ECombos.Name = "Row1ECombos"
 CharaTeamEquipement.Row1ECombos.Parent = CharaTeamEquipement.Combos
 CharaTeamEquipement.Row1ECombos.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 CharaTeamEquipement.Row1ECombos.BackgroundTransparency = 1.000
-CharaTeamEquipement.Row1ECombos.Position = UDim2.new(0, 0, 0.21, 0)
+CharaTeamEquipement.Row1ECombos.Position = UDim2.new(0, 0, 0.28, 0)
 CharaTeamEquipement.Row1ECombos.Size = UDim2.new(0.975, 0, 0.07, 0)
 
 --╔═══╦╗  ╔╦═══╦═══╦╗╔╗╔╦═══╦══╦════╦═══╗--
@@ -2449,6 +2459,8 @@ function WhichCOMBOSRow(v,Frame)
 			Frame.Parent = CharaTeamEquipement.Row1Combos
 		elseif v[5] == 2 then
 			Frame.Parent = CharaTeamEquipement.Row2Combos
+		elseif v[5] == 3 then
+			Frame.Parent = CharaTeamEquipement.Row3Combos
 		end
 	end
 end
