@@ -2882,8 +2882,8 @@ function updatePlayers()
 	for i, plr in pairs(game.Players:GetPlayers()) do
 	wait()
 		if plr.Name ~= User.Name then
-			local plrstat = plr.playerstats
-			local ldrstat = plr.leaderstats
+			local plrstat = plr:WaitForChild("playerstats")
+			local ldrstat = plr:WaitForChild("leaderstats")
 			local img = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 			local templateClone = template:Clone()
 			templateClone.Visible = true
@@ -2978,13 +2978,8 @@ updatePlayers()
 game.Players.PlayerAdded:Connect(updatePlayers)
 game.Players.PlayerRemoving:Connect(updatePlayers)
 
-spawn(function()
-while wait(10) do
-  updatePlayers()
-end
-end)
-while true do
+
+while task.wait(0.15) do
 	game.Players.LocalPlayer.PlayerGui:WaitForChild("OverwriteGUI")
 	UpdateWRITE()
-	wait(1)
 end
