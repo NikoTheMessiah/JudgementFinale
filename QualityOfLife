@@ -18,6 +18,7 @@ local Sounds = {
 	ClickAccept = Instance.new("Sound"),
 	Title = Instance.new("Sound"),
 	OverwriteDeny = Instance.new("Sound"),
+	SkullSpawnKefka = Instance.new("Sound"),
 }
 
 local Information = {
@@ -42,7 +43,10 @@ Sounds.Title.SoundId = "rbxassetid://1650073108"
 Sounds.Title.Parent = MainGui
 Sounds.OverwriteDeny.Parent = MainGui
 Sounds.OverwriteDeny.SoundId = "rbxassetid://8163255316"
-
+Sounds.SkullSpawnKefka.SoundId = "rbxassetid://930613220"
+Sounds.SkullSpawnKefka.PlaybackSpeed = 0.86
+Sounds.SkullSpawnKefka.Volume = 0.6
+Sounds.SkullSpawnKefka.Parent = MainGui
 
 local CharaTeamEquipement = {
 	BAG = Instance.new("Frame"),
@@ -135,6 +139,7 @@ local CharMenu = {
 local SettingScreen = {
 	SETTINGS = Instance.new("ImageLabel"),
 	Frame = Instance.new("Frame"),
+	CoinFrame = Instance.new("Frame"),
 	LightCoin = Instance.new("Frame"),
 	CoinGrabber = Instance.new("ImageButton"),
 	CoinGrabberText = Instance.new("TextLabel"),
@@ -146,7 +151,13 @@ local SettingScreen = {
 	VesselFrame = Instance.new("Frame"),
 	LightVessel = Instance.new("Frame"),
 	VesselShower = Instance.new("ImageButton"),
-	VesselText = Instance.new("TextLabel")
+	VesselText = Instance.new("TextLabel"),
+	SkullFrame = Instance.new("Frame"),
+	LightSkull = Instance.new("Frame"),
+	SkullShower = Instance.new("ImageButton"),
+	SkullText = Instance.new("TextLabel"),
+	ListLayout = Instance.new("UIListLayout"),
+
 }
 
 local OtherVessels = {
@@ -323,7 +334,7 @@ local Characters = {
 	VenomSans = {"VenomSans",1600,7238583933,8,0.328},
 	OuterDust = {"OuterDust",1750,7238598640,8,0.492},
 	AlphaSans = {"AlphaSans",2000,7238505876,8,0.656},
-   	HeroesTimeTrio = {"HeroesTimeTrio",2200,6802919804,8,0.82},
+	HeroesTimeTrio = {"HeroesTimeTrio",2200,6802919804,8,0.82},
 	ReallyBadTime = {"ReallyBadTime",2500,7238506137,9,0},
 	LastBreath = {"LastBreath",2750,5356508317,9,0.162},
 	Act3 = {"Act3",3000,7238509846,9,0.328},
@@ -335,8 +346,8 @@ local Characters = {
 	FatalError = {"FatalError",4538,7238505269,10,0.328},
 	TrueDust = {"TrueDust",4999,7238511112,10,0.492},
 	KingMultiverse = {"KingMultiverse",6500,7238594341,10,0.656},
-	InfectedSans = {"InfectedSans",8750,7238511718,10,0.82},
-	Omni = {"Omni",7500,7238571934,11,0},
+	Omni = {"Omni",7500,7238571934,10,0.82},
+	InfectedSans = {"InfectedSans",8750,7238511718,11,0},
 	Error404 = {"Error404",10000,7238513580,11,0.162}
 }
 ---	ORDER = {'1Name','2wins','3imageid','4row','5pos','6WhichEvent'}
@@ -629,8 +640,8 @@ Information.GUILINE3.BackgroundTransparency = 1.000
 Information.GUILINE3.Position = UDim2.new(0, 0, 0.072, 0)
 Information.GUILINE3.Size = UDim2.new(0.98, 0, 0.043, 0)
 Information.GUILINE3.Font = Enum.Font.SourceSans
-Information.GUILINE3.Text = "Ver 3.0.2 - Player Item Viewer Works Perfectly Now. No More (Deals)Freezing."
-Information.GUILINE3.TextColor3 = Color3.fromRGB(0, 213, 255)
+Information.GUILINE3.Text = "Ver 3.0.3 - All i literally added was skull checker and changed win requirements to right ones LOL."
+Information.GUILINE3.TextColor3 = Color3.fromRGB(0, 255, 21)
 Information.GUILINE3.TextScaled = true
 Information.GUILINE3.TextSize = 14.000
 Information.GUILINE3.TextStrokeTransparency = 0.000
@@ -1575,16 +1586,26 @@ SettingScreen.Frame.BorderColor3 = Color3.fromRGB(255, 255, 255)
 SettingScreen.Frame.BorderSizePixel = 3
 SettingScreen.Frame.Position = UDim2.new(0, 0, 0.135, 0)
 SettingScreen.Frame.Selectable = true
-SettingScreen.Frame.Size = UDim2.new(1, 0, 0.3, 0)
+SettingScreen.Frame.Size = UDim2.new(1, 0, 0.86, 0)
 
+SettingScreen.ListLayout.Parent = SettingScreen.Frame
+
+SettingScreen.CoinFrame.Name = "CoinFrame"
+SettingScreen.CoinFrame.Parent = SettingScreen.Frame
+SettingScreen.CoinFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SettingScreen.CoinFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+SettingScreen.CoinFrame.BorderSizePixel = 3
+SettingScreen.CoinFrame.Position = UDim2.new(0, 0, 0, 0)
+SettingScreen.CoinFrame.Selectable = true
+SettingScreen.CoinFrame.Size = UDim2.new(1, 0, 0.2, 0)
 
 SettingScreen.LightCoin.Name = "LightCoin"
-SettingScreen.LightCoin.Parent = SettingScreen.Frame
+SettingScreen.LightCoin.Parent = SettingScreen.CoinFrame
 SettingScreen.LightCoin.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 SettingScreen.LightCoin.BorderColor3 = Color3.fromRGB(255, 255, 255)
 SettingScreen.LightCoin.BorderSizePixel = 3
 SettingScreen.LightCoin.Selectable = true
-SettingScreen.LightCoin.Size = UDim2.new(0.27, 0, 0.5, 0)
+SettingScreen.LightCoin.Size = UDim2.new(0.27, 0, 1, 0)
 SettingScreen.LightCoin.ZIndex = 0
 
 SettingScreen.CoinGrabber.Name = "CoinGrabber"
@@ -1599,20 +1620,71 @@ SettingScreen.CoinGrabber.ZIndex = 2
 SettingScreen.CoinGrabber.Image = "http://www.roblox.com/asset/?id=865916766"
 SettingScreen.CoinGrabber.ScaleType = Enum.ScaleType.Fit
 
+
 SettingScreen.CoinGrabberText.Name = "CoinGrabberText"
-SettingScreen.CoinGrabberText.Parent = SettingScreen.Frame
+SettingScreen.CoinGrabberText.Parent = SettingScreen.CoinFrame
 SettingScreen.CoinGrabberText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 SettingScreen.CoinGrabberText.BackgroundTransparency = 1.000
 SettingScreen.CoinGrabberText.BorderColor3 = Color3.fromRGB(255, 255, 255)
 SettingScreen.CoinGrabberText.BorderSizePixel = 3
 SettingScreen.CoinGrabberText.Position = UDim2.new(0.27,0,0,0)
-SettingScreen.CoinGrabberText.Size = UDim2.new(0.738, 0, 0.5, 0)
+SettingScreen.CoinGrabberText.Size = UDim2.new(0.73, 0,1, 0)
 SettingScreen.CoinGrabberText.Font = Enum.Font.Arcade
 SettingScreen.CoinGrabberText.Text = "Coin Grabber"
 SettingScreen.CoinGrabberText.TextColor3 = Color3.fromRGB(234, 255, 0)
 SettingScreen.CoinGrabberText.TextScaled = true
 SettingScreen.CoinGrabberText.TextSize = 14.000
 SettingScreen.CoinGrabberText.TextWrapped = true
+
+SettingScreen.SkullFrame.Name = "SkullFrame"
+SettingScreen.SkullFrame.Parent = SettingScreen.Frame
+SettingScreen.SkullFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SettingScreen.SkullFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+SettingScreen.SkullFrame.BorderSizePixel = 3
+SettingScreen.SkullFrame.Position = UDim2.new(0, 0, 0, 0)
+SettingScreen.SkullFrame.Selectable = true
+SettingScreen.SkullFrame.Size = UDim2.new(1, 0, 0.2, 0)
+
+SettingScreen.LightSkull.Name = "LightSkull"
+SettingScreen.LightSkull.Parent = SettingScreen.SkullFrame
+SettingScreen.LightSkull.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+SettingScreen.LightSkull.BorderColor3 = Color3.fromRGB(255, 255, 255)
+SettingScreen.LightSkull.BorderSizePixel = 3
+SettingScreen.LightSkull.Selectable = true
+SettingScreen.LightSkull.Size = UDim2.new(0.27, 0, 1, 0)
+SettingScreen.LightSkull.ZIndex = 0
+
+SettingScreen.SkullShower.Name = "SkullShower"
+SettingScreen.SkullShower.Parent = SettingScreen.LightSkull
+SettingScreen.SkullShower.AnchorPoint = Vector2.new(0.5, 0.5)
+SettingScreen.SkullShower.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SettingScreen.SkullShower.BackgroundTransparency = 1.000
+SettingScreen.SkullShower.BorderSizePixel = 0
+SettingScreen.SkullShower.Position = UDim2.new(0.5, 0, 0.5, 0)
+SettingScreen.SkullShower.Size = UDim2.new(1, 0, 1, 0)
+SettingScreen.SkullShower.ZIndex = 2
+SettingScreen.SkullShower.Image = "http://www.roblox.com/asset/?id=8509514841"
+SettingScreen.SkullShower.ImageColor3 = Color3.fromRGB(0,0,0)
+SettingScreen.SkullShower.ScaleType = Enum.ScaleType.Fit
+
+
+SettingScreen.SkullText.Name = "SkullText"
+SettingScreen.SkullText.Parent = SettingScreen.SkullFrame
+SettingScreen.SkullText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SettingScreen.SkullText.BackgroundTransparency = 1.000
+SettingScreen.SkullText.BorderColor3 = Color3.fromRGB(255, 255, 255)
+SettingScreen.SkullText.BorderSizePixel = 3
+SettingScreen.SkullText.Position = UDim2.new(0.27,0,0,0)
+SettingScreen.SkullText.Size = UDim2.new(0.73, 0,0.98, 0)
+SettingScreen.SkullText.Font = Enum.Font.Arcade
+SettingScreen.SkullText.Text = "Skull Shower"
+SettingScreen.SkullText.TextColor3 = Color3.fromRGB(0, 0, 0)
+SettingScreen.SkullText.TextStrokeColor3 = Color3.fromRGB(60, 0, 190)
+SettingScreen.SkullText.TextStrokeTransparency = 0
+SettingScreen.SkullText.TextScaled = true
+SettingScreen.SkullText.TextSize = 14.000
+SettingScreen.SkullText.TextWrapped = true
+
 
 SettingScreen.Cog.Name = "Cog"
 SettingScreen.Cog.Parent = SettingScreen.SETTINGS
@@ -1677,7 +1749,7 @@ SettingScreen.VesselFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
 SettingScreen.VesselFrame.BorderSizePixel = 3
 SettingScreen.VesselFrame.Position = UDim2.new(0, 0, 0.5, 0)
 SettingScreen.VesselFrame.Selectable = true
-SettingScreen.VesselFrame.Size = UDim2.new(1, 0, 0.5, 0)
+SettingScreen.VesselFrame.Size = UDim2.new(1, 0, 0.2, 0)
 
 SettingScreen.LightVessel.Name = "LightVessel"
 SettingScreen.LightVessel.Parent = SettingScreen.VesselFrame
@@ -1692,7 +1764,7 @@ SettingScreen.VesselShower.Name = "VesselShower"
 SettingScreen.VesselShower.Parent = SettingScreen.LightVessel
 SettingScreen.VesselShower.AnchorPoint = Vector2.new(0.5, 0.5)
 SettingScreen.VesselShower.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SettingScreen.VesselShower.BackgroundTransparency = 1.000
+SettingScreen.VesselShower.BackgroundTransparency = 1
 SettingScreen.VesselShower.BorderSizePixel = 0
 SettingScreen.VesselShower.Position = UDim2.new(0.5, 0, 0.5, 0)
 SettingScreen.VesselShower.Size = UDim2.new(1, 0, 0.5, 0)
@@ -2256,7 +2328,7 @@ end)
 CharaTeamEquipement.EQWEAPONS.MouseButton1Click:Connect(function()
 	if CharaTeamEquipement.Weapons.Visible == false then
 		for i,v in pairs(CharaTeamEquipement.BagFrame:GetChildren()) do
-				v.Visible = false
+			v.Visible = false
 			CharaTeamEquipement.Weapons.Visible = true
 			if v.Name == "EQUIPEMENT" then
 				v.Visible = true
@@ -2291,6 +2363,7 @@ end)
 
 
 local GoldGrabber = Instance.new("BoolValue",SettingScreen.CoinGrabber)
+
 GoldGrabber.Value = false
 GoldGrabber.Name = "GoldValue1"
 SettingScreen.CoinGrabber.MouseButton1Click:Connect(function()
@@ -2307,7 +2380,7 @@ GoldGrabber.Changed:Connect(function()
 					firetouchinterest(User.Character.HumanoidRootPart,v.Coin,1)
 				end
 			end
-			wait(1)
+			task.wait(0.1)
 		until GoldGrabber.Value == false
 	end	
 	if GoldGrabber.Value == false then
@@ -2315,7 +2388,56 @@ GoldGrabber.Changed:Connect(function()
 	end
 end)
 
+local SkullAppearance = Instance.new("BoolValue",SettingScreen.SkullShower)
 
+SettingScreen.SkullShower.MouseButton1Click:Connect(function()
+	SkullAppearance.Value = not SkullAppearance.Value
+	if SkullAppearance.Value == false then
+		SettingScreen.LightSkull.BackgroundColor3 = Color3.fromRGB(255,0,0)
+	end
+	if SkullAppearance.Value == true then
+		SettingScreen.LightSkull.BackgroundColor3 = Color3.fromRGB(0,255,0)
+	end
+	print("SApper",SkullAppearance.Value)
+end)
+
+SkullAppearance.Changed:Connect(function()
+	if SkullAppearance.Value == true then
+		repeat
+			for i,v in pairs(game.Workspace:GetChildren()) do
+				if v.Name == "Skull" then
+					if v:FindFirstChild("SO") then	
+					else
+						local SoulOutline = Instance.new("Highlight",v) 
+						SoulOutline.Adornee = SoulOutline.Parent
+						SoulOutline.Name = "SO"
+						SoulOutline.FillTransparency = 1
+						SoulOutline.OutlineColor = Color3.fromRGB(0,100,255)
+						SoulOutline.DepthMode = 0
+					end
+				end
+			end
+			task.wait(0.2)
+		until SkullAppearance.Value == false		
+	end
+end)
+
+workspace.ChildAdded:Connect(function(PossiblePart)
+	if SkullAppearance.Value == true then
+		if PossiblePart.Name == "Skull" then
+			if PossiblePart:FindFirstChild("SO") then	
+			else
+				local SoulOutline = Instance.new("Highlight",PossiblePart) 
+				SoulOutline.Adornee = SoulOutline.Parent
+				SoulOutline.Name = "SO"
+				SoulOutline.FillTransparency = 1
+				SoulOutline.OutlineColor = Color3.fromRGB(0,100,255)
+				SoulOutline.DepthMode = 0		
+				SoundService:PlayLocalSound(Sounds.SkullSpawnKefka)
+			end
+		end		
+	end
+end)
 
 function ScreenSwapSanses(Name)
 	if Name == "EQNORMAL" then
@@ -2364,7 +2486,6 @@ function ScreenSwapSanses(Name)
 		CharMenu.RedEvo.Visible = true
 		CharMenu.EvoDustRows.Visible = false
 		CharMenu.EvoGenoRows.Visible = false
-
 	end
 	SoundService:PlayLocalSound(Sounds.ClickAccept)
 end
@@ -2406,7 +2527,7 @@ CharMenu.EQRESET.MouseButton1Click:Connect(function()
 end)
 
 CharMenu.DustMenu.MouseButton1Click:Connect(function()
-	
+
 end)
 
 CharMenu.FatalMenu.MouseButton1Click:Connect(function()
@@ -2414,7 +2535,7 @@ CharMenu.FatalMenu.MouseButton1Click:Connect(function()
 end)
 
 CharMenu.RedEvo.MouseButton1Click:Connect(function()
-	
+
 end)
 
 function WhichWeaponRows(v,Frame)
@@ -2563,7 +2684,7 @@ local CombosLoading = coroutine.create(function()
 						Remotes.ChangeSoul:FireServer(v[11])
 					else
 						SoundService:PlayLocalSound(Sounds.ClickDeny)
-						end
+					end
 				elseif v[7] == 1 then
 					if v[1] == "Insanity" then
 						if InsanityLocked == false then
@@ -2880,7 +3001,7 @@ function updatePlayers()
 	end
 
 	for i, plr in pairs(game.Players:GetPlayers()) do
-	wait()
+		wait()
 		if plr.Name ~= User.Name then
 			local plrstat = plr:WaitForChild("playerstats")
 			local ldrstat = plr:WaitForChild("leaderstats")
@@ -2898,9 +3019,9 @@ function updatePlayers()
 			if plrstat.CurrentMonster.Value == "UnderverseNM" then
 				templateClone.CHARACTER.Text = "Vessel: UV!Killer"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoBadTime" then
-					templateClone.CHARACTER.Text = "Vessel: EvoSans"
+				templateClone.CHARACTER.Text = "Vessel: EvoSans"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoGeno" then
-					templateClone.CHARACTER.Text = "Vessel: EvoGeno"
+				templateClone.CHARACTER.Text = "Vessel: EvoGeno"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoError" then
 				templateClone.CHARACTER.Text = "Vessel: EvoError"
 			elseif plrstat.CurrentMonster.Value == "EvoGenoFatal" then
@@ -2971,7 +3092,7 @@ User.leaderstats.Wins.Changed:Connect(function()
 	else
 		OWValue = false	
 	end
-	
+
 end)
 
 updatePlayers()
