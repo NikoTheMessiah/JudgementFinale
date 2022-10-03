@@ -2398,7 +2398,6 @@ SettingScreen.SkullShower.MouseButton1Click:Connect(function()
 	if SkullAppearance.Value == true then
 		SettingScreen.LightSkull.BackgroundColor3 = Color3.fromRGB(0,255,0)
 	end
-	print("SApper",SkullAppearance.Value)
 end)
 
 SkullAppearance.Changed:Connect(function()
@@ -2408,12 +2407,14 @@ SkullAppearance.Changed:Connect(function()
 				if v.Name == "Skull" then
 					if v:FindFirstChild("SO") then	
 					else
+						SoulOutline.Enabled = false
 						local SoulOutline = Instance.new("Highlight",v) 
 						SoulOutline.Adornee = SoulOutline.Parent
 						SoulOutline.Name = "SO"
 						SoulOutline.FillTransparency = 1
 						SoulOutline.OutlineColor = Color3.fromRGB(0,100,255)
 						SoulOutline.DepthMode = 0
+						SoulOutline.Enabled = true
 					end
 				end
 			end
@@ -2427,13 +2428,15 @@ workspace.ChildAdded:Connect(function(PossiblePart)
 		if PossiblePart.Name == "Skull" then
 			if PossiblePart:FindFirstChild("SO") then	
 			else
-				local SoulOutline = Instance.new("Highlight",PossiblePart) 
+				local SoulOutline = Instance.new("Highlight",PossiblePart)
+				SoulOutline.Enabled = false
 				SoulOutline.Adornee = SoulOutline.Parent
 				SoulOutline.Name = "SO"
 				SoulOutline.FillTransparency = 1
 				SoulOutline.OutlineColor = Color3.fromRGB(0,100,255)
 				SoulOutline.DepthMode = 0		
 				SoundService:PlayLocalSound(Sounds.SkullSpawnKefka)
+				SoulOutline.Enabled = true
 			end
 		end		
 	end
