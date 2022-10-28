@@ -363,6 +363,7 @@ local EventCharacters = {
 	SuperScienceSans = {"SSS",2542,9269379681,2,0,2125769639},
 	Krampus = {"Krampus",2700,1489171774,2,0.162,2124887950},
 	Death = {"Death",3333,7932480079,2,0.328,2124855184},
+	ReaperChara = {"ReaperChara",6666,552409967,2,0.492,212886061},
 }
 --	ORDER = {"1Name","2Wins","3ImageId","4Row","5Pos"},
 
@@ -404,7 +405,8 @@ local BADGECHARACTERS = {
 	NoMercyID = {"NoMercy",2124711898},
 	Halloween2021ID = {"Halloween2021",2124855184},
 	Christmas2021ID = {"Christmas2021",2124887950},
-	AprilFools2020ID = {"AprilFools2022",2125769639}
+	AprilFools2022ID = {"AprilFools2022",2125769639}
+	ReaperChara2022ID = {"ReaperChara",212886061}
 }
 local UnUsedBADGES = {
 	ERROR404ID = {"Error404",2124599251},
@@ -421,6 +423,7 @@ local NoMercyLocked = true
 local Halloween2021Locked = true
 local Christmas2021Locked = true
 local AprilFools2022 = true
+local ReaperChara2022Locked = true
 local DustLocked = true
 local GenoLocked = true
 local RedLocked = true
@@ -455,6 +458,9 @@ function IDAccepted(AName)
 	end
 	if AName == "AprilFools2022" then
 		AprilFools2022 = false
+	end
+	if AName == "ReaperChara" then
+		ReaperChara2022Locked = false
 	end
 
 	if AName == "Dust" then
@@ -2402,6 +2408,13 @@ SettingScreen.SkullShower.MouseButton1Click:Connect(function()
 	end
 end)
 
+local SkullOutline = Instance.new("Highlight",game.ReplicatedStorage)
+SkullOutline.Enabled = false
+SkullOutline.Name = "SO"
+SkullOutline.OutlineColor = Color3.fromRGB(0,100,255)
+SkullOutline.DepthMode = 0
+SkullOutline.FillTransparency = 1
+
 SkullAppearance.Changed:Connect(function()
 	if SkullAppearance.Value == true then
 		repeat
@@ -2409,14 +2422,9 @@ SkullAppearance.Changed:Connect(function()
 				if v.Name == "Skull" then
 					if v:FindFirstChild("SO") then	
 					else
-						SoulOutline.Enabled = false
-						local SoulOutline = Instance.new("Highlight",v) 
-						SoulOutline.Adornee = SoulOutline.Parent
-						SoulOutline.Name = "SO"
-						SoulOutline.FillTransparency = 1
-						SoulOutline.OutlineColor = Color3.fromRGB(0,100,255)
-						SoulOutline.DepthMode = 0
-						SoulOutline.Enabled = true
+						local SO = SkullOutline:Clone()
+						SO.Parent = v
+						SO.Enabled = true
 					end
 				end
 			end
@@ -2429,16 +2437,12 @@ workspace.ChildAdded:Connect(function(PossiblePart)
 	if SkullAppearance.Value == true then
 		if PossiblePart.Name == "Skull" then
 			if PossiblePart:FindFirstChild("SO") then	
+			
 			else
-				local SoulOutline = Instance.new("Highlight",PossiblePart)
-				SoulOutline.Enabled = false
-				SoulOutline.Adornee = SoulOutline.Parent
-				SoulOutline.Name = "SO"
-				SoulOutline.FillTransparency = 1
-				SoulOutline.OutlineColor = Color3.fromRGB(0,100,255)
-				SoulOutline.DepthMode = 0		
+				local SO = SkullOutline:Clone()
+				SO.Parent = PossiblePart
+				SO.Enabled = true
 				SoundService:PlayLocalSound(Sounds.SkullSpawnKefka)
-				SoulOutline.Enabled = true
 			end
 		end		
 	end
@@ -2978,6 +2982,14 @@ for i,v in pairs(EventCharacters) do
 				end
 			elseif v[1] == "SSS" then
 				if AprilFools2022 == false then
+					SoundService:PlayLocalSound(Sounds.ClickAccept)
+					Remotes.ChangePlayerSans:FireServer(v[1])
+				else
+					Played = true
+					SoundService:PlayLocalSound(Sounds.ClickDeny)
+				end
+			elseif v[1] == "ReaperChara" then
+				if ReaperCharaLocked == false then
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
 				else
