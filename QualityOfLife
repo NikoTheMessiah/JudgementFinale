@@ -648,8 +648,8 @@ Information.GUILINE3.BackgroundTransparency = 1.000
 Information.GUILINE3.Position = UDim2.new(0, 0, 0.072, 0)
 Information.GUILINE3.Size = UDim2.new(0.98, 0, 0.043, 0)
 Information.GUILINE3.Font = Enum.Font.SourceSans
-Information.GUILINE3.Text = "Ver 3.0.4 - Integrity Combos, yipee."
-Information.GUILINE3.TextColor3 = Color3.fromRGB(0, 90,255)
+Information.GUILINE3.Text = "Ver 3.0.5 - Reaper Chair"
+Information.GUILINE3.TextColor3 = Color3.fromRGB(255,75,0)
 Information.GUILINE3.TextScaled = true
 Information.GUILINE3.TextSize = 14.000
 Information.GUILINE3.TextStrokeTransparency = 0.000
@@ -2989,7 +2989,7 @@ for i,v in pairs(EventCharacters) do
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "ReaperChara" then
-				if ReaperCharaLocked == false then
+				if ReaperChara2022Locked == false then
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
 				else
