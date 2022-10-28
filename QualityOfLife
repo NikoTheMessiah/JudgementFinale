@@ -405,7 +405,7 @@ local BADGECHARACTERS = {
 	NoMercyID = {"NoMercy",2124711898},
 	Halloween2021ID = {"Halloween2021",2124855184},
 	Christmas2021ID = {"Christmas2021",2124887950},
-	AprilFools2022ID = {"AprilFools2022",2125769639}
+	AprilFools2022ID = {"AprilFools2022",2125769639},
 	ReaperChara2022ID = {"ReaperChara",212886061}
 }
 local UnUsedBADGES = {
