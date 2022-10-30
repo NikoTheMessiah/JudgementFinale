@@ -3132,23 +3132,31 @@ end)
 local Executor = identifyexecutor()
 
 if Executor == "Synapse" then
-queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))())
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.InProgress then
-    	if not game:IsLoaded() then
+    if State == Enum.TeleportState.Started then
+    syn.queue_on_teleport(
+    	[[
+	if not game:IsLoaded() then
 		game.Loaded:Wait()
 	end
+	task.wait(0.5)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))()
+	]])
+  
 	task.wait(0.5)
     end
 end)
 elseif Executor == "Krnl" then
-syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))())
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.InProgress then
-    	if not game:IsLoaded() then
+    if State == Enum.TeleportState.Started then
+    	queue_on_teleport(
+    	[[
+	if not game:IsLoaded() then
 		game.Loaded:Wait()
 	end
 	task.wait(0.5)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))()
+	]])
     end
 end)
 end
