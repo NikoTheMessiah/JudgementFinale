@@ -1,5 +1,6 @@
 repeat wait() until game:IsLoaded()
 print(game.PlaceId)
+
 if game.PlaceId == 4994661268 then
 
 print("yes")
