@@ -1,5 +1,4 @@
 repeat wait() until game:IsLoaded()
-print(game.PlaceId)
 
 if game.PlaceId == 4994661268 then
 
@@ -3132,11 +3131,21 @@ local Executor = identifyexecutor()
 local Job = game.JobId
 
 if Executor == "Synapse" then
-syn.queue_on_teleport([[loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/TestFinale'))()]])
+syn.queue_on_teleport([[
+local REPEATFUNCTION = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/TestFinale'))()
+end
+REPEATFUNCTION()
+]])
 print("Teleported")
 elseif Executor == "Krnl" then
-queue_on_teleport([[print("Teleported") loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/TestFinale'))()]])
-print("Teleported")
+queue_on_teleport([[
+local REPEATFUNCTION = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/TestFinale'))()
+end
+REPEATFUNCTION()
+]])
+
 end
 
 
