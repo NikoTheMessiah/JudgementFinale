@@ -3133,7 +3133,7 @@ local Executor = identifyexecutor()
 
 if Executor == "Synapse" then
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
+    if State == Enum.TeleportState.InProgress then
     syn.queue_on_teleport(
     	[[
 	if not game:IsLoaded() then
@@ -3148,7 +3148,7 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
 end)
 elseif Executor == "Krnl" then
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
+    if State == Enum.TeleportState.InProgress then
     	queue_on_teleport(
     	[[
 	if not game:IsLoaded() then
