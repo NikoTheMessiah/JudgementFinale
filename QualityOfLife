@@ -3095,11 +3095,6 @@ function updatePlayers()
 	end
 end
 
-game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
-        syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))())
-    end
-end)
 print("Loaded.")
 
 MainButtonList.MainButtons:TweenPosition(UDim2.new(0.5,0,0.056,0),Enum.EasingDirection.Out,Enum.EasingStyle.Back,1)
@@ -3130,12 +3125,18 @@ end
 end)
 
 local Executor = identifyexecutor()
-
+local Job = game.JobId
 if Executor == "Synapse" then
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.InProgress then
     syn.queue_on_teleport(
     	[[
+	if game.JobId == Job then
+	repeat
+	task.wait(0.1)
+	
+	until game.JobId ~= Job
+	end
 	if not game:IsLoaded() then
 		game.Loaded:Wait()
 	end
@@ -3151,6 +3152,12 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.InProgress then
     	queue_on_teleport(
     	[[
+	if game.JobId == Job then
+	repeat
+	task.wait(0.1)
+	
+	until game.JobId ~= Job
+	end
 	if not game:IsLoaded() then
 		game.Loaded:Wait()
 	end
