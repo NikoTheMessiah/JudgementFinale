@@ -1,7 +1,13 @@
+if game.PlaceId == 4994661268 then
+
 local MS = game:GetService("MarketplaceService")
 local MainGui = Instance.new("ScreenGui")
 local User = game:GetService("Players").LocalPlayer
 
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+task.wait(0.5)
 
 MainGui.Name = "MainGui"
 MainGui.Parent = game.CoreGui
@@ -3094,7 +3100,11 @@ function updatePlayers()
 	end
 end
 
-
+game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))())
+    end
+end)
 print("Loaded.")
 
 MainButtonList.MainButtons:TweenPosition(UDim2.new(0.5,0,0.056,0),Enum.EasingDirection.Out,Enum.EasingStyle.Back,1)
@@ -3117,8 +3127,27 @@ updatePlayers()
 game.Players.PlayerAdded:Connect(updatePlayers)
 game.Players.PlayerRemoving:Connect(updatePlayers)
 
-
-while task.wait(0.15) do
+spawn(function()
+while task.wait(0.1) do
 	game.Players.LocalPlayer.PlayerGui:WaitForChild("OverwriteGUI")
 	UpdateWRITE()
+end
+end)
+
+local Executor = identifyexecutor()
+
+if Executor == "Synapse" then
+game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))())
+    end
+end)
+elseif Executor == "Krnl" then
+game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))())
+    end
+end)
+end
+
 end
