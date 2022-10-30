@@ -1,5 +1,5 @@
 if game.PlaceId == 4994661268 then
-
+print("yes")
 local MS = game:GetService("MarketplaceService")
 local MainGui = Instance.new("ScreenGui")
 local User = game:GetService("Players").LocalPlayer
@@ -3132,7 +3132,7 @@ syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.co
 elseif Executor == "Krnl" then
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))()')
 end
-
+print("e")
 
 
 
