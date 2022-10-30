@@ -3128,13 +3128,13 @@ local Executor = identifyexecutor()
 local Job = game.JobId
 if Executor == "Synapse" then
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.InProgress then
+    if State == Enum.TeleportState.WaitingForServer then
     syn.queue_on_teleport(
     	[[
 	if game.JobId == Job then
 	repeat
 	task.wait(0.1)
-	
+	print("spamton")
 	until game.JobId ~= Job
 	end
 	if not game:IsLoaded() then
@@ -3149,13 +3149,13 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
 end)
 elseif Executor == "Krnl" then
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.InProgress then
+    if State == Enum.TeleportState.WaitingForServer then
     	queue_on_teleport(
     	[[
 	if game.JobId == Job then
 	repeat
 	task.wait(0.1)
-	
+	print("spamton")
 	until game.JobId ~= Job
 	end
 	if not game:IsLoaded() then
