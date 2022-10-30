@@ -3134,8 +3134,8 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
         syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))()')
 	print("'Hear No.'")
     end
-end)
 end
+end)
 elseif Executor == "Krnl" then
 spawn(function()
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
@@ -3143,8 +3143,8 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
         queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife"))()')
 	print("'Hear No.'")
     end
-end)
 end
+end)
 end
 print("See No Evil.")
 
