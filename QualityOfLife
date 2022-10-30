@@ -3131,9 +3131,11 @@ local Executor = identifyexecutor()
 local Job = game.JobId
 
 if Executor == "Synapse" then
-syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife'))()")
+syn.queue_on_teleport([[loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife'))()]])
+print("Teleported")
 elseif Executor == "Krnl" then
-queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife'))()")
+queue_on_teleport([[loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/QualityOfLife'))()]])
+print("Teleported")
 end
 
 
