@@ -2,6 +2,7 @@ repeat wait() until game:IsLoaded()
 
 if game.PlaceId == 4994661268 then
 
+getgenv().CDEquip = false
 local MS = game:GetService("MarketplaceService")
 local MainGui = Instance.new("ScreenGui")
 local User = game:GetService("Players").LocalPlayer
@@ -280,13 +281,13 @@ local Combos = {
 	Kindness = {"Kindness",600,8949845574,Color3.fromRGB(0,255,0),2,0.328,0,0,"BurntPan","Apron","Kindness"},
 	Undyne = {"Undyne",600,6439391991,Color3.fromRGB(0,255,0),2,0.492,0,0,"Spear","UndyneArmor","Kindness"},
 	Horror = {"Horror",800,10340017243,Color3.fromRGB(255,255,255),2,0.656,0,0,"HorrorAxe","KillerSoul","HATE"},
-	XCross = {"XCross",1000,7242921777,Color3.fromRGB(255,0,0),3,0,0,0,"CrossCharaKnife","CharaLocket","Determination"},
-	FatalError = {"FatalError",1886,7234863160,Color3.fromRGB(255,0,0),3,0.162,0,0,"FatalBone","404Jacket","Determination"},
-	ReaperSans = {"ReaperSans",2000,7838043326,Color3.fromRGB(180,180,255),3,0.328,0,0,"ReaperScythe","ReaperCloak","Integrity"},
-	SwapKnife = {"SwapCombo",2500,4811127868,Color3.fromRGB(255,255,255),3,0.492,0,0,"SwapKnife","Locket","Determination"},
-	XChara = {"XChara",4000,7242915695,Color3.fromRGB(255,255,255),3,0.656,0,0,"CrossCharaKnife","CharaLocket","OVERWRITE"},
-	DTStick = {"DTStick",1250,7242904504,Color3.fromRGB(255,0,0),3,0.82,0,1,"Stick","Bandage","Determination"},
-	ASGORE = {"6SoulAsgore",4000,6424309172,Color3.fromRGB(255,255,255),4,0,0,1,"Trident","AsgoreArmor","Rainbow"},
+	XCross = {"XCross",1000,7242921777,Color3.fromRGB(255,0,0),2,0.82,0,0,"CrossCharaKnife","CharaLocket","Determination"},
+	FatalError = {"FatalError",1886,7234863160,Color3.fromRGB(255,0,0),3,0,0,0,"FatalBone","404Jacket","Determination"},
+	ReaperSans = {"ReaperSans",2000,7838043326,Color3.fromRGB(180,180,255),3,0.162,0,0,"ReaperScythe","ReaperCloak","Integrity"},
+	SwapKnife = {"SwapCombo",2500,4811127868,Color3.fromRGB(255,255,255),3,0.328,0,0,"SwapKnife","Locket","Determination"},
+	XChara = {"XChara",4000,7242915695,Color3.fromRGB(255,255,255),3,0.492,0,0,"CrossCharaKnife","CharaLocket","OVERWRITE"},
+	DTStick = {"DTStick",1250,7242904504,Color3.fromRGB(255,0,0),3,0.656,0,1,"Stick","Bandage","Determination"},
+	ASGORE = {"6SoulAsgore",4000,6424309172,Color3.fromRGB(255,255,255),3,0.82,0,1,"Trident","AsgoreArmor","Rainbow"},
 	-----EVENT-----
 	Christmas = {"Christmas",500,2452492483,Color3.fromRGB(255,255,255),1,0,1,0,"CandyCaneSword",0,"Perseverance"},
 	Insanity = {"Insanity",1000,7234826938,Color3.fromRGB(255,255,255),1,0.162,1,0,"PapyrusHead",0,"Determination"}
@@ -2684,44 +2685,61 @@ local CombosLoading = coroutine.create(function()
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
 			if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
 				if v[8] == 0 then
-					if v[7] == 0 then
+					if v[7] == 0 and CDEquip == false then
+						CDEquip = true
 						SoundService:PlayLocalSound(Sounds.ClickAccept)
 						Remotes.ChangePlayerWeapon:FireServer(v[9])
+						task.wait(0.05)
 						Remotes.ChangePlayerArmor:FireServer(v[10])
+						task.wait(0.05)
 						Remotes.ChangeSoul:FireServer(v[11])
+						task.wait(0.05)
+						CDEquip = false
 					end
 				end
 				if v[8] == 1 then
-					if User.playerstats.RESET.Value == 1 then
+					if User.playerstats.RESET.Value == 1 and CDEquip == false then
+						CDEquip = true
 						SoundService:PlayLocalSound(Sounds.ClickAccept)
 						Remotes.ChangePlayerWeapon:FireServer(v[9])
+						task.wait(0.05)
 						Remotes.ChangePlayerArmor:FireServer(v[10])
+						task.wait(0.05)
 						Remotes.ChangeSoul:FireServer(v[11])
+						task.wait(0.05)
+						CDEquip = false
 					else
 						SoundService:PlayLocalSound(Sounds.ClickDeny)
 					end
 				elseif v[7] == 1 then
 					if v[1] == "Insanity" then
-						if InsanityLocked == false then
+						if InsanityLocked == false and CDEquip == false then
+							CDEquip = true
 							SoundService:PlayLocalSound(Sounds.ClickAccept)
 							Remotes.ChangePlayerWeapon:FireServer(v[9])
-							Remotes.ChangePlayerArmor:FireServer("DTShield")
+							task.wait(0.05)
 							Remotes.ChangePlayerArmor:FireServer("404Jacket")
+							task.wait(0.05)
 							Remotes.ChangeSoul:FireServer(v[11])
+							task.wait(0.05)
+							CDEquip = false
 						else 
 							SoundService:PlayLocalSound(Sounds.ClickDeny)
 						end
 					else
 						if v[1] == "Christmas" then
-							if Christmas2020Locked == false then
+							if Christmas2020Locked == false and CDEquip == false then
+								CDEquip = true
 								SoundService:PlayLocalSound(Sounds.ClickAccept)
 								Remotes.ChangePlayerWeapon:FireServer(v[9])
-								Remotes.ChangePlayerArmor:FireServer("DTShield")
+								task.wait(0.05)
 								Remotes.ChangePlayerArmor:FireServer("404Jacket")
+								task.wait(0.05)
 								Remotes.ChangeSoul:FireServer(v[11])
+								task.wait(0.05)
+								CDEquip = false
 							else
 								SoundService:PlayLocalSound(Sounds.ClickDeny)
-
 							end
 						end
 					end
@@ -2749,9 +2767,12 @@ local SoulLoading = coroutine.create(function()
 		Frame.TemplateButton.ScaleType = Enum.ScaleType.Fit
 		Frame.Visible = true 
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
-			if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
+			if User:WaitForChild("leaderstats").Wins.Value >= v[2] and CDEquip == false then
+				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangeSoul:FireServer(v[1])
+				task.wait(0.05)
+				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
 			end	
@@ -2770,9 +2791,12 @@ local ArmorLoading = coroutine.create(function()
 		Frame.TemplateButton.ScaleType = Enum.ScaleType.Fit
 		Frame.Visible = true
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
-			if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
+			if User:WaitForChild("leaderstats").Wins.Value >= v[2] and CDEquip == false then
+				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerArmor:FireServer(v[1])
+				task.wait(0.05)
+				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
 			end	
@@ -2791,9 +2815,12 @@ local WeaponLoading = coroutine.create(function()
 		Frame.TemplateButton.ScaleType = Enum.ScaleType.Fit
 		Frame.Visible = true
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
-			if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
+			if User:WaitForChild("leaderstats").Wins.Value >= v[2] and CDEquip == false  then
+				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerWeapon:FireServer(v[1])
+				task.wait(0.05)
+				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
 			end
@@ -2813,9 +2840,12 @@ local RESETCharLoading = coroutine.create(function()
 		Frame.Visible = true
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
 			if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
-				if User.playerstats.RESET.Value == 1 then
+				if User.playerstats.RESET.Value == 1 and CDEquip == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
-					Remotes.ChangePlayerWeapon:FireServer(v[1])
+					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false
 				else
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
@@ -2839,9 +2869,12 @@ local CharacterLoading = coroutine.create(function()
 		Frame.TemplateButton.TemplateWins.Text = "Wins: "..v[2]
 		Frame.Visible = true
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
-			if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
+			if User:WaitForChild("leaderstats").Wins.Value >= v[2] and CDEquip == false then
+				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerSans:FireServer(v[1])
+				task.wait(0.05)
+				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
 			end
@@ -2860,9 +2893,12 @@ local DustLoading = coroutine.create(function()
 		Frame.Visible = true
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
 			if DustLocked == false then
-				if User:WaitForChild("leaderstats").DustEXP.Value >= v[2] then
-					SoundService:PlayLocalSound(Sounds.ClickAccept)
-					Remotes.ChangePlayerSans:FireServer(v[1])
+				if User:WaitForChild("leaderstats").DustEXP.Value >= v[2] and CDEquip == false then
+				CDEquip = true
+				SoundService:PlayLocalSound(Sounds.ClickAccept)
+				Remotes.ChangePlayerSans:FireServer(v[1])
+				task.wait(0.05)
+				CDEquip = false
 				end
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2891,9 +2927,12 @@ local GenoLoading = coroutine.create(function()
 		Frame.Visible = true
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
 			if GenoLocked == false then
-				if User:WaitForChild("leaderstats").GenoEXP.Value >= v[2] then
+				if User:WaitForChild("leaderstats").GenoEXP.Value >= v[2] and CDEquip == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false
 				end
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2922,82 +2961,112 @@ for i,v in pairs(EventCharacters) do
 	local Played = false
 
 	Frame.TemplateButton.MouseButton1Click:Connect(function()
-		if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
+		if User:WaitForChild("leaderstats").Wins.Value >= v[2] and CDEquip == false then
 			if v[1] == "Gaster" then
 				if GasterLocked == false then 
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
-					Remotes.ChangePlayerSans:FireServer(v[1])		
+					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false	
 				else
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end			
 			elseif v[1] == "FontSans" then
 				if SpareLocked == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
-					Remotes.ChangePlayerSans:FireServer(v[1])		
+					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false		
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "Sansta" then
 				if Christmas2020Locked == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
-					Remotes.ChangePlayerSans:FireServer(v[1])		
+					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false		
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "SuddenChanges" then
 				if SuddenLocked == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
-					Remotes.ChangePlayerSans:FireServer(v[1])		
+					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false		
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "NMDChara" then
 				if NMDLocked == false then 
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
-					Remotes.ChangePlayerSans:FireServer(v[1])		
+					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false		
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "HardmodeInsanity" then
 				if InsanityLocked == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "Krampus" then
 				if Christmas2021Locked == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "Death" then
 				if Halloween2021Locked == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
-					Remotes.ChangePlayerSans:FireServer(v[1])			
+					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false			
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "SSS" then
 				if AprilFools2022 == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
 				end
 			elseif v[1] == "ReaperChara" then
 				if ReaperChara2022Locked == false then
+					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
+					task.wait(0.05)
+					CDEquip = false
 				else
 					Played = true
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
