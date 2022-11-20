@@ -2693,7 +2693,7 @@ local CombosLoading = coroutine.create(function()
 						Remotes.ChangePlayerArmor:FireServer(v[10])
 						task.wait(0.05)
 						Remotes.ChangeSoul:FireServer(v[11])
-						task.wait(0.05)
+						task.wait(0.075)
 						CDEquip = false
 					end
 				end
@@ -2706,7 +2706,7 @@ local CombosLoading = coroutine.create(function()
 						Remotes.ChangePlayerArmor:FireServer(v[10])
 						task.wait(0.05)
 						Remotes.ChangeSoul:FireServer(v[11])
-						task.wait(0.05)
+						task.wait(0.075)
 						CDEquip = false
 					else
 						SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2721,7 +2721,7 @@ local CombosLoading = coroutine.create(function()
 							Remotes.ChangePlayerArmor:FireServer("404Jacket")
 							task.wait(0.05)
 							Remotes.ChangeSoul:FireServer(v[11])
-							task.wait(0.05)
+							task.wait(0.075)
 							CDEquip = false
 						else 
 							SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2736,7 +2736,7 @@ local CombosLoading = coroutine.create(function()
 								Remotes.ChangePlayerArmor:FireServer("404Jacket")
 								task.wait(0.05)
 								Remotes.ChangeSoul:FireServer(v[11])
-								task.wait(0.05)
+								task.wait(0.075)
 								CDEquip = false
 							else
 								SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2771,7 +2771,7 @@ local SoulLoading = coroutine.create(function()
 				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangeSoul:FireServer(v[1])
-				task.wait(0.05)
+				task.wait(0.075)
 				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2795,7 +2795,7 @@ local ArmorLoading = coroutine.create(function()
 				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerArmor:FireServer(v[1])
-				task.wait(0.05)
+				task.wait(0.075)
 				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2815,11 +2815,11 @@ local WeaponLoading = coroutine.create(function()
 		Frame.TemplateButton.ScaleType = Enum.ScaleType.Fit
 		Frame.Visible = true
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
-			if User:WaitForChild("leaderstats").Wins.Value >= v[2] and CDEquip == false  then
+			if User:WaitForChild("leaderstats").Wins.Value >= v[2] and CDEquip == false then
 				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerWeapon:FireServer(v[1])
-				task.wait(0.05)
+				task.wait(0.075)
 				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
