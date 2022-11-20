@@ -2683,28 +2683,28 @@ local CombosLoading = coroutine.create(function()
 		Frame.TemplateButton.ScaleType = Enum.ScaleType.Fit
 		Frame.Visible = true
 		Frame.TemplateButton.MouseButton1Click:Connect(function()
-			if User:WaitForChild("leaderstats").Wins.Value >= v[2] then
+			if User:WaitForChild("leaderstats").Wins.Value >= v[2] and CDEquip == false then
 				if v[8] == 0 then
-					if v[7] == 0 and CDEquip == false then
+					if v[7] == 0 then
 						CDEquip = true
 						SoundService:PlayLocalSound(Sounds.ClickAccept)
 						Remotes.ChangePlayerWeapon:FireServer(v[9])
-						task.wait(0.05)
+						task.wait(0.06)
 						Remotes.ChangePlayerArmor:FireServer(v[10])
-						task.wait(0.05)
+						task.wait(0.06)
 						Remotes.ChangeSoul:FireServer(v[11])
 						task.wait(0.1)
 						CDEquip = false
 					end
 				end
 				if v[8] == 1 then
-					if User.playerstats.RESET.Value == 1 and CDEquip == false then
+					if User.playerstats.RESET.Value == 1 then
 						CDEquip = true
 						SoundService:PlayLocalSound(Sounds.ClickAccept)
 						Remotes.ChangePlayerWeapon:FireServer(v[9])
-						task.wait(0.05)
+						task.wait(0.06)
 						Remotes.ChangePlayerArmor:FireServer(v[10])
-						task.wait(0.05)
+						task.wait(0.06)
 						Remotes.ChangeSoul:FireServer(v[11])
 						task.wait(0.1)
 						CDEquip = false
@@ -2713,13 +2713,13 @@ local CombosLoading = coroutine.create(function()
 					end
 				elseif v[7] == 1 then
 					if v[1] == "Insanity" then
-						if InsanityLocked == false and CDEquip == false then
+						if InsanityLocked == false then
 							CDEquip = true
 							SoundService:PlayLocalSound(Sounds.ClickAccept)
 							Remotes.ChangePlayerWeapon:FireServer(v[9])
-							task.wait(0.05)
+							task.wait(0.06)
 							Remotes.ChangePlayerArmor:FireServer("404Jacket")
-							task.wait(0.05)
+							task.wait(0.06)
 							Remotes.ChangeSoul:FireServer(v[11])
 							task.wait(0.1)
 							CDEquip = false
@@ -2728,13 +2728,13 @@ local CombosLoading = coroutine.create(function()
 						end
 					else
 						if v[1] == "Christmas" then
-							if Christmas2020Locked == false and CDEquip == false then
+							if Christmas2020Locked == false then
 								CDEquip = true
 								SoundService:PlayLocalSound(Sounds.ClickAccept)
 								Remotes.ChangePlayerWeapon:FireServer(v[9])
-								task.wait(0.05)
+								task.wait(0.06)
 								Remotes.ChangePlayerArmor:FireServer("404Jacket")
-								task.wait(0.05)
+								task.wait(0.06)
 								Remotes.ChangeSoul:FireServer(v[11])
 								task.wait(0.1)
 								CDEquip = false
