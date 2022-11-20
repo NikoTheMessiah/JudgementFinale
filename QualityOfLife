@@ -2693,7 +2693,7 @@ local CombosLoading = coroutine.create(function()
 						Remotes.ChangePlayerArmor:FireServer(v[10])
 						task.wait(0.05)
 						Remotes.ChangeSoul:FireServer(v[11])
-						task.wait(0.075)
+						task.wait(0.1)
 						CDEquip = false
 					end
 				end
@@ -2706,7 +2706,7 @@ local CombosLoading = coroutine.create(function()
 						Remotes.ChangePlayerArmor:FireServer(v[10])
 						task.wait(0.05)
 						Remotes.ChangeSoul:FireServer(v[11])
-						task.wait(0.075)
+						task.wait(0.1)
 						CDEquip = false
 					else
 						SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2721,7 +2721,7 @@ local CombosLoading = coroutine.create(function()
 							Remotes.ChangePlayerArmor:FireServer("404Jacket")
 							task.wait(0.05)
 							Remotes.ChangeSoul:FireServer(v[11])
-							task.wait(0.075)
+							task.wait(0.1)
 							CDEquip = false
 						else 
 							SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2736,7 +2736,7 @@ local CombosLoading = coroutine.create(function()
 								Remotes.ChangePlayerArmor:FireServer("404Jacket")
 								task.wait(0.05)
 								Remotes.ChangeSoul:FireServer(v[11])
-								task.wait(0.075)
+								task.wait(0.1)
 								CDEquip = false
 							else
 								SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2771,7 +2771,7 @@ local SoulLoading = coroutine.create(function()
 				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangeSoul:FireServer(v[1])
-				task.wait(0.075)
+				task.wait(0.1)
 				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2795,7 +2795,7 @@ local ArmorLoading = coroutine.create(function()
 				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerArmor:FireServer(v[1])
-				task.wait(0.075)
+				task.wait(0.1)
 				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2819,7 +2819,7 @@ local WeaponLoading = coroutine.create(function()
 				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerWeapon:FireServer(v[1])
-				task.wait(0.075)
+				task.wait(0.1)
 				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2844,7 +2844,7 @@ local RESETCharLoading = coroutine.create(function()
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false
 				else
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2873,7 +2873,7 @@ local CharacterLoading = coroutine.create(function()
 				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerSans:FireServer(v[1])
-				task.wait(0.05)
+				task.wait(0.1)
 				CDEquip = false
 			else
 				SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2897,7 +2897,7 @@ local DustLoading = coroutine.create(function()
 				CDEquip = true
 				SoundService:PlayLocalSound(Sounds.ClickAccept)
 				Remotes.ChangePlayerSans:FireServer(v[1])
-				task.wait(0.05)
+				task.wait(0.1)
 				CDEquip = false
 				end
 			else
@@ -2931,7 +2931,7 @@ local GenoLoading = coroutine.create(function()
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false
 				end
 			else
@@ -2967,7 +2967,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false	
 				else
 					SoundService:PlayLocalSound(Sounds.ClickDeny)
@@ -2977,7 +2977,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false		
 				else
 					Played = true
@@ -2988,7 +2988,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false		
 				else
 					Played = true
@@ -2999,7 +2999,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false		
 				else
 					Played = true
@@ -3010,7 +3010,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false		
 				else
 					Played = true
@@ -3021,7 +3021,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false
 				else
 					Played = true
@@ -3032,7 +3032,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false
 				else
 					Played = true
@@ -3043,7 +3043,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false			
 				else
 					Played = true
@@ -3054,7 +3054,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false
 				else
 					Played = true
@@ -3065,7 +3065,7 @@ for i,v in pairs(EventCharacters) do
 					CDEquip = true
 					SoundService:PlayLocalSound(Sounds.ClickAccept)
 					Remotes.ChangePlayerSans:FireServer(v[1])
-					task.wait(0.05)
+					task.wait(0.1)
 					CDEquip = false
 				else
 					Played = true
