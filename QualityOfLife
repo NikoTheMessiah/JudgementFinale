@@ -243,10 +243,11 @@ local Armour = {
 	UndyneArmor = {"UndyneArmor",250,338769606,3,0.162,0},
 	CharaLocket = {"CharaLocket",300,2619147114,3,0.328,0},
 	Bravery = {"Bravery",400,397715104,3,0.492,0},
-	DevilsTail = {"DevilsTail",500,3047307319,3,0.656,0},
-	AsgoreArmor = {"AsgoreArmor",600,401310239,3,0.82,0},
-	DTShield = {"DTShield",750,1736726402,4,0,0},
-	_404Jacket = {"404Jacket",1538,1253490736,4,0.162,0},
+	ReaperCloak = {"ReaperCloak",450,366403795,3,0.656,0},
+	DevilsTail = {"DevilsTail",500,3047307319,3,0.82,0},
+	AsgoreArmor = {"AsgoreArmor",600,401310239,4,0,0},
+	DTShield = {"DTShield",750,1736726402,4,0.162,0},
+	_404Jacket = {"404Jacket",1538,1253490736,4,0.328,0},
 
 }
 ---0,0.162,0.328,0.492,0.656,0.82
@@ -280,11 +281,12 @@ local Combos = {
 	Kindness = {"Kindness",600,8949845574,Color3.fromRGB(0,255,0),2,0.328,0,0,"BurntPan","Apron","Kindness"},
 	Undyne = {"Undyne",600,6439391991,Color3.fromRGB(0,255,0),2,0.492,0,0,"Spear","UndyneArmor","Kindness"},
 	Horror = {"Horror",800,10340017243,Color3.fromRGB(255,255,255),2,0.656,0,0,"HorrorAxe","KillerSoul","HATE"},
-	DTStick = {"DTStick",1000,7242904504,Color3.fromRGB(255,0,0),2,0.82,0,0,"Stick","Bandage","Determination"},
 	XCross = {"XCross",1000,7242921777,Color3.fromRGB(255,0,0),3,0,0,0,"CrossCharaKnife","CharaLocket","Determination"},
-	FatalError = {"FatalError",1886,7234863160,Color3.fromRGB(255,0,0),3,0.1652,0,0,"FatalBone","404Jacket","Determination"},
+	FatalError = {"FatalError",1886,7234863160,Color3.fromRGB(255,0,0),3,0.162,0,0,"FatalBone","404Jacket","Determination"},
+	ReaperSans = {"ReaperSans",2000,7838043326,Color3.fromRGB(180,180,255),0.328,0,0,"ReaperScythe","ReaperCloak","Integrity"},
 	SwapKnife = {"SwapCombo",2500,4811127868,Color3.fromRGB(255,255,255),3,0.328,0,0,"SwapKnife","Locket","Determination"},
 	XChara = {"XChara",4000,7242915695,Color3.fromRGB(255,255,255),3,0.492,0,0,"CrossCharaKnife","CharaLocket","OVERWRITE"},
+	DTStick = {"DTStick",1250,7242904504,Color3.fromRGB(255,0,0),2,0.82,0,1,"Stick","Bandage","Determination"},
 	ASGORE = {"6SoulAsgore",4000,6424309172,Color3.fromRGB(255,255,255),3,0.656,0,1,"Trident","AsgoreArmor","Rainbow"},
 	-----EVENT-----
 	Christmas = {"Christmas",500,2452492483,Color3.fromRGB(255,255,255),1,0,1,0,"CandyCaneSword",0,"Perseverance"},
