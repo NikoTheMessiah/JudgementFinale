@@ -2,7 +2,6 @@ repeat wait() until game:IsLoaded()
 
 if game.PlaceId == 4994661268 then
 
-print("yes")
 local MS = game:GetService("MarketplaceService")
 local MainGui = Instance.new("ScreenGui")
 local User = game:GetService("Players").LocalPlayer
@@ -3100,7 +3099,6 @@ function updatePlayers()
 	end
 end
 
-print("Loaded.")
 
 MainButtonList.MainButtons:TweenPosition(UDim2.new(0.5,0,0.056,0),Enum.EasingDirection.Out,Enum.EasingStyle.Back,1)
 SoundService:PlayLocalSound(Sounds.Title)
@@ -3139,7 +3137,6 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/Judgem
 end
 REPEATFUNCTION()
 ]])
-print("Teleported")
 elseif Executor == "Krnl" then
 queue_on_teleport([[
 local REPEATFUNCTION = function()
