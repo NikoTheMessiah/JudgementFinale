@@ -2389,13 +2389,15 @@ GoldGrabber.Changed:Connect(function()
 	if GoldGrabber.Value == true then
 		SettingScreen.LightCoin.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		repeat 
-			for i,v in pairs(game.Workspace:GetChildren()) do
-				if v.Name == "SansCoin" then
-					firetouchinterest(User.Character.HumanoidRootPart,v.Coin,0)
-					firetouchinterest(User.Character.HumanoidRootPart,v.Coin,1)
-				end
-			end
-			task.wait(0.1)
+      			for i,v in pairs(game.Workspace:GetChildren()) do
+            			if v.ClassName == "Model" then
+                			if v.PrimaryPart and v.PrimaryPart.Color == Color3.fromRGB(245, 205, 48) then
+                    				firetouchinterest(User.Character.HumanoidRootPart,v.PrimaryPart,0)
+                    				firetouchinterest(User.Character.HumanoidRootPart,v.PrimaryPart,1)
+                			end
+            			end
+        		end
+		task.wait(0.1)
 		until GoldGrabber.Value == false
 	end	
 	if GoldGrabber.Value == false then
