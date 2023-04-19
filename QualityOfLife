@@ -3201,14 +3201,14 @@ end)
 local Executor = identifyexecutor()
 local Job = game.JobId
 
-if Executor == "Synapse" then
+if syn.queue_on_teleport then
 syn.queue_on_teleport([[
 local REPEATFUNCTION = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/TestFinale'))()
 end
 REPEATFUNCTION()
 ]])
-elseif Executor == "Krnl" then
+elseif queue_on_teleport then
 queue_on_teleport([[
 local REPEATFUNCTION = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/NikoTheMessiah/JudgementFinale/main/TestFinale'))()
@@ -3218,6 +3218,1924 @@ REPEATFUNCTION()
 
 end
 
+
+
+--PART 2
+
+
+
+--PART 2
+
+elseif game.PlaceId == 7150950346 then
+
+task.wait(0.25) 
+local Data = {
+	CutsceneSeen = false
+}
+
+local HttpService = game:GetService("HttpService")
+function SaveSettings()
+	local JSON
+	if (writefile and isfolder and makefolder and writefile) then
+		JSON = HttpService:JSONEncode(Data)
+		if isfolder("Judgement Day UI") == false then
+			makefolder("Judgement Day UI")
+		end
+		if isfile("Judgement Day UI/Data.txt") == false then
+			writefile("Judgement Day UI/Data.txt",JSON)
+		end
+	else
+		print("Cant save data, your executor can't save files.")
+	end
+end
+
+function LoadSettings()
+	if (readfile and isfile("Judgement Day UI/Data.txt")) then
+		Data = HttpService:JSONDecode(readfile("Judgement Day UI/Data.txt"))
+	end
+end
+LoadSettings()
+local Webhook = ""
+local MaxDelay = 20
+local aDelay = MaxDelay
+local function RoundEXP(to_round)
+	local divided = to_round / 30
+	local rounded = 30 * math.ceil(divided)
+	return rounded
+end
+if isnetworkowner then
+else
+	isnetworkowner = function(z)
+		return true 
+	end
+end
+local OnOff = {
+	AutoApple = false,
+	AutoKill = false,
+	NMMinionAuto = false,
+	NMTimer = false,
+	EDodgeCounter = false
+}
+
+game["Run Service"].RenderStepped:Connect(
+	function()
+		setscriptable(game.Players.LocalPlayer, "SimulationRadius", true)
+		game.Players.LocalPlayer.SimulationRadius = math.huge * math.huge, math.huge * math.huge * 1 / 0 * 1 / 0 * 1 / 0 * 1 / 0 * 1 / 0
+	end
+)
+local LocalPlayer = game:GetService("Players").LocalPlayer
+LocalPlayer.SimulationRadiusChanged:Connect(function(radius)
+	radius = 9e9
+	return radius
+end)
+
+
+local MenuValues = {
+	NMMinionWho = 0
+}
+local MAXStats = {
+	Red = 5000,
+	Code = 5000,
+	Dust = 11111	
+}
+local CalculatorFunctions = {
+	Red = function(XPWanted)
+		return(XPWanted*3)
+	end,
+	Dust = function(XPWanted)
+		return(XPWanted*3)
+	end,
+	Code = function(XPWanted)
+		return(XPWanted*6)
+	end,
+}
+local USER = game.Players.LocalPlayer
+local PlrStats = USER:WaitForChild("playerstats")
+local EXP = PlrStats:WaitForChild("EXP")
+local StartEXP = EXP.Value
+local TS = game:GetService("TweenService")
+local SoundServ = game:GetService("SoundService")
+local VIM = game:GetService("VirtualInputManager")
+local ImageTrans1 = {
+	ImageTransparency = 0,
+	Position = UDim2.new(0.5,0,9,0)
+}
+local Funct = {
+	FCD = nil,
+	ButtonPress = nil,
+}
+
+if fireclickdetector then
+	Funct.FCD = function(ClickDet,Distance)
+		fireclickdetector(ClickDet,Distance)
+	end
+end
+Funct.ButtonPress = function(Button)
+	local Center = {
+		X = Button.AbsolutePosition.X+Button.AbsoluteSize.X/2,
+		Y = Button.AbsolutePosition.Y+50
+	}
+	VIM:SendMouseButtonEvent(Center.X,Center.Y,0,true,Button,1)
+	VIM:SendMouseButtonEvent(Center.X,Center.Y,0,false,Button,1)
+end
+
+local MusicId = 13107018349
+
+local ImageGO = {
+	Position = UDim2.new(0.5,0,-3,0)
+}
+local FramePos = {
+	Position = UDim2.new(0.5,0,0.056,0)
+}
+local FAKE = {
+	MainButtons = Instance.new("Frame"),
+	_1PEOPLE = Instance.new("ImageButton"),
+	_2ITEMS = Instance.new("ImageButton"),
+	_3INFO = Instance.new("ImageButton"),
+	_4CHARACTER = Instance.new("ImageButton"),
+	_5COG = Instance.new("ImageButton"),
+	_6OVERWRITE = Instance.new("ImageButton"),
+}
+
+local Bones = {
+	Bone1 = Instance.new("ImageLabel"),
+	Bone2 = Instance.new("ImageLabel"),
+	Bone3 = Instance.new("ImageLabel"),
+	Bone4 = Instance.new("ImageLabel"),
+	Bone5 = Instance.new("ImageLabel"),
+	Bone6 = Instance.new("ImageLabel"),
+}
+
+local G404ui = Instance.new("ScreenGui")
+local G404 = {
+	MainButtons = Instance.new("Frame"),
+	ItemMenu = Instance.new("Frame"),
+	FarmMenu = Instance.new("Frame"),
+	SettingsMenu = Instance.new("Frame"),
+}
+local Sounds = {
+	Accept = Instance.new("Sound"),
+	Title = Instance.new("Sound"),
+	Crack = Instance.new("Sound"),
+	Shadow = Instance.new("Sound")
+}
+local DodgeCounter = {
+	DodgeCounter = Instance.new("Frame"),
+	Counter = Instance.new("TextLabel"),
+	UIGradient = Instance.new("UIGradient"),
+	Dodge = Instance.new("TextLabel"),
+	UIGradient_2 = Instance.new("UIGradient"),
+}
+local NightmareGUI = {
+	NightmareTimer = Instance.new("Frame"),
+	Timer = Instance.new("TextLabel")
+}
+local Item = Instance.new("ImageButton")
+local Farm = Instance.new("ImageButton")
+local Settings = Instance.new("ImageButton")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local FM = {
+	Farm = Instance.new("ImageLabel"),
+	Icon = Instance.new("ImageLabel"),
+	Title = Instance.new("TextLabel"),
+	FarmScrollMenu = Instance.new("ScrollingFrame"),
+	AutoCollectNightmare = Instance.new("TextButton"),
+	Light = Instance.new("Frame"),
+	SmallMenu = Instance.new("Frame"),
+	Murder = Instance.new("ImageButton"),
+	Horror = Instance.new("ImageButton"),
+	Killer = Instance.new("ImageButton"),
+	Insanity = Instance.new("ImageButton"),
+	DodgeCounter = Instance.new("TextButton"),
+	Light_2 = Instance.new("Frame"),
+	NightmareNPCTimer = Instance.new("TextButton"),
+	Light_3 = Instance.new("Frame"),
+	AFKFarm = Instance.new("TextButton"),
+	Light_4 = Instance.new("Frame"),
+	EXPFarmSetting = Instance.new("ScrollingFrame"),
+	Pacifist = Instance.new("TextButton"),
+	Blueberry = Instance.new("TextButton"),
+	TITR = Instance.new("TextButton"),
+	Killer_2 = Instance.new("TextButton"),
+	Insanity_2 = Instance.new("TextButton"),
+	Dust = Instance.new("TextButton"),
+	Dusttrust = Instance.new("TextButton"),
+	UIListLayout = Instance.new("UIListLayout"),
+	Webhook = Instance.new("TextBox"),
+	WebHookText = Instance.new("TextLabel"),
+	WebhookDelay = Instance.new("TextBox"),
+	WebHookDelayText = Instance.new("TextLabel")
+}
+
+local IM = {
+	Item_2 = Instance.new("ImageLabel"),
+	Icon_2 = Instance.new("ImageLabel"),
+	Title_2 = Instance.new("TextLabel"),
+	AutoCollectApples = Instance.new("TextButton"),
+	Light_5 = Instance.new("Frame"),
+	UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint"),
+
+}
+local SM = {
+	Item_3 = Instance.new("ImageLabel"),
+	Icon_3 = Instance.new("ImageLabel"),
+	Title_3 = Instance.new("TextLabel"),
+	Calculator = Instance.new("TextLabel"),
+	Calculated = Instance.new("TextLabel"),
+	DustEXP = Instance.new("TextLabel"),
+	GenoEXP = Instance.new("TextLabel"),
+	RedEXP = Instance.new("TextLabel"),
+	q = Instance.new("Frame"),
+	DEXP = Instance.new("TextLabel"),
+	GEXP = Instance.new("TextLabel"),
+	REXP = Instance.new("TextLabel"),
+	DCalculator = Instance.new("TextBox"),
+	GCalculator = Instance.new("TextBox"),
+	RCalculator = Instance.new("TextBox"),
+	UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+}
+local Strings = {
+	String3rd = Instance.new("Frame"),
+	String2nd = Instance.new("Frame"),
+	String1st = Instance.new("Frame")
+}
+
+--Properties:
+
+G404ui.Name = "404Gui"
+G404ui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+G404ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+G404ui.DisplayOrder = 666
+G404ui.ResetOnSpawn = false
+G404ui.IgnoreGuiInset = true
+
+G404.MainButtons.Name = "MainButtons"
+G404.MainButtons.Parent = G404ui
+G404.MainButtons.AnchorPoint = Vector2.new(0.5, 0.5)
+G404.MainButtons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+G404.MainButtons.BackgroundTransparency = 1.000
+G404.MainButtons.BorderSizePixel = 0
+G404.MainButtons.Position = UDim2.new(0.5, 0, -1, 0)
+G404.MainButtons.Size = UDim2.new(0.25, 0, 0.062, 0)
+local function AppearButtons()
+	local Property = {
+		Position = UDim2.new(0.5, 0,0.065, 0)
+	}
+	local TInfo = TweenInfo.new(2,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0,false,0)
+	local Z = TS:Create(G404.MainButtons,TInfo,Property)
+	Z:Play()
+	local Property = {
+		BackgroundTransparency = 1
+	}
+	local TInfo = TweenInfo.new(2,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0,false,0)
+	Z.Completed:Wait()
+	TS:Create(Strings.String1st,TInfo,Property):Play()
+	TS:Create(Strings.String2nd,TInfo,Property):Play()
+	local x = TS:Create(Strings.String3rd,TInfo,Property)
+	x:Play()
+	SoundServ:PlayLocalSound(Sounds.Shadow)
+	x.Completed:Wait()
+	Strings.String1st:Destroy()
+	Strings.String2nd:Destroy()
+	Strings.String3rd:Destroy()
+	G404ui:WaitForChild("FMainButtons"):Destroy()
+end
+local function Speak(Name,Object,Text,WaitPerWord,Appear)
+	if Appear then
+		spawn(function()
+			AppearButtons()
+		end)
+	end
+	local Sound = Instance.new("Sound",Object)
+	Sound.SoundId = "rbxassetid://3188795283"
+	Object.Speaker.Text = Name
+	Object.Speaker.Visible = true
+	if Object.TextBox.TextLabel:FindFirstChild("CoolGuy") then
+		Object.TextBox.TextLabel.CoolGuy:Destroy()
+		Object.TextBox.Visible = true
+	end
+	for i=1,#Text,1 do
+		Object.TextBox.TextLabel.Text = string.sub(Text,1,i)
+		local currentCharacter = Text:sub(i, i)
+		SoundServ:PlayLocalSound(Sound)
+		if currentCharacter == "." or  currentCharacter == "," then
+			wait(0.5)
+		else
+			wait(WaitPerWord)
+		end
+	end
+	Sound:Destroy()
+	task.wait(1.5)
+end
+Item.Name = "Item"
+Item.Parent = G404.MainButtons
+Item.AnchorPoint = Vector2.new(0.5, 0)
+Item.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Item.BackgroundTransparency = 1.000
+Item.Position = UDim2.new(0.5, 0, 0, 0)
+Item.Size = UDim2.new(0.15, 0, 1, 0)
+Item.Image = "http://www.roblox.com/asset/?id=13090165594"
+Item.ScaleType = Enum.ScaleType.Fit
+Item.ZIndex = 3
+
+Farm.Name = "Farm"
+Farm.Parent = G404.MainButtons
+Farm.AnchorPoint = Vector2.new(0.5, 0)
+Farm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Farm.BackgroundTransparency = 1.000
+Farm.Position = UDim2.new(0.75, 0, 0, 0)
+Farm.Size = UDim2.new(0.15, 0, 1, 0)
+Farm.Image = "http://www.roblox.com/asset/?id=13090181430"
+Farm.ScaleType = Enum.ScaleType.Fit
+Farm.ZIndex = 3
+
+Settings.Name = "Settings"
+Settings.Parent = G404.MainButtons
+Settings.AnchorPoint = Vector2.new(0.5, 0)
+Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Settings.BackgroundTransparency = 1.000
+Settings.Position = UDim2.new(0.25, 0, 0, 0)
+Settings.Size = UDim2.new(0.15, 0, 1, 0)
+Settings.Image = "http://www.roblox.com/asset/?id=13090173783"
+Settings.ScaleType = Enum.ScaleType.Fit
+Settings.ZIndex = 3
+
+UIAspectRatioConstraint.Parent = G404.MainButtons
+UIAspectRatioConstraint.AspectRatio = 7.130
+
+G404.FarmMenu.Name = "FarmMenu"
+G404.FarmMenu.Parent = G404ui
+G404.FarmMenu.AnchorPoint = Vector2.new(0.5, 0.5)
+G404.FarmMenu.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+G404.FarmMenu.BackgroundTransparency = 1.000
+G404.FarmMenu.BorderColor3 = Color3.fromRGB(255, 255, 255)
+G404.FarmMenu.BorderSizePixel = 3
+G404.FarmMenu.Position = UDim2.new(0.5, 0, 0.557, 0)
+G404.FarmMenu.Size = UDim2.new(0.45, 0, 0.614, 0)
+G404.FarmMenu.Visible = false
+
+FM.Farm.Name = "Farm"
+FM.Farm.Parent = G404.FarmMenu
+FM.Farm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FM.Farm.BackgroundTransparency = 1.000
+FM.Farm.Size = UDim2.new(1, 0, 1, 0)
+FM.Farm.Image = "rbxassetid://8914042315"
+FM.Farm.ImageColor3 = Color3.fromRGB(0, 8, 165)
+
+FM.Icon.Name = "Icon"
+FM.Icon.Parent = FM.Farm
+FM.Icon.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FM.Icon.BackgroundTransparency = 1.000
+FM.Icon.BorderSizePixel = 0
+FM.Icon.Position = UDim2.new(0.5, 0, -0.075, 0)
+FM.Icon.Size = UDim2.new(0.118, 0, 0.146, 0)
+FM.Icon.Image = "http://www.roblox.com/asset/?id=13090181430"
+
+FM.Title.Name = "Title"
+FM.Title.Parent = FM.Farm
+FM.Title.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FM.Title.BackgroundTransparency = 1.000
+FM.Title.Position = UDim2.new(0.506, 0, 0.07, 0)
+FM.Title.Size = UDim2.new(0.8, 0, 0.12, 0)
+FM.Title.Font = Enum.Font.Arcade
+FM.Title.Text = "Farm Settings"
+FM.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.Title.TextScaled = true
+FM.Title.TextSize = 14.000
+FM.Title.TextWrapped = true
+
+FM.FarmScrollMenu.Name = "FarmScrollMenu"
+FM.FarmScrollMenu.Parent = FM.Farm
+FM.FarmScrollMenu.Active = true
+FM.FarmScrollMenu.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FM.FarmScrollMenu.BackgroundTransparency = 1.000
+FM.FarmScrollMenu.BorderColor3 = Color3.fromRGB(0, 8, 165)
+FM.FarmScrollMenu.Position = UDim2.new(0.012, 0, 0.143, 0)
+FM.FarmScrollMenu.Size = UDim2.new(0.978, 0, 0.85, 0)
+FM.FarmScrollMenu.CanvasPosition = Vector2.new(0, 150)
+
+FM.AutoCollectNightmare.Name = "AutoCollectNightmare"
+FM.AutoCollectNightmare.Parent = FM.FarmScrollMenu
+FM.AutoCollectNightmare.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.AutoCollectNightmare.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.AutoCollectNightmare.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.AutoCollectNightmare.BorderSizePixel = 4
+FM.AutoCollectNightmare.Position = UDim2.new(0.54, 0, 0.05, 0)
+FM.AutoCollectNightmare.Size = UDim2.new(0.452, 0, 0.07, 0)
+FM.AutoCollectNightmare.Font = Enum.Font.Arcade
+FM.AutoCollectNightmare.Text = "Nightmare's Auto Collect/Farm"
+FM.AutoCollectNightmare.TextColor3 = Color3.fromRGB(0, 0, 0)
+FM.AutoCollectNightmare.TextScaled = true
+FM.AutoCollectNightmare.TextSize = 14.000
+FM.AutoCollectNightmare.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+FM.AutoCollectNightmare.TextStrokeTransparency = 0.000
+FM.AutoCollectNightmare.TextWrapped = true
+
+FM.Light.Name = "Light"
+FM.Light.Parent = FM.AutoCollectNightmare
+FM.Light.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+FM.Light.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Light.BorderSizePixel = 4
+FM.Light.Position = UDim2.new(-0.275, 0, 0, 0)
+FM.Light.Size = UDim2.new(1, 0, 1, 0)
+FM.Light.SizeConstraint = Enum.SizeConstraint.RelativeYY
+
+FM.SmallMenu.Name = "SmallMenu"
+FM.SmallMenu.Parent = FM.AutoCollectNightmare
+FM.SmallMenu.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+FM.SmallMenu.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.SmallMenu.BorderSizePixel = 4
+FM.SmallMenu.Position = UDim2.new(1.025, 0, 0, 0)
+FM.SmallMenu.Size = UDim2.new(1, 0, 1, 0)
+FM.SmallMenu.SizeConstraint = Enum.SizeConstraint.RelativeYY
+
+FM.Murder.Name = "Murder"
+FM.Murder.Parent = FM.SmallMenu
+FM.Murder.BackgroundColor3 = Color3.fromRGB(191, 0, 255)
+FM.Murder.BorderSizePixel = 0
+FM.Murder.Size = UDim2.new(0.5, 0, 0.5, 0)
+FM.Murder.AutoButtonColor = false
+FM.Murder.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+FM.Murder.ImageTransparency = 1.000
+
+FM.Horror.Name = "Horror"
+FM.Horror.Parent = FM.SmallMenu
+FM.Horror.Active = false
+FM.Horror.BackgroundColor3 = Color3.fromRGB(190, 0, 0)
+FM.Horror.BorderSizePixel = 0
+FM.Horror.Position = UDim2.new(0.5, 0, 0, 0)
+FM.Horror.Size = UDim2.new(0.5, 0, 0.5, 0)
+FM.Horror.AutoButtonColor = false
+FM.Horror.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+FM.Horror.ImageTransparency = 1.000
+
+FM.Killer.Name = "Killer"
+FM.Killer.Parent = FM.SmallMenu
+FM.Killer.BackgroundColor3 = Color3.fromRGB(79, 66, 64)
+FM.Killer.BorderSizePixel = 0
+FM.Killer.Position = UDim2.new(0, 0, 0.5, 0)
+FM.Killer.Size = UDim2.new(0.5, 0, 0.5, 0)
+FM.Killer.AutoButtonColor = false
+FM.Killer.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+FM.Killer.ImageTransparency = 1.000
+
+FM.Insanity.Name = "Insanity"
+FM.Insanity.Parent = FM.SmallMenu
+FM.Insanity.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+FM.Insanity.BorderSizePixel = 0
+FM.Insanity.Position = UDim2.new(0.5, 0, 0.5, 0)
+FM.Insanity.Size = UDim2.new(0.5, 0, 0.5, 0)
+FM.Insanity.AutoButtonColor = false
+FM.Insanity.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+FM.Insanity.ImageTransparency = 1.000
+
+FM.DodgeCounter.Name = "DodgeCounter"
+FM.DodgeCounter.Parent = FM.FarmScrollMenu
+FM.DodgeCounter.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.DodgeCounter.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.DodgeCounter.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.DodgeCounter.BorderSizePixel = 4
+FM.DodgeCounter.Position = UDim2.new(0.54, 0, 0.25, 0)
+FM.DodgeCounter.Size = UDim2.new(0.452, 0, 0.07, 0)
+FM.DodgeCounter.Font = Enum.Font.Arcade
+FM.DodgeCounter.Text = "Enemy Dodge Counter"
+FM.DodgeCounter.TextColor3 = Color3.fromRGB(0, 0, 0)
+FM.DodgeCounter.TextScaled = true
+FM.DodgeCounter.TextSize = 14.000
+FM.DodgeCounter.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+FM.DodgeCounter.TextStrokeTransparency = 0.000
+FM.DodgeCounter.TextWrapped = true
+
+FM.Light_2.Name = "Light"
+FM.Light_2.Parent = FM.DodgeCounter
+FM.Light_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+FM.Light_2.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Light_2.BorderSizePixel = 4
+FM.Light_2.Position = UDim2.new(-0.275, 0, 0, 0)
+FM.Light_2.Size = UDim2.new(1, 0, 1, 0)
+FM.Light_2.SizeConstraint = Enum.SizeConstraint.RelativeYY
+
+FM.NightmareNPCTimer.Name = "NightmareNPCTimer"
+FM.NightmareNPCTimer.Parent = FM.FarmScrollMenu
+FM.NightmareNPCTimer.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.NightmareNPCTimer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.NightmareNPCTimer.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.NightmareNPCTimer.BorderSizePixel = 4
+FM.NightmareNPCTimer.Position = UDim2.new(0.54, 0, 0.15, 0)
+FM.NightmareNPCTimer.Size = UDim2.new(0.452, 0, 0.07, 0)
+FM.NightmareNPCTimer.Font = Enum.Font.Arcade
+FM.NightmareNPCTimer.Text = "Nightmare's NPC Timer"
+FM.NightmareNPCTimer.TextColor3 = Color3.fromRGB(0, 0, 0)
+FM.NightmareNPCTimer.TextScaled = true
+FM.NightmareNPCTimer.TextSize = 14.000
+FM.NightmareNPCTimer.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+FM.NightmareNPCTimer.TextStrokeTransparency = 0.000
+FM.NightmareNPCTimer.TextWrapped = true
+
+FM.Light_3.Name = "Light"
+FM.Light_3.Parent = FM.NightmareNPCTimer
+FM.Light_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+FM.Light_3.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Light_3.BorderSizePixel = 4
+FM.Light_3.Position = UDim2.new(-0.275, 0, 0, 0)
+FM.Light_3.Size = UDim2.new(1, 0, 1, 0)
+FM.Light_3.SizeConstraint = Enum.SizeConstraint.RelativeYY
+
+FM.AFKFarm.Name = "AFK Farm"
+FM.AFKFarm.Parent = FM.FarmScrollMenu
+FM.AFKFarm.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.AFKFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.AFKFarm.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.AFKFarm.BorderSizePixel = 4
+FM.AFKFarm.Position = UDim2.new(0.54, 0, 0.35, 0)
+FM.AFKFarm.Size = UDim2.new(0.452, 0, 0.07, 0)
+FM.AFKFarm.Font = Enum.Font.Arcade
+FM.AFKFarm.Text = "AFK EXP Farm"
+FM.AFKFarm.TextColor3 = Color3.fromRGB(0, 0, 0)
+FM.AFKFarm.TextScaled = true
+FM.AFKFarm.TextSize = 14.000
+FM.AFKFarm.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+FM.AFKFarm.TextStrokeTransparency = 0.000
+FM.AFKFarm.TextWrapped = true
+
+FM.Light_4.Name = "Light"
+FM.Light_4.Parent = FM.AFKFarm
+FM.Light_4.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+FM.Light_4.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Light_4.BorderSizePixel = 4
+FM.Light_4.Position = UDim2.new(-0.275109172, 0, 0, 0)
+FM.Light_4.Size = UDim2.new(1, 0, 1, 0)
+FM.Light_4.SizeConstraint = Enum.SizeConstraint.RelativeYY
+
+FM.EXPFarmSetting.Name = "EXPFarmSetting"
+FM.EXPFarmSetting.Parent = FM.FarmScrollMenu
+FM.EXPFarmSetting.Active = true
+FM.EXPFarmSetting.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.EXPFarmSetting.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.EXPFarmSetting.BorderSizePixel = 4
+FM.EXPFarmSetting.Position = UDim2.new(0.195, 0, 0.385, 0)
+FM.EXPFarmSetting.Size = UDim2.new(0.572, 0, 0.15, 0)
+FM.EXPFarmSetting.CanvasSize = UDim2.new(0, 0, 1, 0)
+FM.EXPFarmSetting.ScrollBarThickness = 8
+FM.EXPFarmSetting.Visible = false
+
+FM.Pacifist.Name = "1"
+FM.Pacifist.Parent = FM.EXPFarmSetting
+FM.Pacifist.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.Pacifist.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Pacifist.BorderSizePixel = 4
+FM.Pacifist.Size = UDim2.new(1, 0, 0.1, 0)
+FM.Pacifist.Font = Enum.Font.Arcade
+FM.Pacifist.Text = "Pacifist"
+FM.Pacifist.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.Pacifist.TextScaled = true
+FM.Pacifist.TextSize = 14.000
+FM.Pacifist.TextWrapped = true
+FM.Pacifist:SetAttribute("Boss","Pacifist")
+
+FM.Blueberry.Name = "2"
+FM.Blueberry.Parent = FM.EXPFarmSetting
+FM.Blueberry.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.Blueberry.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Blueberry.BorderSizePixel = 4
+FM.Blueberry.Size = UDim2.new(1, 0, 0.1, 0)
+FM.Blueberry.Font = Enum.Font.Arcade
+FM.Blueberry.Text = "Blueberry"
+FM.Blueberry.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.Blueberry.TextScaled = true
+FM.Blueberry.TextSize = 14.000
+FM.Blueberry.TextWrapped = true
+FM.Blueberry:SetAttribute("Boss","Blueberry")
+
+FM.TITR.Name = "3"
+FM.TITR.Parent = FM.EXPFarmSetting
+FM.TITR.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.TITR.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.TITR.BorderSizePixel = 4
+FM.TITR.Size = UDim2.new(1, 0, 0.1, 0)
+FM.TITR.Font = Enum.Font.Arcade
+FM.TITR.Text = "Tears In The Rain"
+FM.TITR.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.TITR.TextScaled = true
+FM.TITR.TextSize = 14.000
+FM.TITR.TextWrapped = true
+FM.TITR:SetAttribute("Boss","TITR")
+
+FM.Killer_2.Name = "4"
+FM.Killer_2.Parent = FM.EXPFarmSetting
+FM.Killer_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.Killer_2.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Killer_2.BorderSizePixel = 4
+FM.Killer_2.Size = UDim2.new(1, 0, 0.1, 0)
+FM.Killer_2.Font = Enum.Font.Arcade
+FM.Killer_2.Text = "Killer"
+FM.Killer_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.Killer_2.TextScaled = true
+FM.Killer_2.TextSize = 14.000
+FM.Killer_2.TextWrapped = true
+FM.Killer_2:SetAttribute("Boss","Killer")
+
+FM.Insanity_2.Name = "5"
+FM.Insanity_2.Parent = FM.EXPFarmSetting
+FM.Insanity_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.Insanity_2.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Insanity_2.BorderSizePixel = 4
+FM.Insanity_2.Size = UDim2.new(1, 0, 0.1, 0)
+FM.Insanity_2.Font = Enum.Font.Arcade
+FM.Insanity_2.Text = "Insanity"
+FM.Insanity_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.Insanity_2.TextScaled = true
+FM.Insanity_2.TextSize = 14.000
+FM.Insanity_2.TextWrapped = true
+FM.Insanity_2:SetAttribute("Boss","Insanity")
+
+FM.Dust.Name = "6"
+FM.Dust.Parent = FM.EXPFarmSetting
+FM.Dust.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.Dust.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Dust.BorderSizePixel = 4
+FM.Dust.Size = UDim2.new(1, 0, 0.1, 0)
+FM.Dust.Font = Enum.Font.Arcade
+FM.Dust.Text = "Dust"
+FM.Dust.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.Dust.TextScaled = true
+FM.Dust.TextSize = 14.000
+FM.Dust.TextWrapped = true
+FM.Dust:SetAttribute("Boss","Dust")
+
+FM.Dusttrust.Name = "7"
+FM.Dusttrust.Parent = FM.EXPFarmSetting
+FM.Dusttrust.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.Dusttrust.BorderColor3 = Color3.fromRGB(172, 169, 255)
+FM.Dusttrust.BorderSizePixel = 4
+FM.Dusttrust.Size = UDim2.new(1, 0, 0.1, 0)
+FM.Dusttrust.Font = Enum.Font.Arcade
+FM.Dusttrust.Text = "Dusttrust"
+FM.Dusttrust.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.Dusttrust.TextScaled = true
+FM.Dusttrust.TextSize = 14.000
+FM.Dusttrust.TextWrapped = true
+FM.Dusttrust:SetAttribute("Boss","Dusttrust")
+
+FM.UIListLayout.Parent = FM.EXPFarmSetting
+FM.UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+FM.Webhook.Name = "Webhook"
+FM.Webhook.Parent = FM.FarmScrollMenu
+FM.Webhook.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.Webhook.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.Webhook.BorderColor3 = Color3.fromRGB(40,50,165)
+FM.Webhook.BorderSizePixel = 5
+FM.Webhook.Position = UDim2.new(0.5, 0, 0.65, 0)
+FM.Webhook.Size = UDim2.new(0.8, 0, 0.06, 0)
+FM.Webhook.Font = Enum.Font.Arcade
+FM.Webhook.PlaceholderText = "Using Discord Webhook Will Help You Track Your Progress While You're Away."
+FM.Webhook.Text = ""
+FM.Webhook.TextColor3 = Color3.fromRGB(255,255,255)
+FM.Webhook.TextScaled = true
+FM.Webhook.TextSize = 14.000
+FM.Webhook.TextWrapped = true
+
+FM.WebHookText.Name = "WebHookText"
+FM.WebHookText.Parent = FM.Webhook
+FM.WebHookText.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.WebHookText.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.WebHookText.BorderColor3 = Color3.fromRGB(40,50,165)
+FM.WebHookText.BorderSizePixel = 5
+FM.WebHookText.Position = UDim2.new(0.5, 0, -0.63, 0)
+FM.WebHookText.Size = UDim2.new(1, 0, 1, 0)
+FM.WebHookText.Font = Enum.Font.Arcade
+FM.WebHookText.Text = "Discord Webhook"
+FM.WebHookText.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.WebHookText.TextScaled = true
+FM.WebHookText.TextSize = 14.000
+FM.WebHookText.TextWrapped = true
+
+FM.WebhookDelay.Name = "WebhookDelay"
+FM.WebhookDelay.Parent = FM.FarmScrollMenu
+FM.WebhookDelay.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.WebhookDelay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.WebhookDelay.BorderColor3 = Color3.fromRGB(37, 49, 161)
+FM.WebhookDelay.BorderSizePixel = 5
+FM.WebhookDelay.Position = UDim2.new(0.5, 0, 0.788, 0)
+FM.WebhookDelay.Size = UDim2.new(0.8, 0, 0.06, 0)
+FM.WebhookDelay.Font = Enum.Font.Arcade
+FM.WebhookDelay.PlaceholderText = "Fires a webhook after X amount of enemy kills."
+FM.WebhookDelay.Text = ""
+FM.WebhookDelay.TextColor3 = Color3.fromRGB(255,255,255)
+FM.WebhookDelay.TextScaled = true
+FM.WebhookDelay.TextSize = 14.000
+FM.WebhookDelay.TextWrapped = true
+
+FM.WebHookDelayText.Name = "WebHookDelayText"
+FM.WebHookDelayText.Parent = FM.WebhookDelay
+FM.WebHookDelayText.AnchorPoint = Vector2.new(0.5, 0.5)
+FM.WebHookDelayText.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FM.WebHookDelayText.BorderColor3 = Color3.fromRGB(37, 49, 161)
+FM.WebHookDelayText.BorderSizePixel = 5
+FM.WebHookDelayText.Position = UDim2.new(0.5, 0, -0.63, 0)
+FM.WebHookDelayText.Size = UDim2.new(1, 0, 1, 0)
+FM.WebHookDelayText.Font = Enum.Font.Arcade
+FM.WebHookDelayText.Text = "Delay Between Webhooks"
+FM.WebHookDelayText.TextColor3 = Color3.fromRGB(255, 255, 255)
+FM.WebHookDelayText.TextScaled = true
+FM.WebHookDelayText.TextSize = 14.000
+FM.WebHookDelayText.TextWrapped = true
+
+G404.ItemMenu.Name = "ItemMenu"
+G404.ItemMenu.Parent = G404ui
+G404.ItemMenu.AnchorPoint = Vector2.new(0.5, 0.5)
+G404.ItemMenu.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+G404.ItemMenu.BackgroundTransparency = 1.000
+G404.ItemMenu.BorderColor3 = Color3.fromRGB(255, 255, 255)
+G404.ItemMenu.BorderSizePixel = 3
+G404.ItemMenu.Position = UDim2.new(0.5, 0, 0.557, 0)
+G404.ItemMenu.Size = UDim2.new(0.45, 0, 0.614, 0)
+G404.ItemMenu.Visible = false
+
+IM.Item_2.Name = "Item"
+IM.Item_2.Parent = G404.ItemMenu
+IM.Item_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+IM.Item_2.BackgroundTransparency = 1.000
+IM.Item_2.Size = UDim2.new(1, 0, 1, 0)
+IM.Item_2.Image = "rbxassetid://8914042315"
+IM.Item_2.ImageColor3 = Color3.fromRGB(0, 8, 165)
+
+IM.Icon_2.Name = "Icon"
+IM.Icon_2.Parent = IM.Item_2
+IM.Icon_2.AnchorPoint = Vector2.new(0.5, 0.5)
+IM.Icon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+IM.Icon_2.BackgroundTransparency = 1.000
+IM.Icon_2.BorderSizePixel = 0
+IM.Icon_2.Position = UDim2.new(0.5, 0, -0.075, 0)
+IM.Icon_2.Size = UDim2.new(0.118, 0, 0.146, 0)
+IM.Icon_2.Image = "http://www.roblox.com/asset/?id=13090165594"
+
+IM.Title_2.Name = "Title"
+IM.Title_2.Parent = IM.Item_2
+IM.Title_2.AnchorPoint = Vector2.new(0.5, 0.5)
+IM.Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+IM.Title_2.BackgroundTransparency = 1.000
+IM.Title_2.Position = UDim2.new(0.506, 0, 0.07, 0)
+IM.Title_2.Size = UDim2.new(0.8, 0, 0.12, 0)
+IM.Title_2.Font = Enum.Font.Arcade
+IM.Title_2.Text = "Item Settings"
+IM.Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+IM.Title_2.TextScaled = true
+IM.Title_2.TextSize = 14.000
+IM.Title_2.TextWrapped = true
+
+IM.AutoCollectApples.Name = "AutoCollectApples"
+IM.AutoCollectApples.Parent = IM.Item_2
+IM.AutoCollectApples.AnchorPoint = Vector2.new(0.5, 0.5)
+IM.AutoCollectApples.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+IM.AutoCollectApples.BorderColor3 = Color3.fromRGB(172, 169, 255)
+IM.AutoCollectApples.BorderSizePixel = 4
+IM.AutoCollectApples.Position = UDim2.new(0.54, 0, 0.26, 0)
+IM.AutoCollectApples.Size = UDim2.new(0.452, 0,0.15, 0)
+IM.AutoCollectApples.Font = Enum.Font.Arcade
+IM.AutoCollectApples.Text = "Auto Collect Black Apples"
+IM.AutoCollectApples.TextColor3 = Color3.fromRGB(0, 0, 0)
+IM.AutoCollectApples.TextScaled = true
+IM.AutoCollectApples.TextSize = 14.000
+IM.AutoCollectApples.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+IM.AutoCollectApples.TextStrokeTransparency = 0
+IM.AutoCollectApples.TextWrapped = true
+
+IM.Light_5.Name = "Light"
+IM.Light_5.Parent = IM.AutoCollectApples
+IM.Light_5.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+IM.Light_5.BorderColor3 = Color3.fromRGB(172, 169, 255)
+IM.Light_5.BorderSizePixel = 4
+IM.Light_5.Position = UDim2.new(-0.275, 0, 0, 0)
+IM.Light_5.Size = UDim2.new(1, 0, 1, 0)
+IM.Light_5.SizeConstraint = Enum.SizeConstraint.RelativeYY
+
+IM.UIAspectRatioConstraint.Parent = G404.ItemMenu
+IM.UIAspectRatioConstraint.AspectRatio = 1.181
+
+G404.SettingsMenu.Name = "SettingsMenu"
+G404.SettingsMenu.Parent = G404ui
+G404.SettingsMenu.AnchorPoint = Vector2.new(0.5, 0.5)
+G404.SettingsMenu.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+G404.SettingsMenu.BackgroundTransparency = 1.000
+G404.SettingsMenu.BorderColor3 = Color3.fromRGB(255, 255, 255)
+G404.SettingsMenu.BorderSizePixel = 3
+G404.SettingsMenu.Position = UDim2.new(0.5, 0, 0.557, 0)
+G404.SettingsMenu.Size = UDim2.new(0.45, 0, 0.614, 0)
+G404.SettingsMenu.Visible = false
+
+Strings.String3rd.Name = "String3rd"
+Strings.String3rd.Parent = G404.MainButtons
+Strings.String3rd.AnchorPoint = Vector2.new(0.5, 0.9)
+Strings.String3rd.BackgroundColor3 = Color3.fromRGB(0, 8, 165)
+Strings.String3rd.BorderColor3 = Color3.fromRGB(0, 7, 134)
+Strings.String3rd.BorderSizePixel = 2
+Strings.String3rd.ClipsDescendants = true
+Strings.String3rd.LayoutOrder = 1
+Strings.String3rd.Position = UDim2.new(0.75, 0, -0.1, 0)
+Strings.String3rd.Size = UDim2.new(0.03, 0, 3, 0)
+Strings.String3rd.ZIndex = -1
+
+Strings.String2nd.Name = "String2nd"
+Strings.String2nd.Parent = G404.MainButtons
+Strings.String2nd.AnchorPoint = Vector2.new(0.5, 0.9)
+Strings.String2nd.BackgroundColor3 = Color3.fromRGB(0, 8, 165)
+Strings.String2nd.BorderColor3 = Color3.fromRGB(0, 7, 134)
+Strings.String2nd.BorderSizePixel = 2
+Strings.String2nd.ClipsDescendants = true
+Strings.String2nd.LayoutOrder = 1
+Strings.String2nd.Position = UDim2.new(0.5, 0, -0.1, 0)
+Strings.String2nd.Size = UDim2.new(0.03, 0, 3, 0)
+Strings.String2nd.ZIndex = -1
+
+Strings.String1st.Name = "String1st"
+Strings.String1st.Parent = G404.MainButtons
+Strings.String1st.AnchorPoint = Vector2.new(0.5, 0.9)
+Strings.String1st.BackgroundColor3 = Color3.fromRGB(0, 8, 165)
+Strings.String1st.BorderColor3 = Color3.fromRGB(0, 7, 134)
+Strings.String1st.BorderSizePixel = 2
+Strings.String1st.ClipsDescendants = true
+Strings.String1st.LayoutOrder = 1
+Strings.String1st.Position = UDim2.new(0.25, 0, -0.1, 0)
+Strings.String1st.Size = UDim2.new(0.03, 0, 3, 0)
+Strings.String1st.ZIndex = -1
+
+FAKE.MainButtons.Name = "FMainButtons"
+
+FAKE.MainButtons.AnchorPoint = Vector2.new(0.5, 0.5)
+FAKE.MainButtons.Parent = G404ui
+FAKE.MainButtons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FAKE.MainButtons.BackgroundTransparency = 1.000
+FAKE.MainButtons.BorderSizePixel = 0
+FAKE.MainButtons.Position = UDim2.new(0.5, 0, -1, 0)
+FAKE.MainButtons.Size = UDim2.new(0.5, 0, 0.062, 0)
+
+FAKE._1PEOPLE.Name = "1PEOPLE"
+FAKE._1PEOPLE.Parent = FAKE.MainButtons
+FAKE._1PEOPLE.AnchorPoint = Vector2.new(0.5, 0)
+FAKE._1PEOPLE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FAKE._1PEOPLE.BackgroundTransparency = 1.000
+FAKE._1PEOPLE.Position = UDim2.new(0.1875, 0, 0, 0)
+FAKE._1PEOPLE.Size = UDim2.new(0.1, 0, 1, 0)
+FAKE._1PEOPLE.Image = "http://www.roblox.com/asset/?id=8272945029"
+FAKE._1PEOPLE.ScaleType = Enum.ScaleType.Fit
+
+FAKE._2ITEMS.Name = "2ITEMS"
+FAKE._2ITEMS.Parent = FAKE.MainButtons
+FAKE._2ITEMS.AnchorPoint = Vector2.new(0.5, 0)
+FAKE._2ITEMS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FAKE._2ITEMS.BackgroundTransparency = 1.000
+FAKE._2ITEMS.Position = UDim2.new(0.3125, 0, 0, 0)
+FAKE._2ITEMS.Size = UDim2.new(0.1, 0, 1, 0)
+FAKE._2ITEMS.Image = "http://www.roblox.com/asset/?id=8272939662"
+FAKE._2ITEMS.ScaleType = Enum.ScaleType.Fit
+
+FAKE._3INFO.Name = "3INFO"
+FAKE._3INFO.Parent = FAKE.MainButtons
+FAKE._3INFO.AnchorPoint = Vector2.new(0.5, 0)
+FAKE._3INFO.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FAKE._3INFO.BackgroundTransparency = 1.000
+FAKE._3INFO.Position = UDim2.new(0.4375, 0, 0, 0)
+FAKE._3INFO.Size = UDim2.new(0.1, 0, 1, 0)
+FAKE._3INFO.Image = "http://www.roblox.com/asset/?id=8272938420"
+FAKE._3INFO.ScaleType = Enum.ScaleType.Fit
+
+FAKE._4CHARACTER.Name = "4CHARACTER"
+FAKE._4CHARACTER.Parent = FAKE.MainButtons
+FAKE._4CHARACTER.AnchorPoint = Vector2.new(0.5, 0)
+FAKE._4CHARACTER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FAKE._4CHARACTER.BackgroundTransparency = 1.000
+FAKE._4CHARACTER.Position = UDim2.new(0.5625, 0, 0, 0)
+FAKE._4CHARACTER.Size = UDim2.new(0.1, 0, 1, 0)
+FAKE._4CHARACTER.Image = "http://www.roblox.com/asset/?id=8272936496"
+FAKE._4CHARACTER.ScaleType = Enum.ScaleType.Fit
+
+FAKE._5COG.Name = "5COG"
+FAKE._5COG.Parent = FAKE.MainButtons
+FAKE._5COG.AnchorPoint = Vector2.new(0.5, 0)
+FAKE._5COG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FAKE._5COG.BackgroundTransparency = 1.000
+FAKE._5COG.Position = UDim2.new(0.6875, 0, 0, 0)
+FAKE._5COG.Size = UDim2.new(0.1, 0, 1, 0)
+FAKE._5COG.Image = "http://www.roblox.com/asset/?id=8272943460"
+FAKE._5COG.ScaleType = Enum.ScaleType.Fit
+
+FAKE._6OVERWRITE.Name = "6OVERWRITE"
+FAKE._6OVERWRITE.Parent = FAKE.MainButtons
+FAKE._6OVERWRITE.AnchorPoint = Vector2.new(0.5, 0)
+FAKE._6OVERWRITE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FAKE._6OVERWRITE.BackgroundTransparency = 1.000
+FAKE._6OVERWRITE.Position = UDim2.new(0.8125, 0, 0, 0)
+FAKE._6OVERWRITE.Size = UDim2.new(0.1, 0, 1, 0)
+FAKE._6OVERWRITE.Image = "http://www.roblox.com/asset/?id=9054374539"
+FAKE._6OVERWRITE.ScaleType = Enum.ScaleType.Fit
+
+
+SM.Item_3.Name = "Item"
+SM.Item_3.Parent = G404.SettingsMenu
+SM.Item_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SM.Item_3.BackgroundTransparency = 1.000
+SM.Item_3.Size = UDim2.new(1, 0, 1, 0)
+SM.Item_3.Image = "rbxassetid://8914042315"
+SM.Item_3.ImageColor3 = Color3.fromRGB(0, 8, 165)
+
+SM.Icon_3.Name = "Icon"
+SM.Icon_3.Parent = SM.Item_3
+SM.Icon_3.AnchorPoint = Vector2.new(0.5, 0.5)
+SM.Icon_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SM.Icon_3.BackgroundTransparency = 1.000
+SM.Icon_3.BorderSizePixel = 0
+SM.Icon_3.Position = UDim2.new(0.5, 0, -0.075, 0)
+SM.Icon_3.Size = UDim2.new(0.118, 0, 0.146, 0)
+SM.Icon_3.Image = "http://www.roblox.com/asset/?id=13090173783"
+
+SM.Title_3.Name = "Title"
+SM.Title_3.Parent = SM.Item_3
+SM.Title_3.AnchorPoint = Vector2.new(0.5, 0.5)
+SM.Title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SM.Title_3.BackgroundTransparency = 1.000
+SM.Title_3.Position = UDim2.new(0.5, 0, 0.07, 0)
+SM.Title_3.Size = UDim2.new(0.8, 0, 0.12, 0)
+SM.Title_3.Font = Enum.Font.Arcade
+SM.Title_3.Text = "Extra Settings Information"
+SM.Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+SM.Title_3.TextScaled = true
+SM.Title_3.TextSize = 14.000
+SM.Title_3.TextWrapped = true
+
+SM.Calculator.Name = "Calculator"
+SM.Calculator.Parent = SM.Item_3
+SM.Calculator.AnchorPoint = Vector2.new(0.5, 0.5)
+SM.Calculator.BackgroundColor3 = Color3.fromRGB(0, 8, 165)
+SM.Calculator.BorderSizePixel = 0
+SM.Calculator.LayoutOrder = 1
+SM.Calculator.Position = UDim2.new(0.5, 0, 0.584665298, 0)
+SM.Calculator.Size = UDim2.new(0.993, 0, 0.071, 0)
+SM.Font = Enum.Font.Arcade
+SM.Calculator.Text = "EXP Required Calculator"
+SM.Calculator.TextColor3 = Color3.fromRGB(0, 0, 0)
+SM.Calculator.TextScaled = true
+SM.Calculator.TextSize = 14.000
+SM.Calculator.TextStrokeColor3 = Color3.fromRGB(0, 0, 255)
+SM.Calculator.TextStrokeTransparency = 0.000
+SM.Calculator.TextWrapped = true
+
+SM.Calculated.Name = "Calculated"
+SM.Calculated.Parent = SM.Item_3
+SM.Calculated.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SM.Calculated.BackgroundTransparency = 1.000
+SM.Calculated.Position = UDim2.new(0.00875574723, 0, 0.452, 0)
+SM.Calculated.Size = UDim2.new(0.98, 0, 0.097, 0)
+SM.Calculated.Font = Enum.Font.Arcade
+SM.Calculated.Text = 'You can also put in "Max" to check how much you need to max the character!'
+SM.Calculated.TextColor3 = Color3.fromRGB(255, 255, 255)
+SM.Calculated.TextScaled = true
+SM.Calculated.TextSize = 14.000
+SM.Calculated.TextWrapped = true
+
+SM.DustEXP.Name = "DustEXP"
+SM.DustEXP.Parent = SM.Item_3
+SM.DustEXP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SM.DustEXP.BackgroundTransparency = 1.000
+SM.DustEXP.Position = UDim2.new(0.011, 0, 0.147, 0)
+SM.DustEXP.Size = UDim2.new(0.98, 0, 0.11, 0)
+SM.DustEXP.Font = Enum.Font.Arcade
+SM.DustEXP.Text = "Current Dust EXP: 0"
+SM.DustEXP.TextColor3 = Color3.fromRGB(191, 0, 255)
+SM.DustEXP.TextScaled = true
+SM.DustEXP.TextSize = 14.000
+SM.DustEXP.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+SM.DustEXP.TextStrokeTransparency = 0.000
+SM.DustEXP.TextWrapped = true
+
+SM.GenoEXP.Name = "GenoEXP"
+SM.GenoEXP.Parent = SM.Item_3
+SM.GenoEXP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SM.GenoEXP.BackgroundTransparency = 1.000
+SM.GenoEXP.Position = UDim2.new(0.011, 0, 0.25, 0)
+SM.GenoEXP.Size = UDim2.new(0.98, 0, 0.105, 0)
+SM.GenoEXP.Font = Enum.Font.Arcade
+SM.GenoEXP.Text = "Current Broken Code: 0"
+SM.GenoEXP.TextColor3 = Color3.fromRGB(255, 255, 255)
+SM.GenoEXP.TextScaled = true
+SM.GenoEXP.TextSize = 14.000
+SM.GenoEXP.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+SM.GenoEXP.TextStrokeTransparency = 0.000
+SM.GenoEXP.TextWrapped = true
+
+SM.RedEXP.Name = "RedEXP"
+SM.RedEXP.Parent = SM.Item_3
+SM.RedEXP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SM.RedEXP.BackgroundTransparency = 1.000
+SM.RedEXP.Position = UDim2.new(0.011, 0, 0.354, 0)
+SM.RedEXP.Size = UDim2.new(0.98, 0, 0.1, 0)
+SM.RedEXP.Font = Enum.Font.Arcade
+SM.RedEXP.Text = "Current Red EXP: 0"
+SM.RedEXP.TextColor3 = Color3.fromRGB(255, 0, 0)
+SM.RedEXP.TextScaled = true
+SM.RedEXP.TextSize = 14.000
+SM.RedEXP.TextWrapped = true
+
+SM.q.Name = "q"
+SM.q.Parent = SM.Item_3
+SM.q.AnchorPoint = Vector2.new(0.5, 0.5)
+SM.q.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SM.q.BackgroundTransparency = 1.000
+SM.q.Position = UDim2.new(0.5, 0, 0.8, 0)
+SM.q.Size = UDim2.new(0.98, 0, 0.365, 0)
+
+SM.DEXP.Name = "DEXP"
+SM.DEXP.Parent = SM.q
+SM.DEXP.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SM.DEXP.BorderColor3 = Color3.fromRGB(0, 7, 144)
+SM.DEXP.BorderSizePixel = 2
+SM.DEXP.Size = UDim2.new(0.4, 0, 0.33, 0)
+SM.DEXP.Font = Enum.Font.Arcade
+SM.DEXP.Text = "Dust Exp"
+SM.DEXP.TextColor3 = Color3.fromRGB(191, 0, 255)
+SM.DEXP.TextScaled = true
+SM.DEXP.TextSize = 14.000
+SM.DEXP.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+SM.DEXP.TextStrokeTransparency = 0.000
+SM.DEXP.TextWrapped = true
+
+SM.GEXP.Name = "GEXP"
+SM.GEXP.Parent = SM.q
+SM.GEXP.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SM.GEXP.BorderColor3 = Color3.fromRGB(0, 7, 144)
+SM.GEXP.BorderSizePixel = 2
+SM.GEXP.Position = UDim2.new(0, 0, 0.33, 0)
+SM.GEXP.Size = UDim2.new(0.4, 0, 0.33, 0)
+SM.GEXP.Font = Enum.Font.Arcade
+SM.GEXP.Text = "Broken Code"
+SM.GEXP.TextColor3 = Color3.fromRGB(255, 255, 255)
+SM.GEXP.TextScaled = true
+SM.GEXP.TextSize = 14.000
+SM.GEXP.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+SM.GEXP.TextStrokeTransparency = 0.000
+SM.GEXP.TextWrapped = true
+
+SM.REXP.Name = "REXP"
+SM.REXP.Parent = SM.q
+SM.REXP.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SM.REXP.BorderColor3 = Color3.fromRGB(0, 7, 144)
+SM.REXP.BorderSizePixel = 2
+SM.REXP.Position = UDim2.new(0, 0, 0.66, 0)
+SM.REXP.Size = UDim2.new(0.4, 0, 0.35, 0)
+SM.REXP.Font = Enum.Font.Arcade
+SM.REXP.Text = "Red EXP"
+SM.REXP.TextColor3 = Color3.fromRGB(255, 0, 0)
+SM.REXP.TextScaled = true
+SM.REXP.TextSize = 14.000
+SM.REXP.TextWrapped = true
+
+SM.DCalculator.Name = "DCalculator"
+SM.DCalculator.Parent = SM.q
+SM.DCalculator.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SM.DCalculator.BorderColor3 = Color3.fromRGB(0, 7, 144)
+SM.DCalculator.BorderSizePixel = 2
+SM.DCalculator.Position = UDim2.new(0.4, 0, 0, 0)
+SM.DCalculator.Size = UDim2.new(0.602, 0, 0.3, 0)
+SM.DCalculator.Font = Enum.Font.Arcade
+SM.DCalculator.PlaceholderColor3 = Color3.fromRGB(0, 157, 255)
+SM.DCalculator.PlaceholderText = "Insert The Character EXP you need here!"
+SM.DCalculator.Text = ""
+SM.DCalculator.TextColor3 = Color3.fromRGB(200, 200, 200)
+SM.DCalculator.TextScaled = true
+SM.DCalculator.TextSize = 14.000
+SM.DCalculator.TextWrapped = true
+
+SM.GCalculator.Name = "GCalculator"
+SM.GCalculator.Parent = SM.q
+SM.GCalculator.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SM.GCalculator.BorderColor3 = Color3.fromRGB(0, 7, 144)
+SM.GCalculator.BorderSizePixel = 2
+SM.GCalculator.Position = UDim2.new(0.4, 0, 0.33, 0)
+SM.GCalculator.Size = UDim2.new(0.602, 0, 0.33, 0)
+SM.GCalculator.Font = Enum.Font.Arcade
+SM.GCalculator.PlaceholderColor3 = Color3.fromRGB(0, 157, 255)
+SM.GCalculator.PlaceholderText = "Insert The Character EXP you need here!"
+SM.GCalculator.Text = ""
+SM.GCalculator.TextColor3 = Color3.fromRGB(200, 200, 200)
+SM.GCalculator.TextScaled = true
+SM.GCalculator.TextSize = 14.000
+SM.GCalculator.TextWrapped = true
+
+SM.RCalculator.Name = "RCalculator"
+SM.RCalculator.Parent = SM.q
+SM.RCalculator.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SM.RCalculator.BorderColor3 = Color3.fromRGB(0, 7, 144)
+SM.RCalculator.BorderSizePixel = 2
+SM.RCalculator.Position = UDim2.new(0.4, 0, 0.66, 0)
+SM.RCalculator.Size = UDim2.new(0.602, 0, 0.35, 0)
+SM.RCalculator.Font = Enum.Font.Arcade
+SM.RCalculator.PlaceholderColor3 = Color3.fromRGB(0, 157, 255)
+SM.RCalculator.PlaceholderText = "Insert The Character EXP you need here!"
+SM.RCalculator.Text = ""
+SM.RCalculator.TextColor3 = Color3.fromRGB(200, 200, 200)
+SM.RCalculator.TextScaled = true
+SM.RCalculator.TextSize = 14.000
+SM.RCalculator.TextWrapped = true
+
+SM.UIAspectRatioConstraint.Parent = G404.SettingsMenu
+SM.UIAspectRatioConstraint.AspectRatio = 1.181
+
+Bones.Bone1.Name = "Bone"
+Bones.Bone1.Parent = FAKE._1PEOPLE
+Bones.Bone1.AnchorPoint = Vector2.new(0.5, 0.5)
+Bones.Bone1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bones.Bone1.BackgroundTransparency = 1.000
+Bones.Bone1.ImageTransparency = 1
+Bones.Bone1.BorderSizePixel = 0
+Bones.Bone1.Position = UDim2.new(0.5, 0, -2, 0)
+Bones.Bone1.Rotation = 180.000
+Bones.Bone1.Size = UDim2.new(1, 0, 2.25, 0)
+Bones.Bone1.Image = "rbxassetid://13104845653"
+Bones.Bone1.ScaleType = Enum.ScaleType.Fit
+
+Bones.Bone2.Name = "Bone"
+Bones.Bone2.Parent = FAKE._2ITEMS
+Bones.Bone2.AnchorPoint = Vector2.new(0.5, 0.5)
+Bones.Bone2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bones.Bone2.BackgroundTransparency = 1.000
+Bones.Bone2.ImageTransparency = 1
+Bones.Bone2.BorderSizePixel = 0
+Bones.Bone2.Position = UDim2.new(0.5, 0, -2, 0)
+Bones.Bone2.Rotation = 180.000
+Bones.Bone2.Size = UDim2.new(1, 0, 2.25, 0)
+Bones.Bone2.Image = "rbxassetid://13104840824"
+Bones.Bone2.ScaleType = Enum.ScaleType.Fit
+
+Bones.Bone3.Name = "Bone"
+Bones.Bone3.Parent = FAKE._3INFO
+Bones.Bone3.AnchorPoint = Vector2.new(0.5, 0.5)
+Bones.Bone3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bones.Bone3.BackgroundTransparency = 1.000
+Bones.Bone3.ImageTransparency = 1
+Bones.Bone3.BorderSizePixel = 0
+Bones.Bone3.Position = UDim2.new(0.5, 0, -2, 0)
+Bones.Bone3.Rotation = 180.000
+Bones.Bone3.Size = UDim2.new(1, 0, 2.25, 0)
+Bones.Bone3.Image = "rbxassetid://13104845653"
+Bones.Bone3.ScaleType = Enum.ScaleType.Fit
+
+Bones.Bone4.Name = "Bone"
+Bones.Bone4.Parent = FAKE._4CHARACTER
+Bones.Bone4.AnchorPoint = Vector2.new(0.5, 0.5)
+Bones.Bone4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bones.Bone4.BackgroundTransparency = 1.000
+Bones.Bone4.ImageTransparency = 1
+Bones.Bone4.BorderSizePixel = 0
+Bones.Bone4.Position = UDim2.new(0.5, 0, -2, 0)
+Bones.Bone4.Rotation = 180.000
+Bones.Bone4.Size = UDim2.new(1, 0, 2.25, 0)
+Bones.Bone4.Image = "rbxassetid://13104840824"
+Bones.Bone4.ScaleType = Enum.ScaleType.Fit
+
+Bones.Bone5.Name = "Bone"
+Bones.Bone5.Parent = FAKE._5COG
+Bones.Bone5.AnchorPoint = Vector2.new(0.5, 0.5)
+Bones.Bone5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bones.Bone5.BackgroundTransparency = 1.000
+Bones.Bone5.ImageTransparency = 1
+Bones.Bone5.BorderSizePixel = 0
+Bones.Bone5.Position = UDim2.new(0.5, 0, -2, 0)
+Bones.Bone5.Rotation = 180.000
+Bones.Bone5.Size = UDim2.new(1, 0, 2.25, 0)
+Bones.Bone5.Image = "rbxassetid://13104845653"
+Bones.Bone5.ScaleType = Enum.ScaleType.Fit
+
+Bones.Bone6.Name = "Bone"
+Bones.Bone6.Parent = FAKE._6OVERWRITE
+Bones.Bone6.AnchorPoint = Vector2.new(0.5, 0.5)
+Bones.Bone6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bones.Bone6.BackgroundTransparency = 1.000
+Bones.Bone6.ImageTransparency = 1
+Bones.Bone6.BorderSizePixel = 0
+Bones.Bone6.Position = UDim2.new(0.5, 0, -2, 0)
+Bones.Bone6.Rotation = 180.000
+Bones.Bone6.Size = UDim2.new(1, 0, 2.25, 0)
+Bones.Bone6.Image = "rbxassetid://13104840824"
+Bones.Bone6.ScaleType = Enum.ScaleType.Fit
+
+Sounds.Accept.SoundId = "rbxassetid://5350464575"
+Sounds.Accept.Parent = G404ui
+Sounds.Accept.PlaybackSpeed = 0.95
+Sounds.Accept.Name = "Accept"
+
+Sounds.Title.SoundId = "rbxassetid://1650073108"
+Sounds.Title.Parent = G404ui
+Sounds.Title.PlaybackSpeed = 0.95
+Sounds.Title.Name = "Title"
+
+Sounds.Shadow.SoundId = "rbxassetid://6464007319"
+Sounds.Shadow.Parent = G404ui
+Sounds.Shadow.PlaybackSpeed = 0.9
+Sounds.Shadow.Name = "Shadow"
+
+Sounds.Crack.SoundId = "rbxassetid://5193339590"
+Sounds.Crack.Parent = G404ui
+Sounds.Crack.PlaybackSpeed = 0.9
+Sounds.Crack.Name = "Break"
+
+DodgeCounter.DodgeCounter.Name = "DodgeCounter"
+DodgeCounter.DodgeCounter.Parent = G404ui
+DodgeCounter.DodgeCounter.AnchorPoint = Vector2.new(0.5, 0.5)
+DodgeCounter.DodgeCounter.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DodgeCounter.DodgeCounter.BackgroundTransparency = 1.000
+DodgeCounter.DodgeCounter.ClipsDescendants = true
+DodgeCounter.DodgeCounter.Position = UDim2.new(0.5, 0, 0.15, 0)
+DodgeCounter.DodgeCounter.Size = UDim2.new(0.25, 0, 0.1, 0)
+DodgeCounter.DodgeCounter.ZIndex = 0
+
+DodgeCounter.Counter.Name = "Counter"
+DodgeCounter.Counter.Parent = DodgeCounter.DodgeCounter
+DodgeCounter.Counter.AnchorPoint = Vector2.new(0.5, 0)
+DodgeCounter.Counter.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DodgeCounter.Counter.BackgroundTransparency = 1.000
+DodgeCounter.Counter.Position = UDim2.new(0.5, 0, 0.5, 0)
+DodgeCounter.Counter.Size = UDim2.new(0.45, 0, 0.5, 0)
+DodgeCounter.Counter.ZIndex = 0
+DodgeCounter.Counter.Font = Enum.Font.Arcade
+DodgeCounter.Counter.Text = "0"
+DodgeCounter.Counter.TextStrokeColor3 = Color3.fromRGB(255,255,255)
+DodgeCounter.Counter.TextStrokeTransparency = 0
+DodgeCounter.Counter.TextColor3 = Color3.fromRGB(0,0,0)
+DodgeCounter.Counter.TextScaled = true
+DodgeCounter.Counter.TextSize = 14.000
+DodgeCounter.Counter.TextWrapped = true
+
+DodgeCounter.UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 255)), ColorSequenceKeypoint.new(0.49, Color3.fromRGB(0, 255, 255)), ColorSequenceKeypoint.new(0.491, Color3.fromRGB(255, 255, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 0))}
+DodgeCounter.UIGradient.Parent = DodgeCounter.Counter
+DodgeCounter.UIGradient.Enabled = false
+
+DodgeCounter.Dodge.Name = "Dodge"
+DodgeCounter.Dodge.Parent = DodgeCounter.DodgeCounter
+DodgeCounter.Dodge.AnchorPoint = Vector2.new(0.5, 0)
+DodgeCounter.Dodge.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DodgeCounter.Dodge.BackgroundTransparency = 1.000
+DodgeCounter.Dodge.Position = UDim2.new(0.5, 0, 0, 0)
+DodgeCounter.Dodge.Size = UDim2.new(0.75, 0, 0.5, 0)
+DodgeCounter.Dodge.ZIndex = 0
+DodgeCounter.Dodge.Font = Enum.Font.Arcade
+DodgeCounter.Dodge.Text = "Dodges Left:"
+DodgeCounter.Dodge.TextColor3 = Color3.fromRGB(0,0,0)
+DodgeCounter.Dodge.TextStrokeColor3 = Color3.fromRGB(255,255,255)
+DodgeCounter.Dodge.TextStrokeTransparency = 0
+DodgeCounter.Dodge.TextScaled = true
+DodgeCounter.Dodge.TextSize = 14.000
+DodgeCounter.Dodge.TextWrapped = true
+
+DodgeCounter.UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 255)), ColorSequenceKeypoint.new(0.54, Color3.fromRGB(0, 255, 223)), ColorSequenceKeypoint.new(0.541, Color3.fromRGB(255, 255, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 0))}
+DodgeCounter.UIGradient_2.Parent = DodgeCounter.Dodge
+DodgeCounter.UIGradient_2.Enabled = false
+
+DodgeCounter.DodgeCounter.Visible = false
+
+NightmareGUI.NightmareTimer.Name = "Nightmare Timer"
+NightmareGUI.NightmareTimer.Parent = G404ui
+NightmareGUI.NightmareTimer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+NightmareGUI.NightmareTimer.BorderColor3 = Color3.fromRGB(0, 229, 255)
+NightmareGUI.NightmareTimer.BorderSizePixel = 2
+NightmareGUI.NightmareTimer.Position = UDim2.new(0, 0, 0.934, 0)
+NightmareGUI.NightmareTimer.Size = UDim2.new(0.1, 0, 0.066, 0)
+NightmareGUI.NightmareTimer.Visible = false
+
+NightmareGUI.Timer.Name = "Timer"
+NightmareGUI.Timer.Parent = NightmareGUI.NightmareTimer
+NightmareGUI.Timer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NightmareGUI.Timer.BackgroundTransparency = 1.000
+NightmareGUI.Timer.BorderColor3 = Color3.fromRGB(73, 115, 144)
+NightmareGUI.Timer.BorderSizePixel = 0
+NightmareGUI.Timer.Size = UDim2.new(1, 0, 1, 0)
+NightmareGUI.Timer.Font = Enum.Font.Arcade
+NightmareGUI.Timer.Text = "360"
+NightmareGUI.Timer.TextColor3 = Color3.fromRGB(0, 0, 0)
+NightmareGUI.Timer.TextScaled = true
+NightmareGUI.Timer.TextSize = 14.000
+NightmareGUI.Timer.TextStrokeColor3 = Color3.fromRGB(0, 229, 255)
+NightmareGUI.Timer.TextStrokeTransparency = 0.000
+NightmareGUI.Timer.TextWrapped = true
+NightmareGUI.Timer.Visible = false
+
+Item.MouseButton1Click:Connect(function()
+	G404.FarmMenu.Visible = false
+	G404.ItemMenu.Visible = not G404.ItemMenu.Visible
+	G404.SettingsMenu.Visible = false
+	Sounds.Accept:Play()
+end)
+Farm.MouseButton1Click:Connect(function()
+	G404.FarmMenu.Visible = not G404.FarmMenu.Visible
+	G404.ItemMenu.Visible = false
+	G404.SettingsMenu.Visible = false
+	Sounds.Accept:Play()
+
+end)
+Settings.MouseButton1Click:Connect(function()
+	G404.FarmMenu.Visible = false
+	G404.ItemMenu.Visible = false
+	G404.SettingsMenu.Visible = not G404.SettingsMenu.Visible
+	Sounds.Accept:Play()
+end)
+
+if game:IsLoaded() then
+
+else
+	repeat
+		task.wait(0.1)
+	until game:IsLoaded()
+end
+task.wait(0.9)
+local A = TS:Create(FAKE.MainButtons,TweenInfo.new(1,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0),FramePos)
+A:Play()
+Sounds.Title.PlaybackSpeed = 1
+Sounds.Title:Play()
+A.Completed:Wait()
+task.wait(0.25)
+local B1 = TS:Create(Bones.Bone1,TweenInfo.new(0.65,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0),ImageTrans1)
+local B2 = TS:Create(Bones.Bone2,TweenInfo.new(0.65,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0),ImageTrans1)
+local B3 = TS:Create(Bones.Bone3,TweenInfo.new(0.65,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0),ImageTrans1)
+local B4 = TS:Create(Bones.Bone4,TweenInfo.new(0.65,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0),ImageTrans1)
+local B5 = TS:Create(Bones.Bone5,TweenInfo.new(0.65,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0),ImageTrans1)
+local B6 = TS:Create(Bones.Bone6,TweenInfo.new(0.65,Enum.EasingStyle.Back,Enum.EasingDirection.Out,0),ImageTrans1)
+B1:Play()
+B6:Play()
+B2:Play()
+B5:Play()
+B3:Play()
+B4:Play()
+B4.Completed:Wait()
+task.wait()
+local C1 = TS:Create(Bones.Bone1,TweenInfo.new(0.8,Enum.EasingStyle.Back,Enum.EasingDirection.In,0),ImageGO)
+local C2 = TS:Create(Bones.Bone2,TweenInfo.new(0.8,Enum.EasingStyle.Back,Enum.EasingDirection.In,0),ImageGO)
+local C3 = TS:Create(Bones.Bone3,TweenInfo.new(0.8,Enum.EasingStyle.Back,Enum.EasingDirection.In,0),ImageGO)
+local C4 = TS:Create(Bones.Bone4,TweenInfo.new(0.8,Enum.EasingStyle.Back,Enum.EasingDirection.In,0),ImageGO)
+local C5 = TS:Create(Bones.Bone5,TweenInfo.new(0.8,Enum.EasingStyle.Back,Enum.EasingDirection.In,0),ImageGO)
+local C6 = TS:Create(Bones.Bone6,TweenInfo.new(0.8,Enum.EasingStyle.Back,Enum.EasingDirection.In,0),ImageGO)
+local D1 = TS:Create(FAKE._1PEOPLE,TweenInfo.new(0.35,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0),{ImageTransparency = 1})
+local D2 = TS:Create(FAKE._2ITEMS,TweenInfo.new(0.35,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0),{ImageTransparency = 1})
+local D3 = TS:Create(FAKE._3INFO,TweenInfo.new(0.35,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0),{ImageTransparency = 1})
+local D4 = TS:Create(FAKE._4CHARACTER,TweenInfo.new(0.35,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0),{ImageTransparency = 1})
+local D5 = TS:Create(FAKE._5COG,TweenInfo.new(0.35,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0),{ImageTransparency = 1})
+local D6 = TS:Create(FAKE._6OVERWRITE,TweenInfo.new(0.35,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0),{ImageTransparency = 1})
+
+C1:Play()
+C6:Play()
+task.wait(0.05)
+C2:Play()
+C5:Play()
+task.wait(0.05)
+C3:Play()
+C4:Play()
+task.wait(0.55)
+D1:Play()
+D6:Play()
+SoundServ:PlayLocalSound(Sounds.Crack)
+SoundServ:PlayLocalSound(Sounds.Crack)
+task.wait(0.05)
+D2:Play()
+D5:Play()
+SoundServ:PlayLocalSound(Sounds.Crack)
+SoundServ:PlayLocalSound(Sounds.Crack)
+task.wait(0.05)
+D3:Play()
+D4:Play()
+SoundServ:PlayLocalSound(Sounds.Crack)
+SoundServ:PlayLocalSound(Sounds.Crack)
+task.wait(0.5)
+local E404 = game:GetService("ReplicatedStorage").FUNStuff.Error404.ClickPart.Script.TextBox:Clone()
+local E4041 = E404:WaitForChild("Frame")
+local E4042 = E404:WaitForChild("Name")
+E4041.Visible = false
+E4042.Visible = false
+E4041.Parent = G404ui
+E4042.Parent = G404ui
+if Data.CutsceneSeen == false then
+	local DustDustBox = workspace.Lobby.NPCS.DustDust.ClickPart.ClickPart.Script.TextBox:Clone()
+	local DustDustBox1 = DustDustBox:WaitForChild("Frame")
+	local DustDustBox2 = DustDustBox:WaitForChild("Name")
+
+	DustDustBox1.Parent = G404ui
+	DustDustBox2.Parent = G404ui
+	DustDustBox2.Name = "Speaker"
+	DustDustBox1.Name = "TextBox"
+	DustDustBox:Destroy()
+
+	Speak("DustDust",G404ui,"You won't even need those in here anyways.",0.05)
+	Speak("DustDust",G404ui,"..Make yourself at home, megalomaniac.",0.05)
+	task.wait(0.5)
+	DustDustBox2:Destroy()
+	DustDustBox1:Destroy()
+
+	E404:Destroy()
+	E4042.Name = "Speaker"
+	E4041.Name = "TextBox"
+	Speak("Error404",G404ui,"..Sorry about him, he's like that to newcomers.",0.05,false)
+	Speak("Error404",G404ui,"You'll get used to it..hopefully.",0.05,false)
+	Speak("Error404",G404ui,"Anyways, while he isn't looking..",0.05,true)
+	Speak("Error404",G404ui,"There, this should help you for now.",0.05,false)
+	Speak("Error404",G404ui,"Until next time, Player.",0.05,false)
+	task.wait(0.2)
+	E4041.Visible = false
+	E4042.Visible = false
+	Data.CutsceneSeen = true
+	SaveSettings()
+else
+	AppearButtons()
+end
+
+local PressCD = false
+
+FM.WebhookDelay:GetPropertyChangedSignal("Text"):Connect(function()
+	FM.WebhookDelay.Text = FM.WebhookDelay.Text:gsub('%D+', '');
+end)
+FM.WebhookDelay.FocusLost:Connect(function()
+	MaxDelay = tonumber(FM.WebhookDelay.Text)
+	aDelay = MaxDelay
+end)
+
+FM.Webhook.FocusLost:Connect(function()
+	Webhook = FM.Webhook.Text
+end)
+local Victim 
+function WebhookFire()
+	if Webhook ~= "" then
+		local Data =
+			{
+				["embeds"]= {
+					{            
+						["title"] = "Judgement Day Farm",
+						["author"] = {
+							["name"] = USER.Name,
+							["icon_url"] = "https://cdn.discordapp.com/avatars/1097857238380589196/ea607133a8a969822962e9de72c8c832.webp?size=512"
+						},
+						["description"]= ""..game.Players.LocalPlayer.DisplayName.." ("..game.Players.LocalPlayer.Name..") ";
+						["color"]= tonumber(0x7269da);
+
+						["fields"]= {
+							{
+								["name"]= "Current EXP",
+								["value"]= ""..EXP.Value.."",
+								["inline"]= true
+							},
+							{
+								["name"]= "Start EXP",
+								["value"]= ""..StartEXP.."",
+								["inline"]= true
+							},
+							{
+								["name"]= "Currently Farming",
+								["value"]= ""..tostring(Victim).."",
+								["inline"]= true
+							},
+						}              
+					}
+				}
+			}
+		local Headers = {["Content-Type"]="application/json"}
+		local Encoded = HttpService:JSONEncode(Data)
+
+		local Request = http_request or request or HttpPost or syn.request
+		local Final = {Url = Webhook, Body = Encoded, Method = "POST", Headers = Headers}
+		Request(Final)
+	end
+end
+
+local AppleCollector
+IM.AutoCollectApples.MouseButton1Click:Connect(function()
+	OnOff.AutoApple = not OnOff.AutoApple
+	if OnOff.AutoApple then
+		IM.Light_5.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		for i,Apple in pairs(workspace:GetChildren()) do
+			if Apple.Name == "BlackApple" then
+				task.wait(0.01)
+				local H = Apple:WaitForChild("HitBox")
+				Funct.FCD(H.ClickDetector,0)
+			end
+		end
+		AppleCollector = workspace.ChildAdded:Connect(function(Apple)
+			if Apple.Name == "BlackApple" then
+				task.wait(0.01)
+				local H = Apple:WaitForChild("HitBox")
+				Funct.FCD(H.ClickDetector,0)
+			end
+		end)
+	elseif OnOff.AutoApple == false then
+		IM.Light_5.BackgroundColor3 = Color3.fromRGB(255,0,0)
+		AppleCollector:Disconnect()
+	end
+	task.wait(0.25)
+	print(OnOff.AutoApple)
+end)
+local NMF1
+local NMF2
+local NMF3
+local NMF4
+local NMFarm
+function ActivatedNMFarmFun()
+	while OnOff.NMMinionAuto do
+		task.wait(0.2)
+		if workspace.FUNTemp.Nightmare.Active:FindFirstChildWhichIsA("Model") == nil then
+			if USER.PlayerGui:FindFirstChild("TextBox") then
+				repeat
+					task.wait(0.1)
+				until (USER.PlayerGui:FindFirstChild("TextBox")) == nil
+				task.wait(0.1)
+			end
+			Funct.FCD(workspace.FUNTemp.Nightmare.ClickPart.ClickDetector,0)
+			local SHOPUI = USER.PlayerGui:WaitForChild("ShopGUI")
+			local Temp = SHOPUI.Frame.ScrollingFrame
+			Temp.Parent.Visible = false
+			Temp:WaitForChild("Dust")
+			local Killer = Temp.Killer
+			local Dust = Temp.Dust
+			local Insanity = Temp.Insanity
+			local Horror = Temp.Horror
+			Dust.Size = UDim2.new(0,0,0,0)
+			Horror.Size = UDim2.new(0,0,0,0)
+			Insanity.Size = UDim2.new(0,0,0,0)
+			Killer.Size = UDim2.new(0,0,0,0)
+
+			Dust.Position = UDim2.new(0,0,0,0)
+			Horror.Position = UDim2.new(0,0,0,0)
+			Insanity.Position = UDim2.new(0,0,0,0)
+			Killer.Position = UDim2.new(0,0,0,0)
+
+			Dust.Parent = SHOPUI
+			Horror.Parent = SHOPUI
+			Insanity.Parent = SHOPUI
+			Killer.Parent = SHOPUI
+			SHOPUI.DisplayOrder = 999999999
+			if Temp.Dust.Visible == false then
+				repeat
+					task.wait()
+				until Temp.Dust.Visible == true
+			end
+			if MenuValues.NMMinionWho == 1 then
+				Dust.Size = UDim2.new(1,0,1,0)
+				Dust.BackgroundTransparency = 1
+				Dust.TextTransparency = 1
+				Dust.TextStrokeTransparency = 1
+				Funct.ButtonPress(Dust)
+			elseif MenuValues.NMMinionWho == 2 then
+				Horror.Size = UDim2.new(1,0,1,0)
+				Horror.BackgroundTransparency = 1
+				Horror.TextTransparency = 1
+				Horror.TextStrokeTransparency = 1
+				Funct.ButtonPress(Horror)	
+			elseif MenuValues.NMMinionWho == 3 then
+				Killer.Size = UDim2.new(1,0,1,0)
+				Killer.BackgroundTransparency = 1
+				Killer.TextTransparency = 0.95	
+				Killer.TextStrokeTransparency = 1
+				Funct.ButtonPress(Killer)		
+			elseif MenuValues.NMMinionWho == 4 then
+				Insanity.Size = UDim2.new(1,0,1,0)
+				Insanity.BackgroundTransparency = 1
+				Insanity.TextTransparency = 0.95	
+				Insanity.TextStrokeTransparency = 1
+				Funct.ButtonPress(Insanity)				
+			end
+			SHOPUI.DisplayOrder = -1
+			repeat
+				task.wait()
+			until workspace.FUNTemp.Nightmare.Active:FindFirstChildWhichIsA("Model") 
+			repeat
+				task.wait(1)
+			until workspace.FUNTemp.Nightmare.Active:FindFirstChildWhichIsA("Model").Middle.SansGUI.PlayerHealth.CurrentHP.Timer.Value <= 0
+			if USER.PlayerGui:FindFirstChild("TextBox") then
+				repeat
+					task.wait(0.1)
+				until (USER.PlayerGui:FindFirstChild("TextBox")) == nil
+				task.wait(0.1)
+			end
+			Funct.FCD(workspace.FUNTemp.Nightmare.Active:FindFirstChildWhichIsA("Model").ClickPart.ClickDetector,0)
+		end
+	end
+end
+FM.AutoCollectNightmare.MouseButton1Click:Connect(function()
+	OnOff.NMMinionAuto = not OnOff.NMMinionAuto
+	if PressCD == false then
+		PressCD = true
+		if workspace.FUNTemp:FindFirstChild("Nightmare") ~= nil then
+			if OnOff.NMMinionAuto then
+				MenuValues.NMMinionWho = 0
+				FM.SmallMenu.Visible = true
+				NMF1 = FM.Murder.MouseButton1Click:Connect(function()
+					MenuValues.NMMinionWho = 1
+					FM.SmallMenu.Visible = false
+					FM.Light.BackgroundColor3 = Color3.fromRGB(0,255,0)
+					ActivatedNMFarmFun()
+				end)
+				NMF2 = FM.Horror.MouseButton1Click:Connect(function()
+					MenuValues.NMMinionWho = 2
+					FM.SmallMenu.Visible = false
+					FM.Light.BackgroundColor3 = Color3.fromRGB(0,255,0)
+					ActivatedNMFarmFun()
+				end)
+				NMF3 = FM.Killer.MouseButton1Click:Connect(function()
+					MenuValues.NMMinionWho = 3
+					FM.SmallMenu.Visible = false
+					FM.Light.BackgroundColor3 = Color3.fromRGB(0,255,0)
+					ActivatedNMFarmFun()
+				end)
+				NMF4 = FM.Insanity.MouseButton1Click:Connect(function()
+					MenuValues.NMMinionWho = 4
+					FM.SmallMenu.Visible = false
+					FM.Light.BackgroundColor3 = Color3.fromRGB(0,255,0)
+					ActivatedNMFarmFun()
+				end)
+			else
+				FM.Light.BackgroundColor3 = Color3.fromRGB(255,0,0)
+				FM.SmallMenu.Visible = false
+			end
+		else
+			FM.Light.BackgroundColor3 = Color3.fromRGB(255,0,0)
+			Speak("Error404",G404ui,"This timeline doesn't seem to have Nightmare in it, can't do that.",0.0425,false)
+			Speak("Error404",G404ui,"Sorry, kid.",0.0425,false)
+			task.wait(0.1)
+			E4041.Visible = false
+			E4042.Visible = false
+		end
+	end
+	task.wait(0.25)
+	PressCD = false
+end)
+local EnemyFolderCounter
+FM.DodgeCounter.MouseButton1Click:Connect(function()
+	OnOff.EDodgeCounter = not OnOff.EDodgeCounter
+	if OnOff.EDodgeCounter then
+		FM.Light_2.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		DodgeCounter.DodgeCounter.Visible = true
+		EnemyFolderCounter = workspace.TempFightStuff.ChildAdded:Connect(function(Sans)
+			if Sans.Name == "TimeParadox" then
+				Sans:WaitForChild("BadTimeSans")
+				DodgeCounter.Counter.Text = "20"
+				Sans:WaitForChild("PacifistSans")
+				DodgeCounter.Counter.Text = "20/20"
+				DodgeCounter.UIGradient.Enabled = true
+				DodgeCounter.UIGradient_2.Enabled = true
+
+				Sans.BadTimeSans:WaitForChild("Dodges"):GetPropertyChangedSignal("Value"):Connect(function()
+					if Sans:FindFirstChild("PacifistSans") ~= nil then
+						DodgeCounter.Counter.Text = Sans.BadTimeSans.Dodges.Value.."/"..Sans.PacifistSans.Dodges.Value
+					else
+						DodgeCounter.UIGradient.Enabled = true
+						DodgeCounter.UIGradient_2.Enabled = true
+						DodgeCounter.Counter.Text = Sans.BadTimeSans.Dodges.Value
+					end
+				end)
+				Sans.PacifistSans:WaitForChild("Dodges"):GetPropertyChangedSignal("Value"):Connect(function()
+					if Sans:FindFirstChild("BadTimeSans") ~= nil then
+						DodgeCounter.Counter.Text = Sans.BadTimeSans.Dodges.Value.."/"..Sans.PacifistSans.Dodges.Value
+					else
+						DodgeCounter.UIGradient.Enabled = true
+						DodgeCounter.UIGradient_2.Enabled = true
+						DodgeCounter.Counter.Text = Sans.PacifistSans.Dodges.Value
+					end
+				end)
+			end
+			if Sans:WaitForChild("Humanoid",3) then
+				Sans:WaitForChild("Dodges")
+				DodgeCounter.Counter.Text = Sans.Dodges.Value
+				Sans.Dodges:GetPropertyChangedSignal("Value"):Connect(function()
+					DodgeCounter.Counter.Text = Sans.Dodges.Value
+				end)
+			end
+		end)
+	else
+		EnemyFolderCounter:Disconnect()
+		FM.Light_2.BackgroundColor3 = Color3.fromRGB(255,0,0)
+		DodgeCounter.DodgeCounter.Visible = false
+		DodgeCounter.Counter.Text = "0"
+		DodgeCounter.UIGradient.Enabled = false
+		DodgeCounter.UIGradient_2.Enabled = false
+	end
+end)
+local function SansFindingFunction(Sans)
+	if Sans.ClassName == "Model" and Sans:FindFirstChild("Humanoid") then
+		if Sans.Name == "DustDust" or Sans.Name == "Error404" or Sans.Name == "AmongUs" then
+
+		elseif Sans.Name == "ErrorSans" then
+			return "ErrorSans"
+		else
+			return "Sans"
+		end
+	elseif Sans.ClassName == "Model" and Sans.Name == "TimeParadox" then
+		return "TimeParadox"
+	end
+end
+FM.NightmareNPCTimer.MouseButton1Click:Connect(function()
+	OnOff.NMTimer = not OnOff.NMTimer
+	if OnOff.NMTimer then
+		FM.Light_3.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		if workspace.FUNTemp:FindFirstChild("Nightmare") ~= nil then
+			repeat
+				task.wait(0.5)
+				local NM = workspace.FUNTemp.Nightmare
+				repeat
+					task.wait(1)
+				until NM.Active:FindFirstChildWhichIsA("Model") ~= nil
+				task.wait(0.5)
+				local Peon = NM.Active:FindFirstChildWhichIsA("Model")
+				local TIMR = Peon:WaitForChild("Middle").SansGUI.PlayerHealth.CurrentHP.Timer
+				NightmareGUI.Timer.Visible = true
+				NightmareGUI.NightmareTimer.Visible = true
+				TIMR:GetPropertyChangedSignal("Value"):Connect(function()
+					if TIMR.Value <= 0 then
+						NightmareGUI.Timer.Text = "Ready!"
+					else
+						NightmareGUI.Timer.Text = TIMR.Value
+					end
+				end)
+				repeat
+					task.wait(1)					
+				until NM.Active:FindFirstChildWhichIsA("Model") == nil
+			until OnOff.NMTimer == false
+		else
+			FM.Light_3.BackgroundColor3 = Color3.fromRGB(255,0,0)
+			OnOff.NMTimer = not OnOff.NMTimer
+			Speak("Error404",G404ui,"This timeline doesn't seem to have Nightmare in it, can't do that.",0.0425,false)
+			Speak("Error404",G404ui,"Sorry, kid.",0.0425,false)
+			E4041.Visible = false
+			E4042.Visible = false
+		end
+	else
+		FM.Light_3.BackgroundColor3 = Color3.fromRGB(255,0,0)
+		NightmareGUI.Timer.Visible = false
+		NightmareGUI.NightmareTimer.Visible = false
+	end
+end)
+local OCR
+
+
+local function InstaKillChildren(Sans)
+	Sans:BreakJoints()
+end
+local Infected = workspace.Lobby.NPCS.Infected.ClickPart
+local DuringAutoKill = false
+
+
+local SansInstaKillFunction = workspace.TempFightStuff.ChildAdded:Connect(function(v)
+	if DuringAutoKill then
+		v:WaitForChild("Humanoid",8)
+		local o = SansFindingFunction(v)
+		if o == "Sans" then
+			if workspace:FindFirstChild("Plat") then
+				workspace.Plat:Destroy()
+			end
+			local Plat = Instance.new("Part",workspace)
+			Plat.Anchored = true
+			Plat.Size = Vector3.new(5,1,5)
+			Plat.CanCollide = true
+			Plat.Name = "Plat"
+			Plat.CFrame = USER.Character.PrimaryPart.CFrame * CFrame.new(0,447.75,0)
+			USER.Character:SetPrimaryPartCFrame(USER.Character.PrimaryPart.CFrame * CFrame.new(0,450,0))
+			task.wait(30)
+			while task.wait() do
+				if v.PrimaryPart == nil then
+					break
+				end
+				if isnetworkowner(v.PrimaryPart) then
+					v:BreakJoints()
+					DuringAutoKill = false
+				end
+			end
+		elseif o == "ErrorSans" then
+			v:WaitForChild("Humanoid",4)
+			if workspace:FindFirstChild("Plat") then
+				workspace.Plat:Destroy()
+			end
+			task.wait(10)
+			local Plat = Instance.new("Part",workspace)
+			Plat.Anchored = true
+			Plat.Size = Vector3.new(5,1,5)
+			Plat.CanCollide = true
+			Plat.Name = "Plat"
+			Plat.CFrame = USER.Character.PrimaryPart.CFrame * CFrame.new(0,447.75,0)
+			USER.Character:SetPrimaryPartCFrame(USER.Character.PrimaryPart.CFrame * CFrame.new(0,450,0))
+			task.wait(20)
+			while task.wait() do
+				if isnetworkowner(v.PrimaryPart) then
+					v:BreakJoints()
+					DuringAutoKill = false
+				end
+				if v.Parent == nil then
+					break
+				end
+			end
+		end
+	end
+end)
+
+local function AFKFarm()
+	if OnOff.AutoKill then
+		DuringAutoKill = false
+		if aDelay <= 0 then
+			aDelay = MaxDelay
+			spawn(function()
+				WebhookFire()
+			end)
+		end
+		if USER.PlayerGui:FindFirstChild("TextBox") ~= nil then
+			repeat
+				task.wait()
+			until USER.PlayerGui:FindFirstChild("TextBox") == nil
+		end
+		fireclickdetector(Infected.ClickDetector,0)
+		if USER.PlayerGui:FindFirstChild("ShopGUI") == nil then
+			repeat
+				fireclickdetector(Infected.ClickDetector,0)
+				task.wait(0.1)
+			until USER.PlayerGui:FindFirstChild("ShopGUI")
+		end
+		USER.PlayerGui.ShopGUI.DisplayOrder = 667
+		local x = USER.PlayerGui:WaitForChild("ShopGUI").Frame.ScrollingFrame:FindFirstChild(Victim)
+		if game:GetService("Players").LocalPlayer.PlayerGui.ShopGUI.Frame.ScrollingFrame.Visible then
+		else
+			repeat
+				task.wait()
+			until game:GetService("Players").LocalPlayer.PlayerGui.ShopGUI.Frame.ScrollingFrame.Visible
+		end
+		x.Parent = x.Parent.Parent.Parent
+		x.Position = UDim2.new(0,0,0,0)
+		x.Size = UDim2.new(1,0,1,0)
+		x.BackgroundTransparency = 1
+		x.TextTransparency = 1
+		x.TextStrokeTransparency = 1
+		x.Visible = true
+		x.ZIndex = 9999999
+		VIM:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,true,x,1)
+		VIM:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,false,x,1)
+		if workspace:WaitForChild("FightPortal").Size ~= Vector3.new(1.752, 8.401, 7.86) then
+			repeat 
+				task.wait(0.1)
+			until workspace:WaitForChild("FightPortal").Size == Vector3.new(1.752, 8.401, 7.86)
+		end
+		DuringAutoKill = true
+		firetouchinterest(USER.Character.HumanoidRootPart,workspace.FightPortal,0)
+		firetouchinterest(USER.Character.HumanoidRootPart,workspace.FightPortal,1)
+		aDelay = aDelay - 1
+	end
+end
+
+for i,v in pairs(FM.EXPFarmSetting:GetChildren()) do
+	if v.ClassName == "TextButton" then
+		v.MouseButton1Click:Connect(function()
+			Victim = v:GetAttribute("Boss")
+			print(Victim)
+			OCR = USER.CharacterAdded:Connect(AFKFarm)
+			AFKFarm()
+		end)
+	end
+end
+
+FM.AFKFarm.MouseButton1Click:Connect(function()
+	OnOff.AutoKill = not OnOff.AutoKill	
+	if OnOff.AutoKill then
+		FM.Light_4.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		FM.EXPFarmSetting.Visible = true
+	else
+		FM.Light_4.BackgroundColor3 = Color3.fromRGB(255,0,0)
+		FM.EXPFarmSetting.Visible = false
+		OCR:Disconnect()
+	end
+end)
+
+
+
+SM.DCalculator.FocusLost:Connect(function(A,Z)
+	if string.lower(SM.DCalculator.Text) == "max" then
+		local X = CalculatorFunctions.Dust(MAXStats.Dust - USER.playerstats.DustEXP.Value)
+		SM.Calculated.Text = "You need to get around "..tostring(RoundEXP(X)).." EXP to get to "..MAXStats.Dust.." Dust."
+	else
+		local X = CalculatorFunctions.Dust(tonumber(SM.DCalculator.Text) - USER.playerstats.DustEXP.Value)
+		SM.Calculated.Text = "You need to get around "..tostring(RoundEXP(X)).." EXP to get to "..SM.DCalculator.Text.." Dust."
+	end
+end)
+
+SM.GCalculator.FocusLost:Connect(function(A,Z)
+	if string.lower(SM.GCalculator.Text) == "max" then
+		local X = CalculatorFunctions.Code(MAXStats.Code - USER.playerstats.GenoEXP.Value)
+		SM.Calculated.Text = "You need to get around "..tostring(RoundEXP(X)).." EXP to get to "..MAXStats.Code.." Broken Code."
+	else
+		local X = CalculatorFunctions.Code(tonumber(SM.GCalculator.Text) - USER.playerstats.GenoEXP.Value)
+		SM.Calculated.Text = "You need to get around "..tostring(RoundEXP(X)).." EXP to get to "..SM.GCalculator.Text.." Broken Code."
+	end
+end)
+
+SM.RCalculator.FocusLost:Connect(function(A,Z)
+	if string.lower(SM.RCalculator.Text) == "max" then
+		local X = CalculatorFunctions.Red(MAXStats.Red - USER.playerstats.RedTraining.Value)
+		SM.Calculated.Text = "You need to get around "..tostring(RoundEXP(X)).." EXP to get to "..MAXStats.Red.." Red's EXP."
+	else
+		local X = CalculatorFunctions.Red(tonumber(SM.RCalculator.Text) - USER.playerstats.RedTraining.Value)
+		SM.Calculated.Text = "You need to get around "..tostring(RoundEXP(X)).." EXP to get to "..SM.RCalculator.Text.." Red's EXP."
+	end
+end)
 
 
 else
